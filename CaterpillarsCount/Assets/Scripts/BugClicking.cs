@@ -16,7 +16,12 @@ public class BugClicking : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        checkForClick();
+       
+    }
 
+    private void checkForClick()
+    {
         if (Input.GetMouseButtonDown(0))
         {
             Vector3 pointClicked = Camera.main.ScreenToWorldPoint(Input.mousePosition);

@@ -23,8 +23,9 @@ public class TimerScript : MonoBehaviour
         if(currentTime > 0)
         {
             currentTime -= 1 * Time.deltaTime;
+            int truncatedTime = Mathf.RoundToInt(currentTime);
 
-            uiText.text = "Time: " + currentTime.ToString();
+            uiText.text = "Time: " + truncatedTime.ToString();
         }
 
     }
