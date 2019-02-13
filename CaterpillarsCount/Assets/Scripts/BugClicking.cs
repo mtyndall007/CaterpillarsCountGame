@@ -5,6 +5,7 @@ using UnityEngine;
 public class BugClicking : MonoBehaviour
 {
     public GameObject bug;
+    bool hasBeenClicked = false;
 
     // Start is called before the first frame update
     void Start()
@@ -21,9 +22,13 @@ public class BugClicking : MonoBehaviour
             Vector3 pointClicked = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Collider2D coll = bug.GetComponent<Collider2D>();
 
-            if (coll.OverlapPoint(pointClicked))
+            if (coll.OverlapPoint(pointClicked) && !hasBeenClicked)
             {
                 ScoreScript.scoreValue += 10;
+                hasBeenClicked = true;
+                SpriteRenderer spriteRenderer = bug.GetComponent<SpriteRenderer>();
+                spriteRenderer.color = Color.green;
+
             }
         }
     }
