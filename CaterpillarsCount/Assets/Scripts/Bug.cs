@@ -34,7 +34,7 @@ public class Bug : MonoBehaviour
 
             if (coll.OverlapPoint(pointClicked) && !hasBeenClicked)
             {
-                ScoreScript.scoreValue += 10;
+                ScoreScript.scoreValue += points;
                 hasBeenClicked = true;
                 SpriteRenderer spriteRenderer = bug.GetComponent<SpriteRenderer>();
                 spriteRenderer.color = defaultColor;

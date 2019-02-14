@@ -15,9 +15,11 @@ public class GameManager : MonoBehaviour
     private UnityAction playAgainAction;
     Button submitButton;
     Button playAgainButton;
+
+    private int playerScore;
     private int totalScore;
 
-    GameObject gameover;
+    GameObject gameOver;
 
     // Start is called before the first frame update
     void Start()
@@ -29,9 +31,9 @@ public class GameManager : MonoBehaviour
 
 
        //Find the gameover UI
-       gameover = GameObject.Find("GameOver");
+       gameOver = GameObject.Find("GameOver");
        //Make the gameover screen invisible
-       gameover.SetActive(false);
+       gameOver.SetActive(false);
     }
 
     // Update is called once per frame
@@ -42,19 +44,22 @@ public class GameManager : MonoBehaviour
 
     void Submit()
     {
-        totalScore = ScoreScript.scoreValue;
-        Bug[] bugs = GameObject.FindObjectsOfType<Bug>();
+        playerScore = ScoreScript.scoreValue;
+        totalScore = calcTotalScore();
 
         GameObject mainInterface = GameObject.Find("LevelUI");
         mainInterface.SetActive(false);
 
 
         //Make the gameover screen visible
-        gameover.SetActive(true);
+        gameOver.SetActive(true);
 
         //Update the score value and display it to the game over screen
         Text scoreText = GameObject.Find("YourScore").GetComponent<Text>();
-        scoreText.text += totalScore.ToString();
+        scoreText.text += playerScore.ToString();
+
+        Text totalScoreText = GameObject.Find("TotalScore").GetComponent<Text>();
+        totalScoreText.text += totalScore.ToString() + " possible points";
 
         //Finds the play again button from the scene and adds an event listener
         playAgainButton = GetComponentInChildren<Button>();
@@ -68,6 +73,17 @@ public class GameManager : MonoBehaviour
         //Simply resets the scene for now
         ScoreScript.scoreValue = 0;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    private int calcTotalScore()
+    {
+        int tempScore = 0;
+        Bug[] bugs = GameObject.FindObjectsOfType<Bug>();
+        foreach (Bug bug in bugs) {
+            Debug.Log(bug);
+            tempScore += bug.points;
+        }
+        return tempScore;
     }
     
 }

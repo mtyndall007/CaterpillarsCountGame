@@ -216,4 +216,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bug: {fileID: 129562080871555188}
   defaultColor: {r: 0.20947693, g: 0.9622642, b: 0.14978641, a: 1}
-  points: 0
+  points: 10
