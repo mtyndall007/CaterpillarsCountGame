@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
 
     private UnityAction submitAction;
     Button submitButton;
+    private int totalScore;
+
+    GameObject gameover;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +22,11 @@ public class GameManager : MonoBehaviour
         submitButton = GetComponentInChildren<Button>();
         submitAction += Submit;
         submitButton.onClick.AddListener(submitAction);
+
+
+       gameover = GameObject.Find("GameOver");
+        //Make the gameover screen invisible
+       gameover.SetActive(false);
     }
 
     // Update is called once per frame
@@ -30,6 +38,19 @@ public class GameManager : MonoBehaviour
     void Submit()
     {
         Debug.Log("Button Pressed");
+        totalScore = ScoreScript.scoreValue;
+        Bug[] bugs = GameObject.FindObjectsOfType<Bug>();
+
+        GameObject mainInterface = GameObject.Find("LevelUI");
+        mainInterface.SetActive(false);
+
+
+        //Make the gameover screen visible
+        gameover.SetActive(true);
+
+        Text scoreText = GameObject.Find("YourScore").GetComponent<Text>();
+        scoreText.text += totalScore.ToString(); 
+
     }
     
 }
