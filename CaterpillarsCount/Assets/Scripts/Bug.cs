@@ -2,11 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Generic script for bugs. Can be used as a generic parent class for more specific bugs, but not sure if it's necessary yet.
+//Public variables so that we can tweak what color each bug is, their point value, etc.
+
 public class Bug : MonoBehaviour
 {
     public GameObject bug;
     bool hasBeenClicked = false;
-    Color defaultColor = Color.green;
+    public Color defaultColor;
+    public int points;
 
     // Start is called before the first frame update
     void Start()
