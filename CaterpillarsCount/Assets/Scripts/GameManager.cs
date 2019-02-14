@@ -22,11 +22,13 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Finds the submit button from the scene and adds an event listener
         submitButton = GetComponentInChildren<Button>();
         submitAction += Submit;
         submitButton.onClick.AddListener(submitAction);
 
 
+       //Find the gameover UI
        gameover = GameObject.Find("GameOver");
        //Make the gameover screen invisible
        gameover.SetActive(false);
@@ -40,7 +42,6 @@ public class GameManager : MonoBehaviour
 
     void Submit()
     {
-        Debug.Log("Button Pressed");
         totalScore = ScoreScript.scoreValue;
         Bug[] bugs = GameObject.FindObjectsOfType<Bug>();
 
@@ -51,9 +52,11 @@ public class GameManager : MonoBehaviour
         //Make the gameover screen visible
         gameover.SetActive(true);
 
+        //Update the score value and display it to the game over screen
         Text scoreText = GameObject.Find("YourScore").GetComponent<Text>();
         scoreText.text += totalScore.ToString();
 
+        //Finds the play again button from the scene and adds an event listener
         playAgainButton = GetComponentInChildren<Button>();
         playAgainAction += PlayAgain;
         playAgainButton.onClick.AddListener(playAgainAction);
@@ -63,6 +66,7 @@ public class GameManager : MonoBehaviour
     void PlayAgain()
     {
         //Simply resets the scene for now
+        ScoreScript.scoreValue = 0;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     
