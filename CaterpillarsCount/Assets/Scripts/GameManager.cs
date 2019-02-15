@@ -11,24 +11,56 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
 
+    //An instance of the game manager that can be invoked. Should only be one instance at a time
+    #region Singleton
+    public static GameManager instance;
+
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Debug.LogWarning("More than one instance of Inventory found!");
+            return;
+        }
+        instance = this;
+    }
+    #endregion
+
+
+
     private UnityAction submitAction;
     private UnityAction playAgainAction;
+    public UnityAction bugClicked;
+    public UnityAction returnZoom;
+
     Button submitButton;
     Button playAgainButton;
+    Button returnButton;
 
     private int playerScore;
     private int totalScore;
 
+    private float defaultFOV;
+    private float zoomedFOV;
+
     GameObject gameOver;
+    GameObject returnObject;
 
     // Start is called before the first frame update
     void Start()
     {
+        returnObject = GameObject.Find("Return");
+        returnObject.SetActive(false);
+
+        defaultFOV = Camera.main.fieldOfView;
+        zoomedFOV = 40f;
+
         //Finds the submit button from the scene and adds an event listener
         submitButton = GetComponentInChildren<Button>();
         submitAction += Submit;
         submitButton.onClick.AddListener(submitAction);
 
+        bugClicked += BugClicked;
 
        //Find the gameover UI
        gameOver = GameObject.Find("GameOver");
@@ -84,6 +116,27 @@ public class GameManager : MonoBehaviour
             tempScore += bug.points;
         }
         return tempScore;
+    }
+
+    public void BugClicked()
+    {
+      
+        Debug.Log("Bug clicked");
+        Camera.main.fieldOfView = zoomedFOV;
+
+        //Finds the submit button from the scene and adds an event listener
+        returnObject.SetActive(true);
+
+        returnButton = returnObject.GetComponent<Button>();
+        
+        returnZoom += ReturnFromClick;
+        returnButton.onClick.AddListener(returnZoom);
+    }
+
+    private void ReturnFromClick()
+    {
+        Camera.main.fieldOfView = defaultFOV;
+
     }
     
 }

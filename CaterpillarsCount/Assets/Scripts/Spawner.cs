@@ -19,5 +19,12 @@ public class Spawner : MonoBehaviour
         
     }
 
+    public static void spawnBugs(int bugCount)
+    {
+        for(int i = 0; i < bugCount; i++)
+        {
+
+        }
+    }
 
 }

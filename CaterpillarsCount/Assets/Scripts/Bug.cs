@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 //Generic script for bugs. Can be used as a generic parent class for more specific bugs, but not sure if it's necessary yet.
 //Public variables so that we can tweak what color each bug is, their point value, etc.
@@ -12,15 +13,21 @@ public class Bug : MonoBehaviour
     public Color defaultColor;
     public int points;
 
+    UnityEvent bugClicked;
+
     // Start is called before the first frame update
     void Start()
     {
+        if (bugClicked == null)
+            bugClicked = new UnityEvent();
 
+        bugClicked.AddListener(GameManager.instance.bugClicked);
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         checkForClick();
 
     }
@@ -34,6 +41,8 @@ public class Bug : MonoBehaviour
 
             if (coll.OverlapPoint(pointClicked) && !hasBeenClicked)
             {
+                bugClicked.Invoke();
+
                 ScoreScript.scoreValue += points;
                 hasBeenClicked = true;
                 SpriteRenderer spriteRenderer = bug.GetComponent<SpriteRenderer>();
