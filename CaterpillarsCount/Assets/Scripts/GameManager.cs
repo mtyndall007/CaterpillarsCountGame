@@ -13,20 +13,20 @@ public class GameManager : MonoBehaviour
 
     //An instance of the game manager that can be invoked. Should only be one instance at a time
     #region Singleton
-    public static GameManager instance;
+    
 
     private void Awake()
     {
         if (instance != null)
         {
-            Debug.LogWarning("More than one instance of Inventory found!");
+            Debug.LogWarning("More than one instance of game manager found!");
             return;
         }
         instance = this;
     }
     #endregion
 
-
+    public static GameManager instance;
 
     private UnityAction submitAction;
     private UnityAction playAgainAction;
@@ -49,6 +49,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Awake();
+
         returnObject = GameObject.Find("Return");
         returnObject.SetActive(false);
 

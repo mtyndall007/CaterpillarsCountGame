@@ -21,7 +21,7 @@ public class Bug : MonoBehaviour
         if (bugClicked == null)
             bugClicked = new UnityEvent();
 
-        bugClicked.AddListener(GameManager.instance.bugClicked);
+        //bugClicked.AddListener(GameManager.instance.bugClicked);
     }
 
     // Update is called once per frame
