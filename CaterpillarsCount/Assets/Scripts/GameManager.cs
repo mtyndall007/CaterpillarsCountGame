@@ -14,7 +14,6 @@ public class GameManager : MonoBehaviour
     //An instance of the game manager that can be invoked. Should only be one instance at a time
     #region Singleton
     
-
     private void Awake()
     {
         if (instance != null)
@@ -58,7 +57,8 @@ public class GameManager : MonoBehaviour
         zoomedFOV = 40f;
 
         //Finds the submit button from the scene and adds an event listener
-        submitButton = GetComponentInChildren<Button>();
+        //submitButton = GetComponentInChildren<Button>();
+        submitButton = GameObject.Find("Submit").GetComponent<Button>();
         submitAction += Submit;
         submitButton.onClick.AddListener(submitAction);
 
@@ -78,6 +78,7 @@ public class GameManager : MonoBehaviour
 
     void Submit()
     {
+        
         playerScore = ScoreScript.scoreValue;
         totalScore = calcTotalScore();
 
@@ -99,6 +100,8 @@ public class GameManager : MonoBehaviour
         playAgainButton = GetComponentInChildren<Button>();
         playAgainAction += PlayAgain;
         playAgainButton.onClick.AddListener(playAgainAction);
+        
+        //SceneManager.LoadScene("Test");
 
     }
 
