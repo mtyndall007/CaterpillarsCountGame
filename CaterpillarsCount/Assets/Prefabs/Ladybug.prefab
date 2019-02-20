@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2759829730212204172}
   - component: {fileID: 3898169773302518678}
-  - component: {fileID: 8808284993298474908}
   - component: {fileID: 5327368326098194695}
+  - component: {fileID: 8808284993298474908}
   m_Layer: 0
-  m_Name: True-Bug-Transparent-PNG
+  m_Name: Ladybug
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8941881824626096517}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.206, y: -0.987, z: 0}
+  m_LocalPosition: {x: -2.941, y: -0.275, z: 0}
   m_LocalScale: {x: 0.21131401, y: 0.218773, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -81,21 +81,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8808284993298474908
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8941881824626096517}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d6e54839a1786f44aa9ff8d68d83d9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bug: {fileID: 8941881824626096517}
-  defaultColor: {r: 0.18197025, g: 0.8679245, b: 0.10234957, a: 1}
-  points: 1
 --- !u!60 &5327368326098194695
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -302,3 +287,18 @@ PolygonCollider2D:
       - {x: 1.64, y: 2.405}
       - {x: 1.54, y: 2.405}
       - {x: 1.42, y: 2.2749999}
+--- !u!114 &8808284993298474908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8941881824626096517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d6e54839a1786f44aa9ff8d68d83d9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bug: {fileID: 8941881824626096517}
+  defaultColor: {r: 0.18197025, g: 0.8679245, b: 0.10234957, a: 1}
+  points: 10
