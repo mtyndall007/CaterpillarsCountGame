@@ -45,9 +45,16 @@ public class GameManager : MonoBehaviour
     GameObject gameOver;
     GameObject returnObject;
 
+    private int sceneIterator;
+
     // Start is called before the first frame update
     void Start()
     {
+        //Idea: call a utility method that selects the level for a given playthrough. Store these in an array of scenes.
+        string[] spawnedScenes = LevelSpawner.SpawnScenes();
+        sceneIterator = 0;
+        //SceneManager.LoadScene(spawnedScenes[sceneIterator]);
+
         Awake();
 
         returnObject = GameObject.Find("Return");
