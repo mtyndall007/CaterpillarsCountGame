@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
 
     //An instance of the game manager that can be invoked. Should only be one instance at a time
     #region Singleton
-    
+    public static GameManager instance;
     private void Awake()
     {
         if (instance != null)
@@ -24,8 +24,6 @@ public class GameManager : MonoBehaviour
         instance = this;
     }
     #endregion
-
-    public static GameManager instance;
 
     private UnityAction submitAction;
     private UnityAction playAgainAction;
@@ -54,8 +52,6 @@ public class GameManager : MonoBehaviour
         string[] spawnedScenes = LevelSpawner.SpawnScenes();
         sceneIterator = 0;
         //SceneManager.LoadScene(spawnedScenes[sceneIterator]);
-
-        Awake();
 
         returnObject = GameObject.Find("Return");
         returnObject.SetActive(false);
