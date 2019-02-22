@@ -16,14 +16,28 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     private void Awake()
     {
-        if (instance != null)
+        if (instance == null)
         {
-            Debug.LogWarning("More than one instance of game manager found!");
-            return;
+            instance = this;
+            //Calls a utility method that selects the level for a given playthrough. Store these in an array of scenes.
+            spawnedScenes = LevelSpawner.SpawnScenes();
+            Debug.Log(spawnedScenes.Length);
+            sceneIterator = 0;
+            SceneManager.LoadScene(spawnedScenes[sceneIterator]);
         }
-        instance = this;
+        //If instance already exists and it's not this:
+        else if (instance != this)
+        {
+            //Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
+            Destroy(gameObject);
+        }         
+
+        //Sets this to not be destroyed when reloading scene
+        DontDestroyOnLoad(gameObject);
     }
     #endregion
+
+    private string[] spawnedScenes;
 
     private UnityAction submitAction;
     private UnityAction playAgainAction;
@@ -48,10 +62,6 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Idea: call a utility method that selects the level for a given playthrough. Store these in an array of scenes.
-        string[] spawnedScenes = LevelSpawner.SpawnScenes();
-        sceneIterator = 0;
-        //SceneManager.LoadScene(spawnedScenes[sceneIterator]);
 
         returnObject = GameObject.Find("Return");
         returnObject.SetActive(false);
@@ -81,38 +91,46 @@ public class GameManager : MonoBehaviour
 
     void Submit()
     {
+        sceneIterator++;
+        totalScore += calcTotalScore();
+
+        if (sceneIterator == spawnedScenes.Length)
+        {
+            playerScore = ScoreScript.scoreValue;           
+
+            GameObject mainInterface = GameObject.Find("LevelUI");
+            mainInterface.SetActive(false);
+
+
+            //Make the gameover screen visible
+            gameOver.SetActive(true);
+
+            //Update the score value and display it to the game over screen
+            Text scoreText = GameObject.Find("YourScore").GetComponent<Text>();
+            scoreText.text += playerScore.ToString();
+
+            Text totalScoreText = GameObject.Find("TotalScore").GetComponent<Text>();
+            totalScoreText.text += totalScore.ToString() + " possible points";
+
+            //Finds the play again button from the scene and adds an event listener
+            playAgainButton = GetComponentInChildren<Button>();
+            playAgainAction += PlayAgain;
+            playAgainButton.onClick.AddListener(playAgainAction);
+        }
+        else
+        {
+            SceneManager.LoadScene(spawnedScenes[sceneIterator]);
+        }
+
         
-        playerScore = ScoreScript.scoreValue;
-        totalScore = calcTotalScore();
-
-        GameObject mainInterface = GameObject.Find("LevelUI");
-        mainInterface.SetActive(false);
-
-
-        //Make the gameover screen visible
-        gameOver.SetActive(true);
-
-        //Update the score value and display it to the game over screen
-        Text scoreText = GameObject.Find("YourScore").GetComponent<Text>();
-        scoreText.text += playerScore.ToString();
-
-        Text totalScoreText = GameObject.Find("TotalScore").GetComponent<Text>();
-        totalScoreText.text += totalScore.ToString() + " possible points";
-
-        //Finds the play again button from the scene and adds an event listener
-        playAgainButton = GetComponentInChildren<Button>();
-        playAgainAction += PlayAgain;
-        playAgainButton.onClick.AddListener(playAgainAction);
-        
-        //SceneManager.LoadScene("Test");
-
     }
 
     void PlayAgain()
     {
         //Simply resets the scene for now
         ScoreScript.scoreValue = 0;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Destroy(gameObject);
+        SceneManager.LoadScene(spawnedScenes[0]);
     }
 
     private int calcTotalScore()

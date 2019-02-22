@@ -15,7 +15,7 @@ public class LevelSpawner : MonoBehaviour
         FileInfo[] info = dir.GetFiles("*.unity");
         
         //Derived by hardcoding but will work for now
-        string[] returnArray = new string[info.Length/2];
+        string[] returnArray = new string[info.Length];
         
         for(int i = 1; i <= returnArray.Length; i++)
         {
