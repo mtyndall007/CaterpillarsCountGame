@@ -21,7 +21,6 @@ public class GameManager : MonoBehaviour
             instance = this;
             //Calls a utility method that selects the level for a given playthrough. Store these in an array of scenes.
             spawnedScenes = LevelSpawner.SpawnScenes();
-            Debug.Log(spawnedScenes.Length);
             sceneIterator = 0;
             SceneManager.LoadScene(spawnedScenes[sceneIterator]);
         }
@@ -38,6 +37,7 @@ public class GameManager : MonoBehaviour
     #endregion
 
     private string[] spawnedScenes;
+    private int sceneIterator;
 
     private UnityAction submitAction;
     private UnityAction playAgainAction;
@@ -57,7 +57,6 @@ public class GameManager : MonoBehaviour
     GameObject gameOver;
     GameObject returnObject;
 
-    private int sceneIterator;
 
     // Start is called before the first frame update
     void Start()
@@ -70,7 +69,6 @@ public class GameManager : MonoBehaviour
         zoomedFOV = 40f;
 
         //Finds the submit button from the scene and adds an event listener
-        //submitButton = GetComponentInChildren<Button>();
         submitButton = GameObject.Find("Submit").GetComponent<Button>();
         submitAction += Submit;
         submitButton.onClick.AddListener(submitAction);
@@ -91,16 +89,19 @@ public class GameManager : MonoBehaviour
 
     void Submit()
     {
+        //Iterate to get the next scene
         sceneIterator++;
+        //Score is persistant between levels for now, but might want to change this
         totalScore += calcTotalScore();
 
+        //If we're on the last level, display the game over screen. Otherwise go to next level
         if (sceneIterator == spawnedScenes.Length)
         {
             playerScore = ScoreScript.scoreValue;           
 
+            //Hide the game interface
             GameObject mainInterface = GameObject.Find("LevelUI");
             mainInterface.SetActive(false);
-
 
             //Make the gameover screen visible
             gameOver.SetActive(true);
@@ -127,7 +128,8 @@ public class GameManager : MonoBehaviour
 
     void PlayAgain()
     {
-        //Simply resets the scene for now
+        //Resets the score and goes back to the first scene. 
+        //Creates new instance of the game manager. Levels should be random again on replay
         ScoreScript.scoreValue = 0;
         Destroy(gameObject);
         SceneManager.LoadScene(spawnedScenes[0]);
@@ -138,7 +140,6 @@ public class GameManager : MonoBehaviour
         int tempScore = 0;
         Bug[] bugs = GameObject.FindObjectsOfType<Bug>();
         foreach (Bug bug in bugs) {
-            Debug.Log(bug);
             tempScore += bug.points;
         }
         return tempScore;
@@ -146,8 +147,6 @@ public class GameManager : MonoBehaviour
 
     public void BugClicked()
     {
-      
-        Debug.Log("Bug clicked");
         Camera.main.fieldOfView = zoomedFOV;
 
         //Finds the submit button from the scene and adds an event listener

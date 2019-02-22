@@ -9,29 +9,27 @@ public class LevelSpawner : MonoBehaviour
 
     public static string[] SpawnScenes()
     {
-        System.Random rnd = new System.Random();
-
+        //Find scenes in the level 1 folder
         DirectoryInfo dir = new DirectoryInfo("Assets/Scenes/Level1");
         FileInfo[] info = dir.GetFiles("*.unity");
         
-        //Derived by hardcoding but will work for now
+        //Array for scene names
         string[] returnArray = new string[info.Length];
-        
-        for(int i = 1; i <= returnArray.Length; i++)
-        {
-            List<string> tmp = new List<string>();
-            foreach (FileInfo filename in info)
-            {
-                string name = Path.GetFileNameWithoutExtension(filename.ToString());
-                if (name.Contains(i.ToString()))
-                {
-                    //Debug.Log(name);
-                    tmp.Add(name);
-                }
-            }
-            int r = rnd.Next(tmp.Count);
 
-            returnArray[i - 1] = tmp[r];
+        //Add each scene name into a list to that we can display in a random order
+        List<string> tmp = new List<string>();
+        foreach (FileInfo filename in info)
+        {
+            string name = Path.GetFileNameWithoutExtension(filename.ToString());
+            tmp.Add(name);
+        }
+
+        //Add scenes to the return array in a random order
+        for (int i = 0; i < returnArray.Length; i++)
+        {
+            int r = Random.Range(0, tmp.Count-1);
+            returnArray[i] = tmp[r];
+            tmp.RemoveAt(r);
         }
 
         return returnArray;
