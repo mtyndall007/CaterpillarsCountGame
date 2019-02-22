@@ -5,34 +5,29 @@ using UnityEngine;
 
 public class LevelSpawner : MonoBehaviour
 {
+    //Calculate number of levels
+    static DirectoryInfo dirInfo = new DirectoryInfo("Assets/Scenes");
+    private static int levelCount = dirInfo.GetFiles().Length;
     
 
     public static string[] SpawnScenes()
     {
-        //Find scenes in the level 1 folder
-        DirectoryInfo dir = new DirectoryInfo("Assets/Scenes/Level1");
-        FileInfo[] info = dir.GetFiles("*.unity");
-        
-        //Array for scene names
-        string[] returnArray = new string[info.Length];
-
-        //Add each scene name into a list to that we can display in a random order
+        //Array for scene names. One array entry for each level
+        string[] returnArray = new string[levelCount];
         List<string> tmp = new List<string>();
-        foreach (FileInfo filename in info)
+            
+        for (int j = 1; j <= levelCount; j++)
         {
-            string name = Path.GetFileNameWithoutExtension(filename.ToString());
-            tmp.Add(name);
-        }
+            //Find scenes in the corresponding level folder
+            DirectoryInfo dir = new DirectoryInfo("Assets/Scenes/Level" + j.ToString());
+            FileInfo[] info = dir.GetFiles("*.unity");
 
-        //Add scenes to the return array in a random order
-        for (int i = 0; i < returnArray.Length; i++)
-        {
-            int r = Random.Range(0, tmp.Count-1);
-            returnArray[i] = tmp[r];
-            tmp.RemoveAt(r);
+            //Select a random scene from each level
+            int ran = Random.Range(0, info.Length);
+            string sceneName = Path.GetFileNameWithoutExtension(info[ran].ToString());
+            tmp.Add(sceneName);
         }
-
-        return returnArray;
+        return tmp.ToArray();
       
     }
 }
