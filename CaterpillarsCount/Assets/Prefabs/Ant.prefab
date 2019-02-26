@@ -95,7 +95,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bug: {fileID: 8127568553989428854}
   defaultColor: {r: 0.028075218, g: 1, b: 0, a: 1}
-  points: 0
+  points: 10
 --- !u!60 &8127568553989428855
 PolygonCollider2D:
   m_ObjectHideFlags: 0
