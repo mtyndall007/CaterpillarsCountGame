@@ -84,7 +84,10 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(TimerScript.GetCurrentTime() <= 0)
+        {
+            Submit();
+        }
     }
 
     void Submit()
@@ -93,6 +96,8 @@ public class GameManager : MonoBehaviour
         sceneIterator++;
         //Score is persistant between levels for now, but might want to change this
         totalScore += calcTotalScore();
+
+        TimerScript.SetCurrentTime(80);
 
         //If we're on the last level, display the game over screen. Otherwise go to next level
         if (sceneIterator == spawnedScenes.Length)
@@ -163,5 +168,7 @@ public class GameManager : MonoBehaviour
         Camera.main.fieldOfView = defaultFOV;
 
     }
-    
+
+    public static void TimerSubmit() => GameManager.instance.Submit();
+
 }

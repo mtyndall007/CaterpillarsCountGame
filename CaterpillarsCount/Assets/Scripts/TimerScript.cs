@@ -8,7 +8,7 @@ public class TimerScript : MonoBehaviour
 {
     [SerializeField] private float startTime = 100;
     Text uiText;
-    private float currentTime;
+    private static float currentTime;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +27,19 @@ public class TimerScript : MonoBehaviour
 
             uiText.text = "Time: " + truncatedTime.ToString();
         }
+        else
+        {
+            //GameManager.TimerSubmit();
+        }
+    }
 
+    public static int GetCurrentTime()
+    {
+        return Mathf.RoundToInt(currentTime);
+    } 
+
+    public static void SetCurrentTime(int time)
+    {
+        currentTime = time;
     }
 }
