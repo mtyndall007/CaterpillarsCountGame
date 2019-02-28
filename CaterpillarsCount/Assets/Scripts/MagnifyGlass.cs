@@ -9,17 +9,24 @@ public class MagnifyGlass : MonoBehaviour
     private float MGOX, MG0Y; // Magnify Glass Origin X and Y position
     private float MGWidth = Screen.width / 4f, MGHeight = Screen.width / 4f; // Magnify glass width and height
     private Vector3 mousePos;
+    private int rightClickCounter;
 
     void Start()
     {
 
         createMagnifyGlass();
+        DontDestroyOnLoad(magnifyBorders);
+        DontDestroyOnLoad(magnifyCamera);
             
     }
     
     void Update()
     {
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButtonDown(1))
+        {
+            rightClickCounter++;
+        }
+        if (rightClickCounter%2 == 1)
         {
             magnifyCamera.enabled = true;
             magnifyBorders.SetActive(true);
