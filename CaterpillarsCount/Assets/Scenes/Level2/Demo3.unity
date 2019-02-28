@@ -667,7 +667,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 488ceab72bdce4a82826a5aecf5ac574, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startTime: 80
+  startTime: 40
 --- !u!114 &493778665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -701,7 +701,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Time: 80'
+  m_Text: 'Time: 40'
 --- !u!222 &493778666
 CanvasRenderer:
   m_ObjectHideFlags: 0
