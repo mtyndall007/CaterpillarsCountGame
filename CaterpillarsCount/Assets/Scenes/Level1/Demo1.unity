@@ -400,6 +400,7 @@ GameObject:
   - component: {fileID: 186962724}
   - component: {fileID: 186962723}
   - component: {fileID: 186962722}
+  - component: {fileID: 186962725}
   m_Layer: 5
   m_Name: Fly
   m_TagString: Untagged
@@ -506,6 +507,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 186962720}
   m_CullTransparentMesh: 0
+--- !u!114 &186962725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 186962720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f109d03c09a6164a8a400477fdb0af4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bugButton: {fileID: 186962722}
 --- !u!1001 &210862983
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -597,6 +611,7 @@ GameObject:
   - component: {fileID: 235278390}
   - component: {fileID: 235278389}
   - component: {fileID: 235278388}
+  - component: {fileID: 235278391}
   m_Layer: 5
   m_Name: Unidentified
   m_TagString: Untagged
@@ -703,6 +718,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 235278386}
   m_CullTransparentMesh: 0
+--- !u!114 &235278391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 235278386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f109d03c09a6164a8a400477fdb0af4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bugButton: {fileID: 235278388}
 --- !u!1 &253977923
 GameObject:
   m_ObjectHideFlags: 0
@@ -873,6 +901,7 @@ GameObject:
   - component: {fileID: 373225207}
   - component: {fileID: 373225206}
   - component: {fileID: 373225205}
+  - component: {fileID: 373225208}
   m_Layer: 5
   m_Name: Spider
   m_TagString: Untagged
@@ -979,6 +1008,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 373225203}
   m_CullTransparentMesh: 0
+--- !u!114 &373225208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 373225203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f109d03c09a6164a8a400477fdb0af4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bugButton: {fileID: 373225205}
 --- !u!1 &406143571
 GameObject:
   m_ObjectHideFlags: 0
@@ -1351,6 +1393,7 @@ GameObject:
   - component: {fileID: 591318852}
   - component: {fileID: 591318851}
   - component: {fileID: 591318850}
+  - component: {fileID: 591318853}
   m_Layer: 5
   m_Name: Grasshopper
   m_TagString: Untagged
@@ -1457,6 +1500,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 591318848}
   m_CullTransparentMesh: 0
+--- !u!114 &591318853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 591318848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f109d03c09a6164a8a400477fdb0af4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bugButton: {fileID: 591318850}
 --- !u!1 &642810484
 GameObject:
   m_ObjectHideFlags: 0
@@ -1469,6 +1525,7 @@ GameObject:
   - component: {fileID: 642810488}
   - component: {fileID: 642810487}
   - component: {fileID: 642810486}
+  - component: {fileID: 642810489}
   m_Layer: 5
   m_Name: Other
   m_TagString: Untagged
@@ -1575,6 +1632,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 642810484}
   m_CullTransparentMesh: 0
+--- !u!114 &642810489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642810484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f109d03c09a6164a8a400477fdb0af4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bugButton: {fileID: 642810486}
 --- !u!1 &701080418
 GameObject:
   m_ObjectHideFlags: 0
@@ -1587,6 +1657,7 @@ GameObject:
   - component: {fileID: 701080422}
   - component: {fileID: 701080421}
   - component: {fileID: 701080420}
+  - component: {fileID: 701080423}
   m_Layer: 5
   m_Name: Leafhopper
   m_TagString: Untagged
@@ -1693,6 +1764,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 701080418}
   m_CullTransparentMesh: 0
+--- !u!114 &701080423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 701080418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f109d03c09a6164a8a400477fdb0af4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bugButton: {fileID: 701080420}
 --- !u!1 &729013551
 GameObject:
   m_ObjectHideFlags: 0
@@ -1886,6 +1970,7 @@ GameObject:
   - component: {fileID: 757190396}
   - component: {fileID: 757190395}
   - component: {fileID: 757190394}
+  - component: {fileID: 757190397}
   m_Layer: 5
   m_Name: Caterpillar
   m_TagString: Untagged
@@ -1992,6 +2077,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 757190392}
   m_CullTransparentMesh: 0
+--- !u!114 &757190397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 757190392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f109d03c09a6164a8a400477fdb0af4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bugButton: {fileID: 757190394}
 --- !u!1 &812954346
 GameObject:
   m_ObjectHideFlags: 0
@@ -2320,6 +2418,7 @@ GameObject:
   - component: {fileID: 849846565}
   - component: {fileID: 849846564}
   - component: {fileID: 849846563}
+  - component: {fileID: 849846566}
   m_Layer: 5
   m_Name: Ant
   m_TagString: Untagged
@@ -2437,6 +2536,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 849846561}
   m_CullTransparentMesh: 0
+--- !u!114 &849846566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 849846561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f109d03c09a6164a8a400477fdb0af4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bugButton: {fileID: 849846563}
 --- !u!1001 &907268517
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3111,6 +3223,7 @@ GameObject:
   - component: {fileID: 1107265373}
   - component: {fileID: 1107265372}
   - component: {fileID: 1107265371}
+  - component: {fileID: 1107265374}
   m_Layer: 5
   m_Name: Daddylongleg
   m_TagString: Untagged
@@ -3217,6 +3330,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1107265369}
   m_CullTransparentMesh: 0
+--- !u!114 &1107265374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1107265369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f109d03c09a6164a8a400477fdb0af4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bugButton: {fileID: 1107265371}
 --- !u!1 &1228272065
 GameObject:
   m_ObjectHideFlags: 0
@@ -3229,6 +3355,7 @@ GameObject:
   - component: {fileID: 1228272069}
   - component: {fileID: 1228272068}
   - component: {fileID: 1228272067}
+  - component: {fileID: 1228272070}
   m_Layer: 5
   m_Name: Beetle
   m_TagString: Untagged
@@ -3335,6 +3462,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1228272065}
   m_CullTransparentMesh: 0
+--- !u!114 &1228272070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1228272065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f109d03c09a6164a8a400477fdb0af4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bugButton: {fileID: 1228272067}
 --- !u!1 &1290090677
 GameObject:
   m_ObjectHideFlags: 0
@@ -3860,6 +4000,7 @@ GameObject:
   - component: {fileID: 1480151262}
   - component: {fileID: 1480151261}
   - component: {fileID: 1480151260}
+  - component: {fileID: 1480151263}
   m_Layer: 5
   m_Name: Aphid
   m_TagString: Untagged
@@ -3966,6 +4107,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1480151258}
   m_CullTransparentMesh: 0
+--- !u!114 &1480151263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1480151258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f109d03c09a6164a8a400477fdb0af4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bugButton: {fileID: 1480151260}
 --- !u!1 &1490388525
 GameObject:
   m_ObjectHideFlags: 0
@@ -4950,6 +5104,7 @@ GameObject:
   - component: {fileID: 1736562096}
   - component: {fileID: 1736562095}
   - component: {fileID: 1736562094}
+  - component: {fileID: 1736562097}
   m_Layer: 5
   m_Name: Treebug
   m_TagString: Untagged
@@ -5056,6 +5211,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1736562092}
   m_CullTransparentMesh: 0
+--- !u!114 &1736562097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1736562092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f109d03c09a6164a8a400477fdb0af4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bugButton: {fileID: 1736562094}
 --- !u!1 &1854832813
 GameObject:
   m_ObjectHideFlags: 0
@@ -5134,6 +5302,7 @@ GameObject:
   - component: {fileID: 1901607291}
   - component: {fileID: 1901607290}
   - component: {fileID: 1901607289}
+  - component: {fileID: 1901607292}
   m_Layer: 5
   m_Name: Bee
   m_TagString: Untagged
@@ -5240,6 +5409,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1901607287}
   m_CullTransparentMesh: 0
+--- !u!114 &1901607292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1901607287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f109d03c09a6164a8a400477fdb0af4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bugButton: {fileID: 1901607289}
 --- !u!1 &2021160273
 GameObject:
   m_ObjectHideFlags: 0
@@ -5424,6 +5606,7 @@ GameObject:
   - component: {fileID: 2046153239}
   - component: {fileID: 2046153238}
   - component: {fileID: 2046153237}
+  - component: {fileID: 2046153240}
   m_Layer: 5
   m_Name: Moth
   m_TagString: Untagged
@@ -5530,6 +5713,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2046153235}
   m_CullTransparentMesh: 0
+--- !u!114 &2046153240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2046153235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f109d03c09a6164a8a400477fdb0af4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bugButton: {fileID: 2046153237}
 --- !u!1 &2070033329
 GameObject:
   m_ObjectHideFlags: 0

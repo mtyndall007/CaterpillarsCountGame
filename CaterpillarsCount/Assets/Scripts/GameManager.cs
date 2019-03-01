@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
     private UnityAction returnAction;
     public UnityAction<string> bugClicked;
     public UnityAction returnZoom;
+    public UnityAction bugIdentified;
 
     Button submitButton;
     Button playAgainButton;
