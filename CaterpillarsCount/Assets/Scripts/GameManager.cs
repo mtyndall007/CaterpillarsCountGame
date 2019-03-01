@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour
 
     private UnityAction submitAction;
     private UnityAction playAgainAction;
+    private UnityAction returnAction;
     public UnityAction bugClicked;
     public UnityAction returnZoom;
 
@@ -56,6 +57,7 @@ public class GameManager : MonoBehaviour
 
     GameObject gameOver;
     GameObject returnObject;
+    GameObject bugSelectionUI;
 
 
     // Start is called before the first frame update
@@ -79,6 +81,9 @@ public class GameManager : MonoBehaviour
        gameOver = GameObject.Find("GameOver");
        //Make the gameover screen invisible
        gameOver.SetActive(false);
+
+       bugSelectionUI = GameObject.Find("BugSelectionUI");
+       bugSelectionUI.SetActive(false);
     }
 
     // Update is called once per frame
@@ -152,21 +157,28 @@ public class GameManager : MonoBehaviour
 
     public void BugClicked()
     {
-        Camera.main.fieldOfView = zoomedFOV;
 
-        //Finds the submit button from the scene and adds an event listener
+        //Zooms camera in on bug
+        //Camera.main.orthographic = true;
+        //Camera.main.orthographicSize = Camera.main.orthographicSize / 5.0f;
+
+        bugSelectionUI.SetActive(true);
+        submitButton.gameObject.SetActive(false);
+
         returnObject.SetActive(true);
-
         returnButton = returnObject.GetComponent<Button>();
-        
-        returnZoom += ReturnFromClick;
-        returnButton.onClick.AddListener(returnZoom);
+        returnAction += ReturnFromClick;
+        returnButton.onClick.AddListener(returnAction);
     }
 
+
+    //Can be used for return button as well as after submitting a bug
     private void ReturnFromClick()
     {
         Camera.main.fieldOfView = defaultFOV;
-
+        bugSelectionUI.SetActive(false);
+        submitButton.gameObject.SetActive(true);
+        returnObject.SetActive(false);
     }
 
     public static void TimerSubmit() => GameManager.instance.Submit();
