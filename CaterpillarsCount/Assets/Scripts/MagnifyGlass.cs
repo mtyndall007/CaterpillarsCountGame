@@ -11,6 +11,7 @@ public class MagnifyGlass : MonoBehaviour
     private Vector3 mousePos;
     private int rightClickCounter;
 
+
     void Start()
     {
 
@@ -45,6 +46,7 @@ public class MagnifyGlass : MonoBehaviour
             
         
     }
+
 
     // Following method creates MagnifyGlass
     private void createMagnifyGlass()
