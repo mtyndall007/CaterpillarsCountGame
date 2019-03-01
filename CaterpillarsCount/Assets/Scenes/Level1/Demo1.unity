@@ -306,7 +306,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -320, y: -187}
+  m_AnchoredPosition: {x: -329, y: -55}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &105442645
@@ -401,7 +401,7 @@ GameObject:
   - component: {fileID: 186962723}
   - component: {fileID: 186962722}
   m_Layer: 5
-  m_Name: BugButton (6)
+  m_Name: Fly
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -598,7 +598,7 @@ GameObject:
   - component: {fileID: 235278389}
   - component: {fileID: 235278388}
   m_Layer: 5
-  m_Name: BugButton (13)
+  m_Name: Unidentified
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -874,7 +874,7 @@ GameObject:
   - component: {fileID: 373225206}
   - component: {fileID: 373225205}
   m_Layer: 5
-  m_Name: BugButton (10)
+  m_Name: Spider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1046,7 +1046,7 @@ MonoBehaviour:
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
+    m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Daddylongleg
@@ -1352,7 +1352,7 @@ GameObject:
   - component: {fileID: 591318851}
   - component: {fileID: 591318850}
   m_Layer: 5
-  m_Name: BugButton (7)
+  m_Name: Grasshopper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1470,7 +1470,7 @@ GameObject:
   - component: {fileID: 642810487}
   - component: {fileID: 642810486}
   m_Layer: 5
-  m_Name: BugButton (12)
+  m_Name: Other
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1588,7 +1588,7 @@ GameObject:
   - component: {fileID: 701080421}
   - component: {fileID: 701080420}
   m_Layer: 5
-  m_Name: BugButton (8)
+  m_Name: Leafhopper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1887,7 +1887,7 @@ GameObject:
   - component: {fileID: 757190395}
   - component: {fileID: 757190394}
   m_Layer: 5
-  m_Name: BugButton (4)
+  m_Name: Caterpillar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2321,7 +2321,7 @@ GameObject:
   - component: {fileID: 849846564}
   - component: {fileID: 849846563}
   m_Layer: 5
-  m_Name: BugButton
+  m_Name: Ant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2386,7 +2386,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 849846564}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &849846564
@@ -3101,7 +3112,7 @@ GameObject:
   - component: {fileID: 1107265372}
   - component: {fileID: 1107265371}
   m_Layer: 5
-  m_Name: BugButton (5)
+  m_Name: Daddylongleg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3219,7 +3230,7 @@ GameObject:
   - component: {fileID: 1228272068}
   - component: {fileID: 1228272067}
   m_Layer: 5
-  m_Name: BugButton (3)
+  m_Name: Beetle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3850,7 +3861,7 @@ GameObject:
   - component: {fileID: 1480151261}
   - component: {fileID: 1480151260}
   m_Layer: 5
-  m_Name: BugButton (1)
+  m_Name: Aphid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4940,7 +4951,7 @@ GameObject:
   - component: {fileID: 1736562095}
   - component: {fileID: 1736562094}
   m_Layer: 5
-  m_Name: BugButton (11)
+  m_Name: Treebug
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5124,7 +5135,7 @@ GameObject:
   - component: {fileID: 1901607290}
   - component: {fileID: 1901607289}
   m_Layer: 5
-  m_Name: BugButton (2)
+  m_Name: Bee
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5414,7 +5425,7 @@ GameObject:
   - component: {fileID: 2046153238}
   - component: {fileID: 2046153237}
   m_Layer: 5
-  m_Name: BugButton (9)
+  m_Name: Moth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

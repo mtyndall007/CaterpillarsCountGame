@@ -96,6 +96,7 @@ MonoBehaviour:
   bug: {fileID: 4661043160477363257}
   defaultColor: {r: 0, g: 0, b: 0, a: 0}
   points: 10
+  classification: Moth
 --- !u!60 &8734100511064850964
 PolygonCollider2D:
   m_ObjectHideFlags: 0

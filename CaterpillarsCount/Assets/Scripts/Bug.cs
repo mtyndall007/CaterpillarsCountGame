@@ -6,20 +6,29 @@ using UnityEngine.Events;
 //Generic script for bugs. Can be used as a generic parent class for more specific bugs, but not sure if it's necessary yet.
 //Public variables so that we can tweak what color each bug is, their point value, etc.
 
+[System.Serializable]
+public class BugClickedEvent : UnityEvent<string>
+{
+}
+
 public class Bug : MonoBehaviour
 {
     public GameObject bug;
     bool hasBeenClicked = false;
     public Color defaultColor;
     public int points;
+    public string classification;
 
-    UnityEvent bugClicked;
+
+
+    //UnityEvent<string> bugClicked;
+    public BugClickedEvent bugClicked;
 
     // Start is called before the first frame update
     void Start()
     {
         if (bugClicked == null)
-            bugClicked = new UnityEvent();
+            bugClicked = new BugClickedEvent();
 
         bugClicked.AddListener(GameManager.instance.bugClicked);
     }
@@ -41,7 +50,8 @@ public class Bug : MonoBehaviour
 
             if (coll.OverlapPoint(pointClicked) && !hasBeenClicked)
             {
-                bugClicked.Invoke();
+                //Sends the bug name to game manager when clicked
+                bugClicked.Invoke(classification);
 
                 ScoreScript.scoreValue += points;
                 hasBeenClicked = true;

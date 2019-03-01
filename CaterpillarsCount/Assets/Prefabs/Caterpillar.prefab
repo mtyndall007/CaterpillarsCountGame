@@ -217,3 +217,4 @@ MonoBehaviour:
   bug: {fileID: 129562080871555188}
   defaultColor: {r: 0.14901958, g: 0.9607843, b: 0.16540273, a: 1}
   points: 10
+  classification: Caterpillar

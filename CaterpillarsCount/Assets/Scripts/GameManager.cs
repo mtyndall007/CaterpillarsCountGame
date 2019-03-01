@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
     private UnityAction submitAction;
     private UnityAction playAgainAction;
     private UnityAction returnAction;
-    public UnityAction bugClicked;
+    public UnityAction<string> bugClicked;
     public UnityAction returnZoom;
 
     Button submitButton;
@@ -155,12 +155,14 @@ public class GameManager : MonoBehaviour
         return tempScore;
     }
 
-    public void BugClicked()
+    public void BugClicked(string bugName)
     {
 
         //Zooms camera in on bug
         //Camera.main.orthographic = true;
         //Camera.main.orthographicSize = Camera.main.orthographicSize / 5.0f;
+
+        Debug.Log(bugName);
 
         bugSelectionUI.SetActive(true);
         submitButton.gameObject.SetActive(false);
@@ -169,6 +171,7 @@ public class GameManager : MonoBehaviour
         returnButton = returnObject.GetComponent<Button>();
         returnAction += ReturnFromClick;
         returnButton.onClick.AddListener(returnAction);
+        TimerScript.PauseTime();
     }
 
 
@@ -179,6 +182,7 @@ public class GameManager : MonoBehaviour
         bugSelectionUI.SetActive(false);
         submitButton.gameObject.SetActive(true);
         returnObject.SetActive(false);
+        TimerScript.ResumeTime();
     }
 
     public static void TimerSubmit() => GameManager.instance.Submit();
