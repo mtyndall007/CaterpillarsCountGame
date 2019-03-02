@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
     private UnityAction returnAction;
     public UnityAction<string> bugClicked;
     public UnityAction returnZoom;
-    public UnityAction bugIdentified;
+    public UnityAction<string> bugIdentified;
 
     Button submitButton;
     Button playAgainButton;
@@ -52,6 +52,7 @@ public class GameManager : MonoBehaviour
 
     private int playerScore;
     private int totalScore;
+    private string selectedBug;
 
     private float defaultFOV;
     private float zoomedFOV;
@@ -64,6 +65,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        selectedBug = null;
 
         returnObject = GameObject.Find("Return");
         returnObject.SetActive(false);
@@ -104,6 +107,7 @@ public class GameManager : MonoBehaviour
         totalScore += calcTotalScore();
 
         TimerScript.SetCurrentTime(80);
+        selectedBug = null;
 
         //If we're on the last level, display the game over screen. Otherwise go to next level
         if (sceneIterator == spawnedScenes.Length)
@@ -173,8 +177,24 @@ public class GameManager : MonoBehaviour
         returnAction += ReturnFromClick;
         returnButton.onClick.AddListener(returnAction);
         TimerScript.PauseTime();
+
+        selectedBug = bugName;
     }
 
+
+    public void BugSelectionUI(string bugName)
+    {
+        if(selectedBug != null)
+        {
+            if(selectedBug == bugName)
+            {
+                //Hard coded score value for now
+                ScoreScript.AddScore(10);
+            }
+        }
+
+        ReturnFromClick();
+    }
 
     //Can be used for return button as well as after submitting a bug
     private void ReturnFromClick()
