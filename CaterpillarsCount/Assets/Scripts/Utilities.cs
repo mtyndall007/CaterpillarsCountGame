@@ -5,6 +5,30 @@ using UnityEngine.UI;
 
 public class Utilities : MonoBehaviour
 {
+
+    //Pause all bugs so they are unclickable
+    public static void PauseBugs()
+    {
+        Bug[] bugs = GameObject.FindObjectsOfType<Bug>();
+        foreach (Bug bug in bugs)
+        {
+            bug.PauseBug();
+        }
+      
+    }
+
+    //Resume bugs so that those that haven't been found are clickable
+    public static void ResumeBugs()
+    {
+        Bug[] bugs = GameObject.FindObjectsOfType<Bug>();
+        foreach (Bug bug in bugs)
+        {
+            bug.ResumeBug();
+        }
+
+    }
+
+    //Creates a popup message, run it via a coroutine
     public static IEnumerator PopupMessage(string message, float delay)
     {
         Text popupText;

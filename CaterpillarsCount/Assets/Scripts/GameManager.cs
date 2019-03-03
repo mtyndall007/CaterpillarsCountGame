@@ -168,8 +168,6 @@ public class GameManager : MonoBehaviour
         //Camera.main.orthographic = true;
         //Camera.main.orthographicSize = Camera.main.orthographicSize / 5.0f;
 
-        Debug.Log(bugName);
-
         bugSelectionUI.SetActive(true);
         submitButton.gameObject.SetActive(false);
 
@@ -177,6 +175,8 @@ public class GameManager : MonoBehaviour
         returnButton = returnObject.GetComponent<Button>();
         returnAction += ReturnFromClick;
         returnButton.onClick.AddListener(returnAction);
+
+        Utilities.PauseBugs();
         TimerScript.PauseTime();
 
         selectedBug = bugName;
@@ -210,6 +210,7 @@ public class GameManager : MonoBehaviour
         submitButton.gameObject.SetActive(true);
         returnObject.SetActive(false);
         TimerScript.ResumeTime();
+        Utilities.ResumeBugs();
     }
 
     public static void TimerSubmit() => GameManager.instance.Submit();

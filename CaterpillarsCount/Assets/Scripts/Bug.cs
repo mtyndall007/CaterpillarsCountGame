@@ -14,7 +14,8 @@ public class BugClickedEvent : UnityEvent<string>
 public class Bug : MonoBehaviour
 {
     public GameObject bug;
-    bool hasBeenClicked = false;
+    public bool clickable;
+    public bool paused;
     public Color defaultColor;
     public int points;
     public string classification;
@@ -27,6 +28,9 @@ public class Bug : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        clickable = true;
+        paused = false;
+
         if (bugClicked == null)
             bugClicked = new BugClickedEvent();
 
@@ -41,6 +45,16 @@ public class Bug : MonoBehaviour
 
     }
 
+    public void PauseBug()
+    {
+        paused = true;
+    }
+
+    public void ResumeBug()
+    {
+        paused = false;
+    }
+
     private void checkForClick()
     {
         if (Input.GetMouseButtonDown(0))
@@ -48,13 +62,13 @@ public class Bug : MonoBehaviour
             Vector3 pointClicked = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Collider2D coll = bug.GetComponent<Collider2D>();
 
-            if (coll.OverlapPoint(pointClicked) && !hasBeenClicked)
+            if (coll.OverlapPoint(pointClicked) && clickable && !paused)
             {
                 //Sends the bug name to game manager when clicked
                 bugClicked.Invoke(classification);
 
                 ScoreScript.scoreValue += points;
-                hasBeenClicked = true;
+                clickable = false;
                 SpriteRenderer spriteRenderer = bug.GetComponent<SpriteRenderer>();
                 spriteRenderer.color = defaultColor;
 
