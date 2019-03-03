@@ -88,6 +88,7 @@ public class GameManager : MonoBehaviour
 
        bugSelectionUI = GameObject.Find("BugSelectionUI");
        bugSelectionUI.SetActive(false);
+
     }
 
     // Update is called once per frame
@@ -190,6 +191,11 @@ public class GameManager : MonoBehaviour
             {
                 //Hard coded score value for now
                 ScoreScript.AddScore(10);
+                StartCoroutine(Utilities.PopupMessage("Correct!", 1));
+
+            } else
+            {
+                StartCoroutine(Utilities.PopupMessage("Incorrect", 1));
             }
         }
 
@@ -207,5 +213,7 @@ public class GameManager : MonoBehaviour
     }
 
     public static void TimerSubmit() => GameManager.instance.Submit();
+
+    
 
 }
