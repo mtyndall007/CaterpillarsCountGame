@@ -57,6 +57,9 @@ public class GameManager : MonoBehaviour
     private float defaultFOV;
     private Vector3 defaultCameraPosition;
     private float zoomedFOV;
+    private bool zoomingIn;
+    private bool zoomingOut;
+    private float zoomSpeed = 5f;
 
     GameObject gameOver;
     GameObject returnObject;
@@ -74,7 +77,7 @@ public class GameManager : MonoBehaviour
 
         defaultFOV = Camera.main.orthographicSize;
         defaultCameraPosition = Camera.main.transform.position;
-        zoomedFOV = 40f;
+        zoomedFOV = defaultFOV/4.0f;
 
         //Finds the submit button from the scene and adds an event listener
         submitButton = GameObject.Find("Submit").GetComponent<Button>();
@@ -99,6 +102,24 @@ public class GameManager : MonoBehaviour
         if(TimerScript.GetCurrentTime() <= 0)
         {
             Submit();
+        }
+
+        if (zoomingIn)
+        {
+            Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, zoomedFOV, Time.deltaTime * zoomSpeed);
+            if (Camera.main.orthographicSize <= zoomedFOV)
+            {
+                zoomingIn = false;
+            }
+        }
+
+        if (zoomingOut)
+        {
+            Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, defaultFOV, Time.deltaTime * zoomSpeed);
+            if (Camera.main.orthographicSize >= defaultFOV)
+            {
+                zoomingOut = false;
+            }
         }
     }
 
@@ -170,12 +191,13 @@ public class GameManager : MonoBehaviour
         Camera.main.orthographic = true;
         Camera.main.transform.position = Camera.main.ScreenToWorldPoint(
             new Vector3(Input.mousePosition.x, Input.mousePosition.y - 10, Input.mousePosition.z));
-        Camera.main.orthographicSize = Camera.main.orthographicSize / 4.0f;
+        zoomingIn = true;
+        //Camera.main.orthographicSize = zoomedFOV;
 
         bugSelectionUI.SetActive(true);
         submitButton.gameObject.SetActive(false);
 
-        returnObject.SetActive(true);
+        //returnObject.SetActive(true);
         returnButton = returnObject.GetComponent<Button>();
         returnAction += ReturnFromClick;
         returnButton.onClick.AddListener(returnAction);
@@ -210,8 +232,11 @@ public class GameManager : MonoBehaviour
     private void ReturnFromClick()
     {
         //Reset camera
-        Camera.main.orthographicSize = defaultFOV;
+        //Camera.main.orthographicSize = defaultFOV;
+        zoomingIn = false;
+        zoomingOut = true;
         Camera.main.transform.position = defaultCameraPosition;
+
 
         //Hide bug selection screen and bring back normal UI
         bugSelectionUI.SetActive(false);
