@@ -55,6 +55,7 @@ public class GameManager : MonoBehaviour
     private string selectedBug;
 
     private float defaultFOV;
+    private Vector3 defaultCameraPosition;
     private float zoomedFOV;
 
     GameObject gameOver;
@@ -71,7 +72,8 @@ public class GameManager : MonoBehaviour
         returnObject = GameObject.Find("Return");
         returnObject.SetActive(false);
 
-        defaultFOV = Camera.main.fieldOfView;
+        defaultFOV = Camera.main.orthographicSize;
+        defaultCameraPosition = Camera.main.transform.position;
         zoomedFOV = 40f;
 
         //Finds the submit button from the scene and adds an event listener
@@ -165,8 +167,10 @@ public class GameManager : MonoBehaviour
     {
 
         //Zooms camera in on bug
-        //Camera.main.orthographic = true;
-        //Camera.main.orthographicSize = Camera.main.orthographicSize / 5.0f;
+        Camera.main.orthographic = true;
+        Camera.main.transform.position = Camera.main.ScreenToWorldPoint(
+            new Vector3(Input.mousePosition.x, Input.mousePosition.y - 10, Input.mousePosition.z));
+        Camera.main.orthographicSize = Camera.main.orthographicSize / 4.0f;
 
         bugSelectionUI.SetActive(true);
         submitButton.gameObject.SetActive(false);
@@ -205,7 +209,11 @@ public class GameManager : MonoBehaviour
     //Can be used for return button as well as after submitting a bug
     private void ReturnFromClick()
     {
-        Camera.main.fieldOfView = defaultFOV;
+        //Reset camera
+        Camera.main.orthographicSize = defaultFOV;
+        Camera.main.transform.position = defaultCameraPosition;
+
+        //Hide bug selection screen and bring back normal UI
         bugSelectionUI.SetActive(false);
         submitButton.gameObject.SetActive(true);
         returnObject.SetActive(false);
