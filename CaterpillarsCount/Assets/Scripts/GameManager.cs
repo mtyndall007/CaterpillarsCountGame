@@ -36,9 +36,12 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
+    //Used for tracking what scenes are loaded
+    //spawnedScenes are the scene's pathnames
     private string[] spawnedScenes;
     private int sceneIterator;
 
+    //Action declarations for callbacks
     private UnityAction submitAction;
     private UnityAction playAgainAction;
     private UnityAction returnAction;
@@ -54,6 +57,8 @@ public class GameManager : MonoBehaviour
     private int totalScore;
     private string selectedBug;
 
+
+    //Private vars for the zooming effect once a bug has been clicked
     private float defaultFOV;
     private Vector3 defaultCameraPosition;
     private float zoomedFOV;
@@ -84,6 +89,7 @@ public class GameManager : MonoBehaviour
         submitAction += Submit;
         submitButton.onClick.AddListener(submitAction);
 
+        //Callback function for when a bug has been clicked by the user
         bugClicked += BugClicked;
 
        //Find the gameover UI
@@ -91,6 +97,8 @@ public class GameManager : MonoBehaviour
        //Make the gameover screen invisible
        gameOver.SetActive(false);
 
+
+       //Hide the bug selection UI at startup
        bugSelectionUI = GameObject.Find("BugSelectionUI");
        bugSelectionUI.SetActive(false);
 
@@ -105,6 +113,7 @@ public class GameManager : MonoBehaviour
         }
 
         //Might want to make these into coroutines to delay the zoom a bit
+        //Linearly interpolates between the default camera view and the zoomed view. Updates each frame for a smoother zoom effect
         if (zoomingIn)
         {
             Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, zoomedFOV, Time.deltaTime * zoomInSpeed);
@@ -152,7 +161,7 @@ public class GameManager : MonoBehaviour
         selectedBug = bugName;
     }
 
-    //Checks if user selected the correct bug. Displays the result as a text popup
+    //Checks if user correctly identified the highlighted bug. Displays the result as a text popup
     public void BugSelectionUI(string bugName)
     {
         if (selectedBug != null)
