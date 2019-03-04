@@ -59,7 +59,8 @@ public class GameManager : MonoBehaviour
     private float zoomedFOV;
     private bool zoomingIn;
     private bool zoomingOut;
-    private float zoomSpeed = 5f;
+    private float zoomInSpeed = 3f; //5f
+    private float zoomOutSpeed = 5f;
 
     GameObject gameOver;
     GameObject returnObject;
@@ -103,9 +104,10 @@ public class GameManager : MonoBehaviour
             Submit();
         }
 
+        //Might want to make these into coroutines to delay the zoom a bit
         if (zoomingIn)
         {
-            Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, zoomedFOV, Time.deltaTime * zoomSpeed);
+            Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, zoomedFOV, Time.deltaTime * zoomInSpeed);
             if (Camera.main.orthographicSize <= zoomedFOV)
             {
                 zoomingIn = false;
@@ -114,7 +116,7 @@ public class GameManager : MonoBehaviour
 
         if (zoomingOut)
         {
-            Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, defaultFOV, Time.deltaTime * zoomSpeed);
+            Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, defaultFOV, Time.deltaTime * zoomOutSpeed);
             if (Camera.main.orthographicSize >= defaultFOV)
             {
                 zoomingOut = false;
@@ -239,6 +241,7 @@ public class GameManager : MonoBehaviour
         TimerScript.ResumeTime();
         Utilities.ResumeBugs();
         MagnifyGlass.EnableZoom();
+        MagnifyGlass.ResetCounter();
     }
 
     //Helper method that iterates through all the bugs on the screen and calculates their potential score value

@@ -9,7 +9,7 @@ public class MagnifyGlass : MonoBehaviour
     private float MGOX, MG0Y; // Magnify Glass Origin X and Y position
     private float MGWidth = Screen.width / 4f, MGHeight = Screen.width / 4f; // Magnify glass width and height
     private Vector3 mousePos;
-    private int rightClickCounter;
+    private static int rightClickCounter;
     private static bool zoomable;
 
 
@@ -57,6 +57,12 @@ public class MagnifyGlass : MonoBehaviour
     public static void DisableZoom()
     {
         zoomable = false;
+    }
+
+    //Useful for removing magnifying effect while the user is returning out of the bug selection UI
+    public static void ResetCounter()
+    {
+        rightClickCounter = 0;
     }
 
     // Following method creates MagnifyGlass
