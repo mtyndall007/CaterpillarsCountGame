@@ -14,15 +14,11 @@ public class BugClickedEvent : UnityEvent<string>
 public class Bug : MonoBehaviour
 {
     public GameObject bug;
-    public bool clickable;
+    private bool clickable;
     public bool paused;
     public Color defaultColor;
     public int points;
     public string classification;
-
-
-
-    //UnityEvent<string> bugClicked;
     public BugClickedEvent bugClicked;
 
     // Start is called before the first frame update

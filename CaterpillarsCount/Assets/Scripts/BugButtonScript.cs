@@ -19,13 +19,11 @@ public class BugButtonScript : MonoBehaviour
     void Start()
     {
         bugButton.onClick.AddListener(() => ButtonClicked(EventSystem.current.currentSelectedGameObject.name));
-       
-        //bugButton.onClick.AddListener(GameManager.instance.bugIdentified);
+    
     }
 
     private void ButtonClicked(string bugType)
     {
-        Debug.Log(bugType);
         GameManager.instance.BugSelectionUI(bugType);
     }
 }

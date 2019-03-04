@@ -10,6 +10,7 @@ public class MagnifyGlass : MonoBehaviour
     private float MGWidth = Screen.width / 4f, MGHeight = Screen.width / 4f; // Magnify glass width and height
     private Vector3 mousePos;
     private int rightClickCounter;
+    private static bool zoomable;
 
 
     void Start()
@@ -18,16 +19,17 @@ public class MagnifyGlass : MonoBehaviour
         createMagnifyGlass();
         DontDestroyOnLoad(magnifyBorders);
         DontDestroyOnLoad(magnifyCamera);
-            
+        zoomable = true;
+           
     }
     
     void Update()
     {
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1) && zoomable)
         {
             rightClickCounter++;
         }
-        if (rightClickCounter%2 == 1)
+        if (rightClickCounter%2 == 1 && zoomable)
         {
             magnifyCamera.enabled = true;
             magnifyBorders.SetActive(true);
@@ -47,6 +49,15 @@ public class MagnifyGlass : MonoBehaviour
         
     }
 
+    public static void EnableZoom()
+    {
+        zoomable = true;
+    }
+
+    public static void DisableZoom()
+    {
+        zoomable = false;
+    }
 
     // Following method creates MagnifyGlass
     private void createMagnifyGlass()

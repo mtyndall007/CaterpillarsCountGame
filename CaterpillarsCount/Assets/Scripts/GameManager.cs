@@ -69,7 +69,6 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         selectedBug = null;
 
         returnObject = GameObject.Find("Return");
@@ -123,6 +122,56 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    //Public method called by timer once it hits 0
+    public static void TimerSubmit() => GameManager.instance.Submit();
+
+    //Public method for a bug to call once it has been clicked
+    public void BugClicked(string bugName)
+    {
+        //Zooms camera in on bug
+        Camera.main.orthographic = true;
+        Camera.main.transform.position = Camera.main.ScreenToWorldPoint(
+            new Vector3(Input.mousePosition.x, Input.mousePosition.y - 10, Input.mousePosition.z));
+        zoomingIn = true;
+        //Camera.main.orthographicSize = zoomedFOV;
+
+        bugSelectionUI.SetActive(true);
+        submitButton.gameObject.SetActive(false);
+
+        //returnObject.SetActive(true);
+        returnButton = returnObject.GetComponent<Button>();
+        returnAction += ReturnFromClick;
+        returnButton.onClick.AddListener(returnAction);
+
+        Utilities.PauseBugs();
+        TimerScript.PauseTime();
+        MagnifyGlass.DisableZoom();
+
+        selectedBug = bugName;
+    }
+
+    //Checks if user selected the correct bug. Displays the result as a text popup
+    public void BugSelectionUI(string bugName)
+    {
+        if (selectedBug != null)
+        {
+            if (selectedBug == bugName)
+            {
+                //Hard coded score value for now
+                ScoreScript.AddScore(10);
+                StartCoroutine(Utilities.PopupMessage("Correct!", 1));
+
+            }
+            else
+            {
+                StartCoroutine(Utilities.PopupMessage("Incorrect", 1));
+            }
+        }
+
+        ReturnFromClick();
+    }
+
+    //For when the user is done with a branch, also called when timer runs out
     void Submit()
     {
         //Iterate to get the next scene
@@ -174,60 +223,6 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(spawnedScenes[0]);
     }
 
-    private int calcTotalScore()
-    {
-        int tempScore = 0;
-        Bug[] bugs = GameObject.FindObjectsOfType<Bug>();
-        foreach (Bug bug in bugs) {
-            tempScore += bug.points;
-        }
-        return tempScore;
-    }
-
-    public void BugClicked(string bugName)
-    {
-
-        //Zooms camera in on bug
-        Camera.main.orthographic = true;
-        Camera.main.transform.position = Camera.main.ScreenToWorldPoint(
-            new Vector3(Input.mousePosition.x, Input.mousePosition.y - 10, Input.mousePosition.z));
-        zoomingIn = true;
-        //Camera.main.orthographicSize = zoomedFOV;
-
-        bugSelectionUI.SetActive(true);
-        submitButton.gameObject.SetActive(false);
-
-        //returnObject.SetActive(true);
-        returnButton = returnObject.GetComponent<Button>();
-        returnAction += ReturnFromClick;
-        returnButton.onClick.AddListener(returnAction);
-
-        Utilities.PauseBugs();
-        TimerScript.PauseTime();
-
-        selectedBug = bugName;
-    }
-
-
-    public void BugSelectionUI(string bugName)
-    {
-        if(selectedBug != null)
-        {
-            if(selectedBug == bugName)
-            {
-                //Hard coded score value for now
-                ScoreScript.AddScore(10);
-                StartCoroutine(Utilities.PopupMessage("Correct!", 1));
-
-            } else
-            {
-                StartCoroutine(Utilities.PopupMessage("Incorrect", 1));
-            }
-        }
-
-        ReturnFromClick();
-    }
-
     //Can be used for return button as well as after submitting a bug
     private void ReturnFromClick()
     {
@@ -237,17 +232,25 @@ public class GameManager : MonoBehaviour
         zoomingOut = true;
         Camera.main.transform.position = defaultCameraPosition;
 
-
         //Hide bug selection screen and bring back normal UI
         bugSelectionUI.SetActive(false);
         submitButton.gameObject.SetActive(true);
         returnObject.SetActive(false);
         TimerScript.ResumeTime();
         Utilities.ResumeBugs();
+        MagnifyGlass.EnableZoom();
     }
 
-    public static void TimerSubmit() => GameManager.instance.Submit();
-
-    
+    //Helper method that iterates through all the bugs on the screen and calculates their potential score value
+    private int calcTotalScore()
+    {
+        int tempScore = 0;
+        Bug[] bugs = GameObject.FindObjectsOfType<Bug>();
+        foreach (Bug bug in bugs)
+        {
+            tempScore += bug.points;
+        }
+        return tempScore;
+    }
 
 }
