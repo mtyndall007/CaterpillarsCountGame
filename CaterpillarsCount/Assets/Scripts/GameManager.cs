@@ -262,7 +262,9 @@ public class GameManager : MonoBehaviour
         {
             tempScore += bug.points;
         }
-        return tempScore;
+        //Currently doubles the score, as correctly identifying a bug currently counts as 10 points.
+        //This will need to be adjusted eventually
+        return 2*tempScore;
     }
 
 }
