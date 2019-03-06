@@ -6,22 +6,31 @@ using UnityEngine.Events;
 //Generic script for bugs. Can be used as a generic parent class for more specific bugs, but not sure if it's necessary yet.
 //Public variables so that we can tweak what color each bug is, their point value, etc.
 
+[System.Serializable]
+public class BugClickedEvent : UnityEvent<string>
+{
+}
+
 public class Bug : MonoBehaviour
 {
     public GameObject bug;
-    bool hasBeenClicked = false;
+    private bool clickable;
+    public bool paused;
     public Color defaultColor;
     public int points;
-
-    UnityEvent bugClicked;
+    public string classification;
+    public BugClickedEvent bugClicked;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (bugClicked == null)
-            bugClicked = new UnityEvent();
+        clickable = true;
+        paused = false;
 
-        //bugClicked.AddListener(GameManager.instance.bugClicked);
+        if (bugClicked == null)
+            bugClicked = new BugClickedEvent();
+
+        bugClicked.AddListener(GameManager.instance.bugClicked);
     }
 
     // Update is called once per frame
@@ -32,6 +41,16 @@ public class Bug : MonoBehaviour
 
     }
 
+    public void PauseBug()
+    {
+        paused = true;
+    }
+
+    public void ResumeBug()
+    {
+        paused = false;
+    }
+
     private void checkForClick()
     {
         if (Input.GetMouseButtonDown(0))
@@ -39,12 +58,13 @@ public class Bug : MonoBehaviour
             Vector3 pointClicked = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Collider2D coll = bug.GetComponent<Collider2D>();
 
-            if (coll.OverlapPoint(pointClicked) && !hasBeenClicked)
+            if (coll.OverlapPoint(pointClicked) && clickable && !paused)
             {
-                bugClicked.Invoke();
+                //Sends the bug name to game manager when clicked
+                bugClicked.Invoke(classification);
 
                 ScoreScript.scoreValue += points;
-                hasBeenClicked = true;
+                clickable = false;
                 SpriteRenderer spriteRenderer = bug.GetComponent<SpriteRenderer>();
                 spriteRenderer.color = defaultColor;
 

@@ -302,3 +302,4 @@ MonoBehaviour:
   bug: {fileID: 8941881824626096517}
   defaultColor: {r: 0.18197025, g: 0.8679245, b: 0.10234957, a: 1}
   points: 10
+  classification: Beetle

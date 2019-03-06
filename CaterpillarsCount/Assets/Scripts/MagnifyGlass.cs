@@ -7,26 +7,62 @@ public class MagnifyGlass : MonoBehaviour
     private GameObject magnifyBorders;
     private LineRenderer LeftBorder, RightBorder, TopBorder, BottomBorder; // Reference for lines of magnify glass borders
     private float MGOX, MG0Y; // Magnify Glass Origin X and Y position
-    private float MGWidth = Screen.width / 5f, MGHeight = Screen.width / 5f; // Magnify glass width and height
+    private float MGWidth = Screen.width / 4f, MGHeight = Screen.width / 4f; // Magnify glass width and height
     private Vector3 mousePos;
+    private static int rightClickCounter;
+    private static bool zoomable;
+
 
     void Start()
     {
 
         createMagnifyGlass();
-            
+        DontDestroyOnLoad(magnifyBorders);
+        DontDestroyOnLoad(magnifyCamera);
+        zoomable = true;
+           
     }
     
     void Update()
     {
-        
+        if (Input.GetMouseButtonDown(1) && zoomable)
+        {
+            rightClickCounter++;
+        }
+        if (rightClickCounter%2 == 1 && zoomable)
+        {
+            magnifyCamera.enabled = true;
+            magnifyBorders.SetActive(true);
             // Following lines set the camera's pixelRect and camera position at mouse position
             magnifyCamera.pixelRect = new Rect(Input.mousePosition.x - MGWidth / 2.0f, Input.mousePosition.y - MGHeight / 2.0f, MGWidth, MGHeight);
             mousePos = getWorldPosition(Input.mousePosition);
             magnifyCamera.transform.position = mousePos;
             mousePos.z = 0;
             magnifyBorders.transform.position = mousePos;
+        } else
+        {
+            magnifyCamera.enabled = false;
+            magnifyBorders.SetActive(false);
+
+        }
+            
         
+    }
+
+    public static void EnableZoom()
+    {
+        zoomable = true;
+    }
+
+    public static void DisableZoom()
+    {
+        zoomable = false;
+    }
+
+    //Useful for removing magnifying effect while the user is returning out of the bug selection UI
+    public static void ResetCounter()
+    {
+        rightClickCounter = 0;
     }
 
     // Following method creates MagnifyGlass
@@ -47,7 +83,7 @@ public class MagnifyGlass : MonoBehaviour
         else
         {
             magnifyCamera.orthographic = false;
-            magnifyCamera.fieldOfView = Camera.main.fieldOfView / 10.0f;//3.0f;
+            magnifyCamera.fieldOfView = Camera.main.fieldOfView / 3.0f;//3.0f;
         }
 
     }

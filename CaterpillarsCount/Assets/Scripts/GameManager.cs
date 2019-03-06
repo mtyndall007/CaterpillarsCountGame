@@ -36,13 +36,18 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
+    //Used for tracking what scenes are loaded
+    //spawnedScenes are the scene's pathnames
     private string[] spawnedScenes;
     private int sceneIterator;
 
+    //Action declarations for callbacks
     private UnityAction submitAction;
     private UnityAction playAgainAction;
-    public UnityAction bugClicked;
+    private UnityAction returnAction;
+    public UnityAction<string> bugClicked;
     public UnityAction returnZoom;
+    public UnityAction<string> bugIdentified;
 
     Button submitButton;
     Button playAgainButton;
@@ -50,49 +55,143 @@ public class GameManager : MonoBehaviour
 
     private int playerScore;
     private int totalScore;
+    private string selectedBug;
 
+
+    //Private vars for the zooming effect once a bug has been clicked
     private float defaultFOV;
+    private Vector3 defaultCameraPosition;
     private float zoomedFOV;
+    private bool zoomingIn;
+    private bool zoomingOut;
+    private float zoomInSpeed = 3f; //5f
+    private float zoomOutSpeed = 5f;
 
     GameObject gameOver;
     GameObject returnObject;
+    GameObject bugSelectionUI;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        selectedBug = null;
 
         returnObject = GameObject.Find("Return");
         returnObject.SetActive(false);
 
-        defaultFOV = Camera.main.fieldOfView;
-        zoomedFOV = 40f;
+        defaultFOV = Camera.main.orthographicSize;
+        defaultCameraPosition = Camera.main.transform.position;
+        zoomedFOV = defaultFOV/4.0f;
 
         //Finds the submit button from the scene and adds an event listener
         submitButton = GameObject.Find("Submit").GetComponent<Button>();
         submitAction += Submit;
         submitButton.onClick.AddListener(submitAction);
 
+        //Callback function for when a bug has been clicked by the user
         bugClicked += BugClicked;
 
        //Find the gameover UI
        gameOver = GameObject.Find("GameOver");
        //Make the gameover screen invisible
        gameOver.SetActive(false);
+
+
+       //Hide the bug selection UI at startup
+       bugSelectionUI = GameObject.Find("BugSelectionUI");
+       bugSelectionUI.SetActive(false);
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(TimerScript.GetCurrentTime() <= 0)
+        {
+            Submit();
+        }
+
+        //Might want to make these into coroutines to delay the zoom a bit
+        //Linearly interpolates between the default camera view and the zoomed view. Updates each frame for a smoother zoom effect
+        if (zoomingIn)
+        {
+            Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, zoomedFOV, Time.deltaTime * zoomInSpeed);
+            if (Camera.main.orthographicSize <= zoomedFOV)
+            {
+                zoomingIn = false;
+            }
+        }
+
+        if (zoomingOut)
+        {
+            Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, defaultFOV, Time.deltaTime * zoomOutSpeed);
+            if (Camera.main.orthographicSize >= defaultFOV)
+            {
+                zoomingOut = false;
+            }
+        }
     }
 
+    //Public method called by timer once it hits 0
+    public static void TimerSubmit() => GameManager.instance.Submit();
+
+    //Public method for a bug to call once it has been clicked
+    public void BugClicked(string bugName)
+    {
+        //Zooms camera in on bug
+        Camera.main.orthographic = true;
+        Camera.main.transform.position = Camera.main.ScreenToWorldPoint(
+            new Vector3(Input.mousePosition.x, Input.mousePosition.y - 10, Input.mousePosition.z));
+        zoomingIn = true;
+        //Camera.main.orthographicSize = zoomedFOV;
+
+        bugSelectionUI.SetActive(true);
+        submitButton.gameObject.SetActive(false);
+
+        //returnObject.SetActive(true);
+        returnButton = returnObject.GetComponent<Button>();
+        returnAction += ReturnFromClick;
+        returnButton.onClick.AddListener(returnAction);
+
+        Utilities.PauseBugs();
+        TimerScript.PauseTime();
+        MagnifyGlass.DisableZoom();
+
+        selectedBug = bugName;
+    }
+
+    //Checks if user correctly identified the highlighted bug. Displays the result as a text popup
+    public void BugSelectionUI(string bugName)
+    {
+        if (selectedBug != null)
+        {
+            if (selectedBug == bugName)
+            {
+                //Hard coded score value for now
+                ScoreScript.AddScore(10);
+                StartCoroutine(Utilities.PopupMessage("Correct!", 1));
+
+            }
+            else
+            {
+                StartCoroutine(Utilities.PopupMessage("Incorrect", 1));
+            }
+        }
+
+        ReturnFromClick();
+    }
+
+    //For when the user is done with a branch, also called when timer runs out
     void Submit()
     {
         //Iterate to get the next scene
         sceneIterator++;
         //Score is persistant between levels for now, but might want to change this
         totalScore += calcTotalScore();
+
+        TimerScript.SetCurrentTime(80);
+        selectedBug = null;
 
         //If we're on the last level, display the game over screen. Otherwise go to next level
         if (sceneIterator == spawnedScenes.Length)
@@ -135,33 +234,37 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(spawnedScenes[0]);
     }
 
+    //Can be used for return button as well as after submitting a bug
+    private void ReturnFromClick()
+    {
+        //Reset camera
+        //Camera.main.orthographicSize = defaultFOV;
+        zoomingIn = false;
+        zoomingOut = true;
+        Camera.main.transform.position = defaultCameraPosition;
+
+        //Hide bug selection screen and bring back normal UI
+        bugSelectionUI.SetActive(false);
+        submitButton.gameObject.SetActive(true);
+        returnObject.SetActive(false);
+        TimerScript.ResumeTime();
+        Utilities.ResumeBugs();
+        MagnifyGlass.EnableZoom();
+        MagnifyGlass.ResetCounter();
+    }
+
+    //Helper method that iterates through all the bugs on the screen and calculates their potential score value
     private int calcTotalScore()
     {
         int tempScore = 0;
         Bug[] bugs = GameObject.FindObjectsOfType<Bug>();
-        foreach (Bug bug in bugs) {
+        foreach (Bug bug in bugs)
+        {
             tempScore += bug.points;
         }
-        return tempScore;
+        //Currently doubles the score, as correctly identifying a bug currently counts as 10 points.
+        //This will need to be adjusted eventually
+        return 2*tempScore;
     }
 
-    public void BugClicked()
-    {
-        Camera.main.fieldOfView = zoomedFOV;
-
-        //Finds the submit button from the scene and adds an event listener
-        returnObject.SetActive(true);
-
-        returnButton = returnObject.GetComponent<Button>();
-        
-        returnZoom += ReturnFromClick;
-        returnButton.onClick.AddListener(returnZoom);
-    }
-
-    private void ReturnFromClick()
-    {
-        Camera.main.fieldOfView = defaultFOV;
-
-    }
-    
 }
