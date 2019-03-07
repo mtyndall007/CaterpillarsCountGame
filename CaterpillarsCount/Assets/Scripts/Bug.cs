@@ -61,12 +61,14 @@ public class Bug : MonoBehaviour
             if (coll.OverlapPoint(pointClicked) && clickable && !paused)
             {
                 //Sends the bug name to game manager when clicked
+                //Send game object to the game manager so it has a reference
                 bugClicked.Invoke(classification);
 
                 ScoreScript.scoreValue += points;
                 clickable = false;
                 SpriteRenderer spriteRenderer = bug.GetComponent<SpriteRenderer>();
                 spriteRenderer.color = defaultColor;
+                
 
             }
         }
