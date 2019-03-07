@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
     private UnityAction submitAction;
     private UnityAction playAgainAction;
     private UnityAction returnAction;
-    public UnityAction<string> bugClicked;
+    public UnityAction<GameObject> bugClicked;
     public UnityAction returnZoom;
     public UnityAction<string> bugIdentified;
 
@@ -70,6 +70,7 @@ public class GameManager : MonoBehaviour
     GameObject gameOver;
     GameObject returnObject;
     GameObject bugSelectionUI;
+    Bug currentBugScript;
 
 
     // Start is called before the first frame update
@@ -137,7 +138,7 @@ public class GameManager : MonoBehaviour
     public static void TimerSubmit() => GameManager.instance.Submit();
 
     //Public method for a bug to call once it has been clicked
-    public void BugClicked(string bugName)
+    public void BugClicked(GameObject bug)
     {
         //Zooms camera in on bug
         Camera.main.orthographic = true;
@@ -158,7 +159,8 @@ public class GameManager : MonoBehaviour
         TimerScript.PauseTime();
         MagnifyGlass.DisableZoom();
 
-        selectedBug = bugName;
+        currentBugScript = bug.GetComponent<Bug>();
+        selectedBug = currentBugScript.classification;
     }
 
     //Checks if user correctly identified the highlighted bug. Displays the result as a text popup
@@ -178,7 +180,11 @@ public class GameManager : MonoBehaviour
                 StartCoroutine(Utilities.PopupMessage("Incorrect", 1));
             }
         }
-
+        if(currentBugScript != null)
+        {
+            
+            currentBugScript.SetColor();
+        }
         ReturnFromClick();
     }
 
@@ -251,6 +257,7 @@ public class GameManager : MonoBehaviour
         Utilities.ResumeBugs();
         MagnifyGlass.EnableZoom();
         MagnifyGlass.ResetCounter();
+        currentBugScript = null;
     }
 
     //Helper method that iterates through all the bugs on the screen and calculates their potential score value
