@@ -7,7 +7,7 @@ using UnityEngine.Events;
 //Public variables so that we can tweak what color each bug is, their point value, etc.
 
 [System.Serializable]
-public class BugClickedEvent : UnityEvent<string>
+public class BugClickedEvent : UnityEvent<GameObject>
 {
 }
 
@@ -24,6 +24,7 @@ public class Bug : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        bug = gameObject;
         clickable = true;
         paused = false;
 
@@ -51,6 +52,12 @@ public class Bug : MonoBehaviour
         paused = false;
     }
 
+    public void SetColor()
+    {
+        SpriteRenderer spriteRenderer = bug.GetComponent<SpriteRenderer>();
+        spriteRenderer.color = defaultColor;
+    }
+
     private void checkForClick()
     {
         if (Input.GetMouseButtonDown(0))
@@ -61,12 +68,11 @@ public class Bug : MonoBehaviour
             if (coll.OverlapPoint(pointClicked) && clickable && !paused)
             {
                 //Sends the bug name to game manager when clicked
-                bugClicked.Invoke(classification);
+                //Send game object to the game manager so it has a reference
+                bugClicked.Invoke(bug);
 
                 ScoreScript.scoreValue += points;
                 clickable = false;
-                SpriteRenderer spriteRenderer = bug.GetComponent<SpriteRenderer>();
-                spriteRenderer.color = defaultColor;
 
             }
         }
