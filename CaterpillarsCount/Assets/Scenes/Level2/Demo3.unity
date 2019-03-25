@@ -1035,6 +1035,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   branch: {fileID: 1988815555}
+  inGameBranchWidth: 0
+  branchWidthInMM: 300
 --- !u!212 &1988815557
 SpriteRenderer:
   m_ObjectHideFlags: 0

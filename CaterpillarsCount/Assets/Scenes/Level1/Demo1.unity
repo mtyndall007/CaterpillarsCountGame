@@ -1517,6 +1517,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   branch: {fileID: 1532622980}
+  inGameBranchWidth: 0
+  branchWidthInMM: 300
 --- !u!1001 &1603734715
 PrefabInstance:
   m_ObjectHideFlags: 0

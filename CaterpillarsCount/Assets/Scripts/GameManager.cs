@@ -144,7 +144,7 @@ public class GameManager : MonoBehaviour
         //Zooms camera in on bug
         Camera.main.orthographic = true;
         Camera.main.transform.position = Camera.main.ScreenToWorldPoint(
-            new Vector3(Input.mousePosition.x, Input.mousePosition.y - 50, Input.mousePosition.z));
+            new Vector3(Input.mousePosition.x, Input.mousePosition.y - Mathf.Floor(Screen.height/10), Input.mousePosition.z));
         zoomingIn = true;
         //Camera.main.orthographicSize = zoomedFOV;
 
