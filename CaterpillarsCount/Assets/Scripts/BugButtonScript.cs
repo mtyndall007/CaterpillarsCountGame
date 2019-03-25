@@ -19,11 +19,17 @@ public class BugButtonScript : MonoBehaviour
     void Start()
     {
         bugButton.onClick.AddListener(() => ButtonClicked(EventSystem.current.currentSelectedGameObject.name));
-    
+
+        ColorBlock theColor = bugButton.colors;
+        theColor.highlightedColor = Color.cyan;
+        theColor.normalColor = bugButton.colors.normalColor;
+        theColor.pressedColor = Color.blue;
+        bugButton.colors = theColor;
     }
 
     private void ButtonClicked(string bugType)
     {
         GameManager.instance.BugSelectionUI(bugType);
+
     }
 }
