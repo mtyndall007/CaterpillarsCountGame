@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
-//Script for controlling levels, scores, etc. 
+//Script for controlling levels, scores, etc.
 //Has the UI as a child object
 
 public class GameManager : MonoBehaviour
@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
         {
             //Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
             Destroy(gameObject);
-        }         
+        }
 
         //Sets this to not be destroyed when reloading scene
         DontDestroyOnLoad(gameObject);
@@ -130,6 +130,7 @@ public class GameManager : MonoBehaviour
             if (Camera.main.orthographicSize >= defaultFOV)
             {
                 zoomingOut = false;
+                Camera.main.orthographicSize = defaultFOV;
             }
         }
     }
@@ -143,7 +144,7 @@ public class GameManager : MonoBehaviour
         //Zooms camera in on bug
         Camera.main.orthographic = true;
         Camera.main.transform.position = Camera.main.ScreenToWorldPoint(
-            new Vector3(Input.mousePosition.x, Input.mousePosition.y - 10, Input.mousePosition.z));
+            new Vector3(Input.mousePosition.x, Input.mousePosition.y - 50, Input.mousePosition.z));
         zoomingIn = true;
         //Camera.main.orthographicSize = zoomedFOV;
 
@@ -182,7 +183,7 @@ public class GameManager : MonoBehaviour
         }
         if(currentBugScript != null)
         {
-            
+
             currentBugScript.SetColor();
         }
         ReturnFromClick();
@@ -202,7 +203,7 @@ public class GameManager : MonoBehaviour
         //If we're on the last level, display the game over screen. Otherwise go to next level
         if (sceneIterator == spawnedScenes.Length)
         {
-            playerScore = ScoreScript.scoreValue;           
+            playerScore = ScoreScript.scoreValue;
 
             //Hide the game interface
             GameObject mainInterface = GameObject.Find("LevelUI");
@@ -228,12 +229,12 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene(spawnedScenes[sceneIterator]);
         }
 
-        
+
     }
 
     void PlayAgain()
     {
-        //Resets the score and goes back to the first scene. 
+        //Resets the score and goes back to the first scene.
         //Creates new instance of the game manager. Levels should be random again on replay
         ScoreScript.scoreValue = 0;
         Destroy(gameObject);
