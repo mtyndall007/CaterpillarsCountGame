@@ -98,6 +98,7 @@ MonoBehaviour:
   defaultColor: {r: 0.11322139, g: 0.9716981, b: 0.041251317, a: 1}
   points: 10
   classification: Moth
+  lengthInMM: 10
   bugClicked:
     m_PersistentCalls:
       m_Calls: []

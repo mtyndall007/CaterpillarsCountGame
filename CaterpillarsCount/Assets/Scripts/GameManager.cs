@@ -146,15 +146,18 @@ public class GameManager : MonoBehaviour
         Camera.main.transform.position = Camera.main.ScreenToWorldPoint(
             new Vector3(Input.mousePosition.x, Input.mousePosition.y - Mathf.Floor(Screen.height/10), Input.mousePosition.z));
         zoomingIn = true;
-        //Camera.main.orthographicSize = zoomedFOV;
 
         bugSelectionUI.SetActive(true);
         submitButton.gameObject.SetActive(false);
 
         //returnObject.SetActive(true);
+        //Currently disabled
         returnButton = returnObject.GetComponent<Button>();
         returnAction += ReturnFromClick;
         returnButton.onClick.AddListener(returnAction);
+
+        InputField measurementInput = bugSelectionUI.GetComponentInChildren<InputField>();
+        measurementInput.onEndEdit.AddListener(delegate {EvaluateMeasurement(measurementInput); });
 
         Utilities.PauseBugs();
         TimerScript.PauseTime();
@@ -183,7 +186,6 @@ public class GameManager : MonoBehaviour
         }
         if(currentBugScript != null)
         {
-
             currentBugScript.SetColor();
         }
         ReturnFromClick();
@@ -251,6 +253,7 @@ public class GameManager : MonoBehaviour
         Camera.main.transform.position = defaultCameraPosition;
 
         //Hide bug selection screen and bring back normal UI
+        bugSelectionUI.GetComponentInChildren<InputField>().ActivateInputField();
         bugSelectionUI.SetActive(false);
         submitButton.gameObject.SetActive(true);
         returnObject.SetActive(false);
@@ -259,6 +262,7 @@ public class GameManager : MonoBehaviour
         MagnifyGlass.EnableZoom();
         MagnifyGlass.ResetCounter();
         currentBugScript = null;
+
     }
 
     //Helper method that iterates through all the bugs on the screen and calculates their potential score value
@@ -273,6 +277,31 @@ public class GameManager : MonoBehaviour
         //Currently doubles the score, as correctly identifying a bug currently counts as 10 points.
         //This will need to be adjusted eventually
         return 2*tempScore;
+    }
+
+    private void EvaluateMeasurement(InputField input){
+        float approximatedBugLength = float.Parse(input.text);
+        float actualBugLength = currentBugScript.lengthInMM;
+        float minBound = 0;
+        float maxBound = actualBugLength * 2;
+        int scoreValue = 0;
+
+        if(approximatedBugLength >= maxBound){
+          //Do nothing
+        } else if (approximatedBugLength >= actualBugLength){
+          float distance = maxBound - approximatedBugLength;
+          float accuracyPercent = distance/actualBugLength;
+          scoreValue = (int)Mathf.Round(accuracyPercent * (float)currentBugScript.points);
+
+        } else if (approximatedBugLength > minBound){
+          float distance = approximatedBugLength;
+          float accuracyPercent = distance/actualBugLength;
+          scoreValue = (int)Mathf.Round(accuracyPercent * (float)currentBugScript.points);
+        }
+
+        ScoreScript.AddScore(scoreValue);
+        input.text = "Length";
+        input.DeactivateInputField();
     }
 
 }

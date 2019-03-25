@@ -19,6 +19,7 @@ public class Bug : MonoBehaviour
     public Color defaultColor;
     public int points;
     public string classification;
+    public float lengthInMM;
     public BugClickedEvent bugClicked;
 
     // Start is called before the first frame update
@@ -37,7 +38,7 @@ public class Bug : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
         checkForClick();
 
     }

@@ -94,9 +94,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bug: {fileID: 8127568553989428854}
+  paused: 0
   defaultColor: {r: 0.028075218, g: 1, b: 0, a: 1}
   points: 10
   classification: Ant
+  lengthInMM: 5
+  bugClicked:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: BugClickedEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!60 &8127568553989428855
 PolygonCollider2D:
   m_ObjectHideFlags: 0
