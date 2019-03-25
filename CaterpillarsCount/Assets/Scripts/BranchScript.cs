@@ -17,6 +17,8 @@ public class BranchScript : MonoBehaviour
     {
         initializeUnits();
         GameObject temp = GameObject.Find("Ruler");
+        RectTransform tempSprite = temp.GetComponent<RectTransform>();
+        Debug.Log("Ruler in game:" + tempSprite.rect.width);
     }
 
     // Update is called once per frame
@@ -41,6 +43,7 @@ public class BranchScript : MonoBehaviour
         if (tempSprite)
         {
             inGameWidth = tempSprite.rect.width;
+            Debug.Log(inGameWidth);
             millimetersToInGameUnits = widthInMM / inGameWidth;
         }
         else
