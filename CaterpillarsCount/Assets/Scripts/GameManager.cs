@@ -148,12 +148,13 @@ public class GameManager : MonoBehaviour
         //Zooms camera in on bug
         Camera.main.orthographic = true;
         Camera.main.transform.position = Camera.main.ScreenToWorldPoint(
-            new Vector3(Input.mousePosition.x, Input.mousePosition.y - Mathf.Floor(Screen.height/14), Input.mousePosition.z));
+            new Vector3(Input.mousePosition.x, Input.mousePosition.y - Mathf.Floor(Screen.height/12), Input.mousePosition.z));
         zoomingIn = true;
 
         bugSelectionUI.SetActive(true);
         submitButton.gameObject.SetActive(false);
 
+        //Hide the ruler when bug has been clicked
         GameObject ruler = GameObject.Find("Ruler");
         Image rulerImage = ruler.GetComponent<Image>();
         var tempColor = rulerImage.color;
@@ -332,7 +333,8 @@ public class GameManager : MonoBehaviour
       if(measurementGiven && bugHasBeenCategorized){
         ReturnFromClick();
       } else {
-        StartCoroutine(Utilities.PopupMessage("Must select a bug type and measurement", 2));
+        //Might want to send an alert to the user eventually
+        //StartCoroutine(Utilities.PopupMessage("Must select a bug type and measurement", 2));
       }
     }
 
