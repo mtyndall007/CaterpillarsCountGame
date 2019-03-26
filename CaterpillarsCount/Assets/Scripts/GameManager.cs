@@ -152,6 +152,12 @@ public class GameManager : MonoBehaviour
         bugSelectionUI.SetActive(true);
         submitButton.gameObject.SetActive(false);
 
+        GameObject ruler = GameObject.Find("Ruler");
+        Image rulerImage = ruler.GetComponent<Image>();
+        var tempColor = rulerImage.color;
+        tempColor.a = 0f;
+        rulerImage.color = tempColor;
+
         //returnObject.SetActive(true);
         //Currently disabled
         returnButton = returnObject.GetComponent<Button>();
@@ -266,6 +272,11 @@ public class GameManager : MonoBehaviour
         currentBugScript = null;
         bugHasBeenCategorized = false;
         measurementGiven = false;
+        GameObject ruler = GameObject.Find("Ruler");
+        Image rulerImage = ruler.GetComponent<Image>();
+        var tempColor = rulerImage.color;
+        tempColor.a = 171/255f;
+        rulerImage.color = tempColor;
     }
 
     //Helper method that iterates through all the bugs on the screen and calculates their potential score value
@@ -313,6 +324,8 @@ public class GameManager : MonoBehaviour
     private void BugUISubmit(){
       if(measurementGiven && bugHasBeenCategorized){
         ReturnFromClick();
+      } else {
+        StartCoroutine(Utilities.PopupMessage("Must select a bug type and measurement", 1));
       }
     }
 
