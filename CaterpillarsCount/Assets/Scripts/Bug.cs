@@ -29,6 +29,10 @@ public class Bug : MonoBehaviour
         clickable = true;
         paused = false;
 
+        //Will need something like this eventually, but also need to scale based on branch size
+          //lengthInMM = lengthInMM * bug.transform.localScale.x;
+          //Debug.Log(lengthInMM);
+
         if (bugClicked == null)
             bugClicked = new BugClickedEvent();
 
@@ -53,10 +57,16 @@ public class Bug : MonoBehaviour
         paused = false;
     }
 
-    public void SetColor()
+    public void SetCorrectColor()
     {
         SpriteRenderer spriteRenderer = bug.GetComponent<SpriteRenderer>();
-        spriteRenderer.color = defaultColor;
+        spriteRenderer.color = Color.blue;
+    }
+
+    public void SetIncorrectColor()
+    {
+        SpriteRenderer spriteRenderer = bug.GetComponent<SpriteRenderer>();
+        spriteRenderer.color = Color.red;
     }
 
     private void checkForClick()

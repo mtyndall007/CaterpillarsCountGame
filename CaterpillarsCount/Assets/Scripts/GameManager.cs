@@ -66,6 +66,8 @@ public class GameManager : MonoBehaviour
     private bool zoomingOut;
     private float zoomInSpeed = 3f; //5f
     private float zoomOutSpeed = 5f;
+    private bool bugHasBeenCategorized = false;
+    private bool measurementGiven = false;
 
     GameObject gameOver;
     GameObject returnObject;
@@ -159,6 +161,9 @@ public class GameManager : MonoBehaviour
         InputField measurementInput = bugSelectionUI.GetComponentInChildren<InputField>();
         measurementInput.onEndEdit.AddListener(delegate {EvaluateMeasurement(measurementInput); });
 
+        Button bugUISubmitButton = bugSelectionUI.GetComponentInChildren<Button>();
+        bugUISubmitButton.onClick.AddListener(delegate {BugUISubmit(); });
+
         Utilities.PauseBugs();
         TimerScript.PauseTime();
         MagnifyGlass.DisableZoom();
@@ -170,25 +175,22 @@ public class GameManager : MonoBehaviour
     //Checks if user correctly identified the highlighted bug. Displays the result as a text popup
     public void BugSelectionUI(string bugName)
     {
-        if (selectedBug != null)
+        if (selectedBug != null && currentBugScript != null)
         {
             if (selectedBug == bugName)
             {
-                //Hard coded score value for now
-                ScoreScript.AddScore(10);
+                ScoreScript.AddScore(currentBugScript.points);
+                currentBugScript.SetCorrectColor();
                 StartCoroutine(Utilities.PopupMessage("Correct!", 1));
-
             }
             else
             {
+                currentBugScript.SetIncorrectColor();
                 StartCoroutine(Utilities.PopupMessage("Incorrect", 1));
             }
         }
-        if(currentBugScript != null)
-        {
-            currentBugScript.SetColor();
-        }
-        ReturnFromClick();
+        bugHasBeenCategorized = true;
+        //ReturnFromClick();
     }
 
     //For when the user is done with a branch, also called when timer runs out
@@ -262,7 +264,8 @@ public class GameManager : MonoBehaviour
         MagnifyGlass.EnableZoom();
         MagnifyGlass.ResetCounter();
         currentBugScript = null;
-
+        bugHasBeenCategorized = false;
+        measurementGiven = false;
     }
 
     //Helper method that iterates through all the bugs on the screen and calculates their potential score value
@@ -276,7 +279,7 @@ public class GameManager : MonoBehaviour
         }
         //Currently doubles the score, as correctly identifying a bug currently counts as 10 points.
         //This will need to be adjusted eventually
-        return 2*tempScore;
+        return 3*tempScore;
     }
 
     private void EvaluateMeasurement(InputField input){
@@ -289,19 +292,28 @@ public class GameManager : MonoBehaviour
         if(approximatedBugLength >= maxBound){
           //Do nothing
         } else if (approximatedBugLength >= actualBugLength){
+
           float distance = maxBound - approximatedBugLength;
           float accuracyPercent = distance/actualBugLength;
           scoreValue = (int)Mathf.Round(accuracyPercent * (float)currentBugScript.points);
 
         } else if (approximatedBugLength > minBound){
+
           float distance = approximatedBugLength;
           float accuracyPercent = distance/actualBugLength;
           scoreValue = (int)Mathf.Round(accuracyPercent * (float)currentBugScript.points);
         }
 
+        measurementGiven = true;
         ScoreScript.AddScore(scoreValue);
         input.text = "Length";
         input.DeactivateInputField();
+    }
+
+    private void BugUISubmit(){
+      if(measurementGiven && bugHasBeenCategorized){
+        ReturnFromClick();
+      }
     }
 
 }
