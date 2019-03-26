@@ -72,6 +72,7 @@ public class GameManager : MonoBehaviour
     GameObject gameOver;
     GameObject returnObject;
     GameObject bugSelectionUI;
+    GameObject bugButtons;
     Bug currentBugScript;
 
 
@@ -100,6 +101,7 @@ public class GameManager : MonoBehaviour
        //Make the gameover screen invisible
        gameOver.SetActive(false);
 
+      bugButtons = GameObject.Find("BugButtons");
 
        //Hide the bug selection UI at startup
        bugSelectionUI = GameObject.Find("BugSelectionUI");
@@ -146,7 +148,7 @@ public class GameManager : MonoBehaviour
         //Zooms camera in on bug
         Camera.main.orthographic = true;
         Camera.main.transform.position = Camera.main.ScreenToWorldPoint(
-            new Vector3(Input.mousePosition.x, Input.mousePosition.y - Mathf.Floor(Screen.height/10), Input.mousePosition.z));
+            new Vector3(Input.mousePosition.x, Input.mousePosition.y - Mathf.Floor(Screen.height/14), Input.mousePosition.z));
         zoomingIn = true;
 
         bugSelectionUI.SetActive(true);
@@ -181,6 +183,7 @@ public class GameManager : MonoBehaviour
     //Checks if user correctly identified the highlighted bug. Displays the result as a text popup
     public void BugSelectionUI(string bugName)
     {
+
         if (selectedBug != null && currentBugScript != null)
         {
             if (selectedBug == bugName)
@@ -196,7 +199,8 @@ public class GameManager : MonoBehaviour
             }
         }
         bugHasBeenCategorized = true;
-        //ReturnFromClick();
+        bugButtons.SetActive(false);
+
     }
 
     //For when the user is done with a branch, also called when timer runs out
@@ -262,6 +266,7 @@ public class GameManager : MonoBehaviour
 
         //Hide bug selection screen and bring back normal UI
         bugSelectionUI.GetComponentInChildren<InputField>().ActivateInputField();
+        bugButtons.SetActive(true);
         bugSelectionUI.SetActive(false);
         submitButton.gameObject.SetActive(true);
         returnObject.SetActive(false);
@@ -270,8 +275,10 @@ public class GameManager : MonoBehaviour
         MagnifyGlass.EnableZoom();
         MagnifyGlass.ResetCounter();
         currentBugScript = null;
+
         bugHasBeenCategorized = false;
         measurementGiven = false;
+
         GameObject ruler = GameObject.Find("Ruler");
         Image rulerImage = ruler.GetComponent<Image>();
         var tempColor = rulerImage.color;
@@ -325,7 +332,7 @@ public class GameManager : MonoBehaviour
       if(measurementGiven && bugHasBeenCategorized){
         ReturnFromClick();
       } else {
-        StartCoroutine(Utilities.PopupMessage("Must select a bug type and measurement", 1));
+        StartCoroutine(Utilities.PopupMessage("Must select a bug type and measurement", 2));
       }
     }
 
