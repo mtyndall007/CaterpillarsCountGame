@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class SpawningScript : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+    //Lets you adjust how many bugs you want on that branch through inspector
+    public int numOfDesiredBugs;
+
     void Start()
     {
 
-        //Lets you adjust how many bugs you want on that branch
-        int numOfDesiredBugs = 6; 
+
 
 
         //keeps track of which bugs already removed
