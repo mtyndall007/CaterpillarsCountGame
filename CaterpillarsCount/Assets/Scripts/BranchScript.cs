@@ -18,16 +18,8 @@ public class BranchScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        initializeBranchUnits();
-        GameObject ruler = GameObject.Find("Ruler");
-        RectTransform rulerSprite = ruler.GetComponent<RectTransform>();
-        //Ruler was measured at 57mm
-        float inGameRulerWidth = (rulerInMM/millimetersToInGameUnits);
-        rulerSprite.sizeDelta = new Vector2(inGameRulerWidth, inGameRulerWidth/rulerWidthHeightRatio);
-        Debug.Log("In game ruler width: " + inGameRulerWidth);
-
-
-        Debug.Log("Ruler in game:" + rulerSprite.rect.width);
+        InitializeBranchUnits();
+        ResizeRuler();
     }
 
     // Update is called once per frame
@@ -44,7 +36,7 @@ public class BranchScript : MonoBehaviour
         }
     }
 
-    private void initializeBranchUnits()
+    private void InitializeBranchUnits()
     {
         branch = gameObject;
         SpriteRenderer temp = branch.GetComponentInChildren<SpriteRenderer>();
@@ -61,6 +53,18 @@ public class BranchScript : MonoBehaviour
           {
               Debug.Log("Need a branch sprite");
           }
+    }
+
+    private void ResizeRuler(){
+      GameObject ruler = GameObject.Find("Ruler");
+      RectTransform rulerSprite = ruler.GetComponent<RectTransform>();
+      //Ruler was measured at 57mm
+      float inGameRulerWidth = (rulerInMM/millimetersToInGameUnits);
+      rulerSprite.sizeDelta = new Vector2(inGameRulerWidth, inGameRulerWidth/rulerWidthHeightRatio);
+      Debug.Log("In game ruler width: " + inGameRulerWidth);
+
+
+      Debug.Log("Ruler in game:" + rulerSprite.rect.width);
     }
 
 }
