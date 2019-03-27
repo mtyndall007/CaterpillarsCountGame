@@ -19,6 +19,7 @@ public class Bug : MonoBehaviour
     public Color defaultColor;
     public int points;
     public string classification;
+    public float lengthInMM;
     public BugClickedEvent bugClicked;
 
     // Start is called before the first frame update
@@ -27,6 +28,10 @@ public class Bug : MonoBehaviour
         bug = gameObject;
         clickable = true;
         paused = false;
+
+        //Will need something like this eventually, but also need to scale based on branch size
+          //lengthInMM = lengthInMM * bug.transform.localScale.x;
+          //Debug.Log(lengthInMM);
 
         if (bugClicked == null)
             bugClicked = new BugClickedEvent();
@@ -37,7 +42,7 @@ public class Bug : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
         checkForClick();
 
     }
@@ -52,10 +57,16 @@ public class Bug : MonoBehaviour
         paused = false;
     }
 
-    public void SetColor()
+    public void SetCorrectColor()
     {
         SpriteRenderer spriteRenderer = bug.GetComponent<SpriteRenderer>();
-        spriteRenderer.color = defaultColor;
+        spriteRenderer.color = Color.blue;
+    }
+
+    public void SetIncorrectColor()
+    {
+        SpriteRenderer spriteRenderer = bug.GetComponent<SpriteRenderer>();
+        spriteRenderer.color = Color.red;
     }
 
     private void checkForClick()

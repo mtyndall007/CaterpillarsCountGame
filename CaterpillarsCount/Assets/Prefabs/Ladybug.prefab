@@ -300,6 +300,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bug: {fileID: 8941881824626096517}
+  paused: 0
   defaultColor: {r: 0.18197025, g: 0.8679245, b: 0.10234957, a: 1}
   points: 10
   classification: Beetle
+  lengthInMM: 4
+  bugClicked:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: BugClickedEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
