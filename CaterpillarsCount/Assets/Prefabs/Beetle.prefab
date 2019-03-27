@@ -221,6 +221,16 @@ PrefabInstance:
       propertyPath: bug
       value: 
       objectReference: {fileID: 2986140335522261543}
+    - target: {fileID: 129562080871555187, guid: 1512db5271285c744a35f672b3577417,
+        type: 3}
+      propertyPath: classification
+      value: Beetle
+      objectReference: {fileID: 0}
+    - target: {fileID: 129562080871555187, guid: 1512db5271285c744a35f672b3577417,
+        type: 3}
+      propertyPath: lengthInMM
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 129562080871555185, guid: 1512db5271285c744a35f672b3577417,
         type: 3}
       propertyPath: m_Sprite
