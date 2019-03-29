@@ -20,9 +20,9 @@ public class MagnifyGlass : MonoBehaviour
         DontDestroyOnLoad(magnifyBorders);
         DontDestroyOnLoad(magnifyCamera);
         zoomable = true;
-           
+
     }
-    
+
     void Update()
     {
         if (Input.GetMouseButtonDown(1) && zoomable)
@@ -45,8 +45,8 @@ public class MagnifyGlass : MonoBehaviour
             magnifyBorders.SetActive(false);
 
         }
-            
-        
+
+
     }
 
     public static void EnableZoom()
