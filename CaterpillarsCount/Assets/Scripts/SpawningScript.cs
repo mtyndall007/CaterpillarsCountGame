@@ -6,7 +6,7 @@ public class SpawningScript : MonoBehaviour
 {
 
     //Lets you adjust how many bugs you want on that branch through inspector
-    public int numOfDesiredBugs;
+    public int numOfBugs;
 
     void Start()
     {
@@ -18,7 +18,7 @@ public class SpawningScript : MonoBehaviour
 
 
         //Loop to add bugs
-        for (int i = 0; i < numOfDesiredBugs; i++)
+        for (int i = 0; i < numOfBugs; i++)
         {
             //randomly picks a spawnPoint
             int point = Random.Range(0, transform.childCount);
@@ -54,5 +54,28 @@ public class SpawningScript : MonoBehaviour
 
     }
 
-  
+    //Getters and Setters
+    public int getNumOfBugs() { return numOfBugs; }
+    public void setNumOfBugs(int value) { numOfBugs = value; }
+
+    //Sets the number of bugs based off the difficulty of the level
+    public void setNumWithDifficulty(string difficulty)
+    {
+        if(difficulty == "Easy")
+        {
+            setNumOfBugs(3);
+
+        }else if(difficulty == "Medium")
+        {
+            setNumOfBugs(4);
+        }
+        else
+        {
+            setNumOfBugs(5);
+        }
+    }
+
+
+
+
 }
