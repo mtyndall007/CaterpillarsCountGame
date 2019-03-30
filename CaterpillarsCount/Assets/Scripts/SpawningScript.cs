@@ -10,43 +10,46 @@ public class SpawningScript : MonoBehaviour
 
     void Start()
     {
-
-        //keeps track of which bugs already removed
-        HashSet<Transform> alreadyAdded = new HashSet<Transform>();
+        //GameObject holding spawned bugs
         Transform spawnedBugs = GameObject.Find("SpawnedBugs").transform;
 
+        //keeps track of which bugs are already added to scene
+        HashSet<Transform> alreadyAdded = new HashSet<Transform>();
 
-        //For loop to removed excess bugs
 
+        //Loop to add bugs
         for (int i = 0; i < numOfDesiredBugs; i++)
         {
             //randomly picks a spawnPoint
             int point = Random.Range(0, transform.childCount);
             Transform spawnPoint = transform.GetChild(point);
 
-            //while loop checks and see if that child has already been deleted
+            //while loop checks if spawn point has been used
+            //IF has been used, finds one that hasnt
             while(alreadyAdded.Contains(spawnPoint))
             {
                 point = Random.Range(0, transform.childCount);
                 spawnPoint = transform.GetChild(point);
             }
 
-            //adds it to Hashset
+            //adds spawnpoint to hashset
             alreadyAdded.Add(spawnPoint);
 
-            //gets bug from that spawn point
+            //randomly picks bug that can spawn from that spawn point
             int bugIndex = Random.Range(0, spawnPoint.childCount);
             Transform bug = spawnPoint.GetChild(bugIndex);
 
             //duplicates it and adds it to the spawnBugs 
-            Transform duplicate = Instantiate(bug);
-            Vector3 bugPosition = spawnPoint.position + duplicate.position;
+            Transform newBug = Instantiate(bug);
 
-            duplicate.transform.position = bugPosition;
-            duplicate.gameObject.SetActive(true);
+            //sets the bugs position
+            Vector3 bugPosition = spawnPoint.position + newBug.position;
+            newBug.transform.position = bugPosition;
+            newBug.gameObject.SetActive(true);
 
-            duplicate.parent = spawnedBugs;
-
+            //adds the bug to scene and makes it visible
+            newBug.parent = spawnedBugs;
+            newBug.gameObject.SetActive(true);
         }
 
     }
