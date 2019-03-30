@@ -11,31 +11,41 @@ public class SpawningScript : MonoBehaviour
     void Start()
     {
 
-
-
-
         //keeps track of which bugs already removed
-        HashSet<Transform> alreadyRemoved = new HashSet<Transform>();
+        HashSet<Transform> alreadyAdded = new HashSet<Transform>();
+        Transform spawnedBugs = GameObject.Find("SpawnedBugs").transform;
+
 
         //For loop to removed excess bugs
-        int removeCount = transform.childCount - numOfDesiredBugs;
-        for (int i = 0; i < removeCount; i++)
+
+        for (int i = 0; i < numOfDesiredBugs; i++)
         {
-            //randomly picks a child to delete
-            int childToRemove = Random.Range(0, transform.childCount - 1);
-            Transform child = transform.GetChild(childToRemove);
+            //randomly picks a spawnPoint
+            int point = Random.Range(0, transform.childCount);
+            Transform spawnPoint = transform.GetChild(point);
 
             //while loop checks and see if that child has already been deleted
-            while(alreadyRemoved.Contains(child))
-            { 
-                childToRemove = Random.Range(0, transform.childCount - 1);
-                child = transform.GetChild(childToRemove);
+            while(alreadyAdded.Contains(spawnPoint))
+            {
+                point = Random.Range(0, transform.childCount);
+                spawnPoint = transform.GetChild(point);
             }
 
-            //removes child and adds it to Hashset
-            Destroy(child.gameObject);
-            alreadyRemoved.Add(child);
+            //adds it to Hashset
+            alreadyAdded.Add(spawnPoint);
 
+            //gets bug from that spawn point
+            int bugIndex = Random.Range(0, spawnPoint.childCount);
+            Transform bug = spawnPoint.GetChild(bugIndex);
+
+            //duplicates it and adds it to the spawnBugs 
+            Transform duplicate = Instantiate(bug);
+            Vector3 bugPosition = spawnPoint.position + duplicate.position;
+
+            duplicate.transform.position = bugPosition;
+            duplicate.gameObject.SetActive(true);
+
+            duplicate.parent = spawnedBugs;
 
         }
 
