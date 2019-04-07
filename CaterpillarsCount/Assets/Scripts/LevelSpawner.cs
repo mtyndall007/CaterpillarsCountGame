@@ -6,16 +6,19 @@ using UnityEngine;
 public class LevelSpawner : MonoBehaviour
 {
     //Calculate number of levels
-    static DirectoryInfo dirInfo = new DirectoryInfo("Assets/Scenes");
+    static string absolutePath = Application.dataPath;
+
+    static DirectoryInfo dirInfo = new DirectoryInfo(absolutePath + "/Scenes");
     private static int levelCount = dirInfo.GetFiles().Length;
-    
+
 
     public static string[] SpawnScenes()
     {
+          Debug.Log(absolutePath);
         //Array for scene names. One array entry for each level
         string[] returnArray = new string[levelCount];
         List<string> tmp = new List<string>();
-            
+
         for (int j = 1; j <= levelCount; j++)
         {
             //Find scenes in the corresponding level folder
@@ -28,6 +31,6 @@ public class LevelSpawner : MonoBehaviour
             tmp.Add(sceneName);
         }
         return tmp.ToArray();
-      
+
     }
 }
