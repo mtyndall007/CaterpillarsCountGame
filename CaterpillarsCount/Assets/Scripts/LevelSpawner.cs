@@ -8,7 +8,7 @@ public class LevelSpawner : MonoBehaviour
     //Calculate number of levels
     static string absolutePath = Application.dataPath;
 
-    static DirectoryInfo dirInfo = new DirectoryInfo(absolutePath + "/Scenes");
+    static DirectoryInfo dirInfo = new DirectoryInfo(Application.streamingAssetsPath);
     private static int levelCount = dirInfo.GetFiles().Length;
 
 
