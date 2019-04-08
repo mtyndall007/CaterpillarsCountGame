@@ -73,6 +73,7 @@ public class GameManager : MonoBehaviour
     GameObject returnObject;
     GameObject bugSelectionUI;
     GameObject bugButtons;
+    GameObject ruler;
     Bug currentBugScript;
 
 
@@ -80,6 +81,9 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         selectedBug = null;
+
+        ruler = GameObject.Find("Ruler");
+        ruler.SetActive(true);
 
         returnObject = GameObject.Find("Return");
         returnObject.SetActive(false);
@@ -156,11 +160,14 @@ public class GameManager : MonoBehaviour
         bugSelectionUI.SetActive(true);
 
         //Hide the ruler when bug has been clicked
-        GameObject ruler = GameObject.Find("Ruler");
+        ruler.SetActive(false);
+        //GameObject ruler = GameObject.Find("Ruler");
+        /*
         Image rulerImage = ruler.GetComponent<Image>();
         var tempColor = rulerImage.color;
         tempColor.a = 0f;
         rulerImage.color = tempColor;
+        */
 
         //returnObject.SetActive(true);
         //Currently disabled
@@ -283,11 +290,14 @@ public class GameManager : MonoBehaviour
         bugHasBeenCategorized = false;
         measurementGiven = false;
 
-        GameObject ruler = GameObject.Find("Ruler");
+        ruler.SetActive(true);
+        //GameObject ruler = GameObject.Find("Ruler");
+        /*
         Image rulerImage = ruler.GetComponent<Image>();
         var tempColor = rulerImage.color;
         tempColor.a = 171/255f;
         rulerImage.color = tempColor;
+        */
     }
 
     //Helper method that iterates through all the bugs on the screen and calculates their potential score value
