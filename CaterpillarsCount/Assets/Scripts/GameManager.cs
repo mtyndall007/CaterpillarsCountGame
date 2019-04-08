@@ -20,9 +20,9 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
             //Calls a utility method that selects the level for a given playthrough. Store these in an array of scenes.
-            spawnedScenes = LevelSpawner.SpawnScenes();
+            //spawnedScenes = LevelSpawner.SpawnScenes();
             sceneIterator = 0;
-            SceneManager.LoadScene(spawnedScenes[sceneIterator]);
+            SceneManager.LoadScene(sceneIterator);
         }
         //If instance already exists and it's not this:
         else if (instance != this)
@@ -216,7 +216,7 @@ public class GameManager : MonoBehaviour
         selectedBug = null;
 
         //If we're on the last level, display the game over screen. Otherwise go to next level
-        if (sceneIterator == spawnedScenes.Length)
+        if (sceneIterator == 6)
         {
             playerScore = ScoreScript.scoreValue;
 
@@ -241,7 +241,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene(spawnedScenes[sceneIterator]);
+            SceneManager.LoadScene(sceneIterator);
         }
 
 
@@ -253,7 +253,7 @@ public class GameManager : MonoBehaviour
         //Creates new instance of the game manager. Levels should be random again on replay
         ScoreScript.scoreValue = 0;
         Destroy(gameObject);
-        SceneManager.LoadScene(spawnedScenes[0]);
+        SceneManager.LoadScene(0);
     }
 
     //Can be used for return button as well as after submitting a bug

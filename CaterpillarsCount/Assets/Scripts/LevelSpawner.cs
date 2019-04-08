@@ -9,7 +9,7 @@ public class LevelSpawner : MonoBehaviour
     static string absolutePath = Application.dataPath;
 
     static DirectoryInfo dirInfo = new DirectoryInfo(Application.streamingAssetsPath + "/Scenes");
-    private static int levelCount = dirInfo.GetFiles().Length;
+    private static int levelCount = 6; //dirInfo.GetFiles().Length;
 
 
     public static string[] SpawnScenes()
@@ -24,7 +24,7 @@ public class LevelSpawner : MonoBehaviour
         for (int j = 1; j <= levelCount; j++)
         {
             //Find scenes in the corresponding level folder
-            DirectoryInfo dir = new DirectoryInfo(dirInfo + "/Level" + j.ToString());
+            DirectoryInfo dir = new DirectoryInfo(dirInfo + "/Demo" + j.ToString());
             FileInfo[] info = dir.GetFiles("*.unity");
 
             //Select a random scene from each level
