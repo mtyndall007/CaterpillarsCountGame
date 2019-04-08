@@ -145,14 +145,15 @@ public class GameManager : MonoBehaviour
     //Public method for a bug to call once it has been clicked
     public void BugClicked(GameObject bug)
     {
+        StartCoroutine(Utilities.PopupMessage("Bug clicked", 1));
         //Zooms camera in on bug
         Camera.main.orthographic = true;
         Camera.main.transform.position = Camera.main.ScreenToWorldPoint(
             new Vector3(Input.mousePosition.x, Input.mousePosition.y - Mathf.Floor(Screen.height/12), Input.mousePosition.z));
         zoomingIn = true;
 
-        bugSelectionUI.SetActive(true);
         submitButton.gameObject.SetActive(false);
+        bugSelectionUI.SetActive(true);
 
         //Hide the ruler when bug has been clicked
         GameObject ruler = GameObject.Find("Ruler");
@@ -163,19 +164,21 @@ public class GameManager : MonoBehaviour
 
         //returnObject.SetActive(true);
         //Currently disabled
+        /*
         returnButton = returnObject.GetComponent<Button>();
         returnAction += ReturnFromClick;
         returnButton.onClick.AddListener(returnAction);
+        */
 
         InputField measurementInput = bugSelectionUI.GetComponentInChildren<InputField>();
         measurementInput.onEndEdit.AddListener(delegate {EvaluateMeasurement(measurementInput); });
 
-        Button bugUISubmitButton = bugSelectionUI.GetComponentInChildren<Button>();
+        Button bugUISubmitButton = GameObject.Find("BugUISubmit").GetComponent<Button>();//bugSelectionUI.GetComponentInChildren<Button>();
         bugUISubmitButton.onClick.AddListener(delegate {BugUISubmit(); });
 
         Utilities.PauseBugs();
         TimerScript.PauseTime();
-        MagnifyGlass.DisableZoom();
+        //MagnifyGlass.DisableZoom();
 
         currentBugScript = bug.GetComponent<Bug>();
         selectedBug = currentBugScript.classification;
@@ -273,8 +276,8 @@ public class GameManager : MonoBehaviour
         returnObject.SetActive(false);
         TimerScript.ResumeTime();
         Utilities.ResumeBugs();
-        MagnifyGlass.EnableZoom();
-        MagnifyGlass.ResetCounter();
+        //MagnifyGlass.EnableZoom();
+        //MagnifyGlass.ResetCounter();
         currentBugScript = null;
 
         bugHasBeenCategorized = false;
