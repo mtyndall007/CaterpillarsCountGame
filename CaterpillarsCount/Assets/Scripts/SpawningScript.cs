@@ -7,11 +7,23 @@ public class SpawningScript : MonoBehaviour
 
     //Lets you adjust how many bugs you want on that branch through inspector
     public int numOfBugs;
-
+   
     void Start()
     {
         //GameObject holding spawned bugs
         Transform spawnedBugs = GameObject.Find("SpawnedBugs").transform;
+
+
+        //catches exceptions with the number of bugs
+        if (numOfBugs > transform.childCount)
+        {
+            numOfBugs = transform.childCount;
+        }
+        else if (numOfBugs < 0)
+        {
+            numOfBugs = 0;
+        }
+
 
         //keeps track of which bugs are already added to scene
         HashSet<Transform> alreadyAdded = new HashSet<Transform>();
@@ -20,6 +32,8 @@ public class SpawningScript : MonoBehaviour
         //Loop to add bugs
         for (int i = 0; i < numOfBugs; i++)
         {
+
+
             //randomly picks a spawnPoint
             int point = Random.Range(0, transform.childCount);
             Transform spawnPoint = transform.GetChild(point);
@@ -50,6 +64,7 @@ public class SpawningScript : MonoBehaviour
             //adds the bug to scene and makes it visible
             newBug.parent = spawnedBugs;
             newBug.gameObject.SetActive(true);
+
         }
 
     }
@@ -59,13 +74,16 @@ public class SpawningScript : MonoBehaviour
     public void setNumOfBugs(int value) { numOfBugs = value; }
 
     //Sets the number of bugs based off the difficulty of the level
+    /*
+     * Pass in name of file to see what level it is and picks a value associated with that level?
+     */
     public void setNumWithDifficulty(string difficulty)
     {
-        if(difficulty == "Easy")
+        if(difficulty == "Level1")
         {
             setNumOfBugs(3);
 
-        }else if(difficulty == "Medium")
+        }else if(difficulty == "Level2")
         {
             setNumOfBugs(4);
         }
@@ -75,7 +93,7 @@ public class SpawningScript : MonoBehaviour
         }
     }
 
-
+   
 
 
 }
