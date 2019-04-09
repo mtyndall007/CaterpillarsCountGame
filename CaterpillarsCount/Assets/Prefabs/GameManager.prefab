@@ -696,6 +696,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: 'Length '
       objectReference: {fileID: 0}
+    - target: {fileID: 2843739029394771242, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
+        type: 3}
+      propertyPath: m_Name
+      value: BugUISubmit
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19b5be43efdd57e4da3a268cb0c2f8c5, type: 3}
 --- !u!4 &5680041458399563801 stripped

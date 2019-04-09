@@ -52,6 +52,7 @@ public class GameManager : MonoBehaviour
     Button submitButton;
     Button playAgainButton;
     Button returnButton;
+    Button bugUISubmitButton;
 
     private int playerScore;
     private int totalScore;
@@ -180,7 +181,7 @@ public class GameManager : MonoBehaviour
         InputField measurementInput = bugSelectionUI.GetComponentInChildren<InputField>();
         measurementInput.onEndEdit.AddListener(delegate {EvaluateMeasurement(measurementInput); });
 
-        Button bugUISubmitButton = GameObject.Find("Submit").GetComponent<Button>();//bugSelectionUI.GetComponentInChildren<Button>();
+        bugUISubmitButton = GameObject.Find("BugUISubmit").GetComponent<Button>();//bugSelectionUI.GetComponentInChildren<Button>();
         bugUISubmitButton.onClick.AddListener(delegate {BugUISubmit(); });
 
         Utilities.PauseBugs();
