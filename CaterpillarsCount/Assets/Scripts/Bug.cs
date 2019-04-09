@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEditor;
 
 //Generic script for bugs. Can be used as a generic parent class for more specific bugs, but not sure if it's necessary yet.
 //Public variables so that we can tweak what color each bug is, their point value, etc.
@@ -37,6 +38,8 @@ public class Bug : MonoBehaviour
             bugClicked = new BugClickedEvent();
 
         bugClicked.AddListener(GameManager.instance.bugClicked);
+
+        adjustForBug();
     }
 
     // Update is called once per frame
@@ -46,6 +49,30 @@ public class Bug : MonoBehaviour
         checkForClick();
 
     }
+
+    private void adjustForBug()
+    {
+        SpriteRenderer spriteRenderer = bug.GetComponent<SpriteRenderer>();
+        string name = "";
+        string[] names = { "Caterpillar", "Ant", "Ladybug" };
+        classification = names[Random.Range(0, 3)];
+        switch (classification)
+        {
+            case ("Caterpillar"):
+                name = "Caterpillar.JPG";
+                lengthInMM = 2;
+                break;
+            case "Ant":
+                name = "Ant.png";
+                lengthInMM = 3;
+                break;
+            case "Ladybug":
+                name = "Ladybug.png";
+                lengthInMM = 4;
+                break;
+        }
+        spriteRenderer.sprite = (Sprite)AssetDatabase.LoadAssetAtPath("Assets/Sprites/Bugs/" + name, typeof(Sprite));
+    } 
 
     public void PauseBug()
     {
