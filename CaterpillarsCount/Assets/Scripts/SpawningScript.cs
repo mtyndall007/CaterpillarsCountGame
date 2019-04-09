@@ -6,40 +6,94 @@ public class SpawningScript : MonoBehaviour
 {
 
     //Lets you adjust how many bugs you want on that branch through inspector
-    public int numOfDesiredBugs;
-
+    public int numOfBugs;
+   
     void Start()
     {
+        //GameObject holding spawned bugs
+        Transform spawnedBugs = GameObject.Find("SpawnedBugs").transform;
 
 
-
-
-        //keeps track of which bugs already removed
-        HashSet<Transform> alreadyRemoved = new HashSet<Transform>();
-
-        //For loop to removed excess bugs
-        int removeCount = transform.childCount - numOfDesiredBugs;
-        for (int i = 0; i < removeCount; i++)
+        //catches exceptions with the number of bugs
+        if (numOfBugs > transform.childCount)
         {
-            //randomly picks a child to delete
-            int childToRemove = Random.Range(0, transform.childCount - 1);
-            Transform child = transform.GetChild(childToRemove);
+            numOfBugs = transform.childCount;
+        }
+        else if (numOfBugs < 0)
+        {
+            numOfBugs = 0;
+        }
 
-            //while loop checks and see if that child has already been deleted
-            while(alreadyRemoved.Contains(child))
-            { 
-                childToRemove = Random.Range(0, transform.childCount - 1);
-                child = transform.GetChild(childToRemove);
+
+        //keeps track of which bugs are already added to scene
+        HashSet<Transform> alreadyAdded = new HashSet<Transform>();
+
+
+        //Loop to add bugs
+        for (int i = 0; i < numOfBugs; i++)
+        {
+
+
+            //randomly picks a spawnPoint
+            int point = Random.Range(0, transform.childCount);
+            Transform spawnPoint = transform.GetChild(point);
+
+            //while loop checks if spawn point has been used
+            //IF has been used, finds one that hasnt
+            while(alreadyAdded.Contains(spawnPoint))
+            {
+                point = Random.Range(0, transform.childCount);
+                spawnPoint = transform.GetChild(point);
             }
 
-            //removes child and adds it to Hashset
-            Destroy(child.gameObject);
-            alreadyRemoved.Add(child);
+            //adds spawnpoint to hashset
+            alreadyAdded.Add(spawnPoint);
 
+            //randomly picks bug that can spawn from that spawn point
+            int bugIndex = Random.Range(0, spawnPoint.childCount);
+            Transform bug = spawnPoint.GetChild(bugIndex);
+
+            //duplicates it and adds it to the spawnBugs 
+            Transform newBug = Instantiate(bug);
+
+            //sets the bugs position
+            Vector3 bugPosition = spawnPoint.position + newBug.position;
+            newBug.transform.position = bugPosition;
+            newBug.gameObject.SetActive(true);
+
+            //adds the bug to scene and makes it visible
+            newBug.parent = spawnedBugs;
+            newBug.gameObject.SetActive(true);
 
         }
 
     }
 
-  
+    //Getters and Setters
+    public int getNumOfBugs() { return numOfBugs; }
+    public void setNumOfBugs(int value) { numOfBugs = value; }
+
+    //Sets the number of bugs based off the difficulty of the level
+    /*
+     * Pass in name of file to see what level it is and picks a value associated with that level?
+     */
+    public void setNumWithDifficulty(string difficulty)
+    {
+        if(difficulty == "Level1")
+        {
+            setNumOfBugs(3);
+
+        }else if(difficulty == "Level2")
+        {
+            setNumOfBugs(4);
+        }
+        else
+        {
+            setNumOfBugs(5);
+        }
+    }
+
+   
+
+
 }
