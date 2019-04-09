@@ -14,7 +14,7 @@ public class Utilities : MonoBehaviour
         {
             bug.PauseBug();
         }
-      
+
     }
 
     //Resume bugs so that those that haven't been found are clickable
@@ -27,7 +27,25 @@ public class Utilities : MonoBehaviour
         }
 
     }
+    /*
+    public static void Resize(Branch branch, GameObject gObject){
 
+      int inGameBranchWidth = branch.rect.width;
+      int branchWidthInMM = branch.branchWidthInMM;
+      Debug.Log("Branch width in game: " + inGameBranchWidth);
+      float millimetersToInGameUnits = branchWidthInMM / inGameBranchWidth;
+      Debug.Log("MM to ingame: " + millimetersToInGameUnits);
+
+      RectTransform rectT = gObject.GetComponent<RectTransform>();
+
+      float inGameWidth = (gObject.lengthInMM/millimetersToInGameUnits);
+      rectT.sizeDelta = new Vector2(inGameWidth, inGameWidth/rulerWidthHeightRatio);
+      Debug.Log("In game ruler width: " + inGameRulerWidth);
+
+
+      Debug.Log("Ruler in game:" + rulerSprite.rect.width);
+    }
+    */
     //Creates a popup message, run it via a coroutine
     public static IEnumerator PopupMessage(string message, float delay)
     {
