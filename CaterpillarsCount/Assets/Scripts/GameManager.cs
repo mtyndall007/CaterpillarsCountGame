@@ -207,7 +207,7 @@ public class GameManager : MonoBehaviour
             else
             {
                 currentBugScript.SetIncorrectColor();
-                StartCoroutine(Utilities.PopupMessage("Incorrect", 1));
+                StartCoroutine(Utilities.PopupMessage("Incorrect. The right answer was " + selectedBug, 2));
             }
         }
         bugHasBeenCategorized = true;
