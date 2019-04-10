@@ -27,25 +27,51 @@ public class Utilities : MonoBehaviour
         }
 
     }
-    /*
-    public static void Resize(Branch branch, GameObject gObject){
+    public static void ScaleBug(BranchScript branch, Bug bug){
 
-      int inGameBranchWidth = branch.rect.width;
+      GameObject bugGameObject = bug.bug;
+      RectTransform bugRT = bugGameObject.GetComponent<RectTransform>();
+      float bugWidthHeightRatio = bugRT.rect.width/bugRT.rect.height;
+
+      float inGameBranchWidth = branch.inGameBranchWidth;
       int branchWidthInMM = branch.branchWidthInMM;
       Debug.Log("Branch width in game: " + inGameBranchWidth);
       float millimetersToInGameUnits = branchWidthInMM / inGameBranchWidth;
       Debug.Log("MM to ingame: " + millimetersToInGameUnits);
 
-      RectTransform rectT = gObject.GetComponent<RectTransform>();
+      RectTransform rectT = bug.GetComponent<RectTransform>();
 
-      float inGameWidth = (gObject.lengthInMM/millimetersToInGameUnits);
-      rectT.sizeDelta = new Vector2(inGameWidth, inGameWidth/rulerWidthHeightRatio);
-      Debug.Log("In game ruler width: " + inGameRulerWidth);
+      float inGameWidth = (bug.lengthInMM/millimetersToInGameUnits);
+      rectT.sizeDelta = new Vector2(inGameWidth, inGameWidth/bugWidthHeightRatio);
+      //Debug.Log("In game ruler width: " + inGameRulerWidth);
 
 
-      Debug.Log("Ruler in game:" + rulerSprite.rect.width);
+      //Debug.Log("Ruler in game:" + rulerSprite.rect.width);
     }
-    */
+
+    //Overloaded method
+    public static void ScaleBug(BranchScript branch, GameObject bugObject){
+
+      //GameObject bugGameObject = bug.bug;
+      Bug bug = bugObject.GetComponent<Bug>();
+      RectTransform bugRT = bugObject.GetComponent<RectTransform>();
+      float bugWidthHeightRatio = bugRT.rect.width/bugRT.rect.height;
+
+      float inGameBranchWidth = branch.inGameBranchWidth;
+      int branchWidthInMM = branch.branchWidthInMM;
+      Debug.Log("Branch width in game: " + inGameBranchWidth);
+      float millimetersToInGameUnits = branchWidthInMM / inGameBranchWidth;
+      Debug.Log("MM to ingame: " + millimetersToInGameUnits);
+
+      RectTransform rectT = bug.GetComponent<RectTransform>();
+
+      float inGameWidth = (bug.lengthInMM/millimetersToInGameUnits);
+      rectT.sizeDelta = new Vector2(inGameWidth, inGameWidth/bugWidthHeightRatio);
+      //Debug.Log("In game ruler width: " + inGameRulerWidth);
+
+
+      //Debug.Log("Ruler in game:" + rulerSprite.rect.width);
+    }
     //Creates a popup message, run it via a coroutine
     public static IEnumerator PopupMessage(string message, float delay)
     {
