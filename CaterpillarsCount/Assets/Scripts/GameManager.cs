@@ -150,7 +150,7 @@ public class GameManager : MonoBehaviour
     //Public method for a bug to call once it has been clicked
     public void BugClicked(GameObject bug)
     {
-        StartCoroutine(Utilities.PopupMessage("Bug clicked", 1));
+
         //Zooms camera in on bug
         Camera.main.orthographic = true;
         Camera.main.transform.position = Camera.main.ScreenToWorldPoint(
@@ -337,6 +337,9 @@ public class GameManager : MonoBehaviour
           scoreValue = (int)Mathf.Round(accuracyPercent * (float)currentBugScript.points);
         }
 
+        StartCoroutine(Utilities.PopupMessage("Actual size: " + actualBugLength + "mm" + "\n" +
+                                              "Your measurement: " + approximatedBugLength + "mm" + "\n" +
+                                              "Points awarded: " + scoreValue, 2));
         measurementGiven = true;
         ScoreScript.AddScore(scoreValue);
         input.text = "Length";
