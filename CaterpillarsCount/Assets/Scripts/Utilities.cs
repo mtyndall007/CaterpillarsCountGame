@@ -27,7 +27,7 @@ public class Utilities : MonoBehaviour
         }
 
     }
-  
+
     public static void ScaleBug(BranchScript branch, GameObject bugObject){
 
       Bug bug = bugObject.GetComponent<Bug>();
@@ -37,7 +37,6 @@ public class Utilities : MonoBehaviour
 
 
       Vector3 scaleFactor = new Vector3(scaleRatio, scaleRatio, scaleRatio);
-      Vector3 finalRation = scaleFactor *
       Debug.Log(scaleRatio);
       bugObject.transform.localScale = scaleFactor;
 
