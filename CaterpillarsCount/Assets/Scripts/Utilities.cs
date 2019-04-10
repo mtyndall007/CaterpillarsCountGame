@@ -38,7 +38,9 @@ public class Utilities : MonoBehaviour
 
       Vector3 scaleFactor = new Vector3(scaleRatio, scaleRatio, scaleRatio);
       Debug.Log(scaleRatio);
-      bugObject.transform.localScale = scaleFactor;
+
+      Transform branchTransform = branch.gameObject.transform;
+      bugObject.transform.localScale = branchTransform.localScale * scaleRatio;
 
     }
     //Creates a popup message, run it via a coroutine
