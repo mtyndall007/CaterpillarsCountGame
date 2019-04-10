@@ -12,6 +12,7 @@ public class MagnifyGlass : MonoBehaviour
     private static int rightClickCounter;
     private static bool zoomable;
 
+    public Material lineMaterial;
 
     void Start()
     {
@@ -20,9 +21,9 @@ public class MagnifyGlass : MonoBehaviour
         DontDestroyOnLoad(magnifyBorders);
         DontDestroyOnLoad(magnifyCamera);
         zoomable = true;
-           
+
     }
-    
+
     void Update()
     {
         if (Input.GetMouseButtonDown(1) && zoomable)
@@ -45,8 +46,8 @@ public class MagnifyGlass : MonoBehaviour
             magnifyBorders.SetActive(false);
 
         }
-            
-        
+
+
     }
 
     public static void EnableZoom()
@@ -118,7 +119,7 @@ public class MagnifyGlass : MonoBehaviour
     private LineRenderer getLine()
     {
         LineRenderer line = new GameObject("Line").AddComponent<LineRenderer>();
-        line.material = new Material(Shader.Find("Diffuse"));
+        line.material = lineMaterial;
         line.SetVertexCount(2);
         line.SetWidth(0.2f, 0.2f);
         line.SetColors(Color.black, Color.black);
