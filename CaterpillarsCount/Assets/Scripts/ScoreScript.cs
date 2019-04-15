@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ScoreScript : MonoBehaviour
 {
     public static int scoreValue = 0;
+    public static int levelScore = 0;
     Text score;
 
 
@@ -25,5 +26,10 @@ public class ScoreScript : MonoBehaviour
     public static void AddScore(int score)
     {
         scoreValue += score;
+        levelScore += score;
+    }
+
+    public static void ResetScore(){
+      levelScore = 0;
     }
 }

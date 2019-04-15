@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
             instance = this;
             //Calls a utility method that selects the level for a given playthrough. Store these in an array of scenes.
             //spawnedScenes = LevelSpawner.SpawnScenes();
-            sceneIterator = 0;
+            sceneIterator = 2;
             SceneManager.LoadScene(sceneIterator);
         }
         //If instance already exists and it's not this:
@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
     //Used for tracking what scenes are loaded
     //spawnedScenes are the scene's pathnames
     private string[] spawnedScenes;
-    private int sceneIterator;
+    public int sceneIterator;
 
     //Action declarations for callbacks
     private UnityAction submitAction;
@@ -55,6 +55,7 @@ public class GameManager : MonoBehaviour
     Button bugUISubmitButton;
 
     private int playerScore;
+    public int levelScore;
     private int totalScore;
     private string selectedBug;
 
@@ -221,13 +222,14 @@ public class GameManager : MonoBehaviour
         //Iterate to get the next scene
         sceneIterator++;
         //Score is persistant between levels for now, but might want to change this
-        totalScore += calcTotalScore();
+        levelScore = calcLevelScore();
+        totalScore += levelScore;
 
         TimerScript.SetCurrentTime(80);
         selectedBug = null;
 
         //If we're on the last level, display the game over screen. Otherwise go to next level
-        if (sceneIterator == 6)
+        if (sceneIterator == 7)
         {
             playerScore = ScoreScript.scoreValue;
 
@@ -252,7 +254,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene(sceneIterator);
+            SceneManager.LoadScene(1);
         }
 
 
@@ -302,7 +304,7 @@ public class GameManager : MonoBehaviour
     }
 
     //Helper method that iterates through all the bugs on the screen and calculates their potential score value
-    private int calcTotalScore()
+    private int calcLevelScore()
     {
         int tempScore = 0;
         Bug[] bugs = GameObject.FindObjectsOfType<Bug>();

@@ -304,7 +304,7 @@ MonoBehaviour:
   defaultColor: {r: 0.18197025, g: 0.8679245, b: 0.10234957, a: 1}
   points: 10
   classification: Beetle
-  lengthInMM: 4
+  lengthInMM: 10
   bugClicked:
     m_PersistentCalls:
       m_Calls: []
