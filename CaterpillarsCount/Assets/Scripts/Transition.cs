@@ -10,6 +10,7 @@ public class Transition : MonoBehaviour
 {
     Text playerScoreText;
     Text maxScoreText;
+    Text bugsClickedText;
 
     Button continueButton;
     UnityAction continueAction;
@@ -23,7 +24,8 @@ public class Transition : MonoBehaviour
         continueAction += continueFunction;
         continueButton.onClick.AddListener(continueAction);
 
-
+        bugsClickedText = GameObject.Find("BugsClicked").GetComponent<Text>();
+        bugsClickedText.text = "You found " + GameManager.instance.bugsClicked + " out of " + GameManager.instance.totalBugs + " bugs";
         playerScoreText = GameObject.Find("UserScore").GetComponent<Text>();
         playerScoreText.text = "Your Score: " + ScoreScript.levelScore;
         maxScoreText = GameObject.Find("MaxScore").GetComponent<Text>();
@@ -31,6 +33,7 @@ public class Transition : MonoBehaviour
     }
 
     private void continueFunction(){
+        GameManager.instance.ResetBugCounts();
         ScoreScript.ResetScore();
         SceneManager.LoadScene(GameManager.instance.sceneIterator);
     }

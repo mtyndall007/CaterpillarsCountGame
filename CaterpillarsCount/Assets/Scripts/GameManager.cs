@@ -58,7 +58,8 @@ public class GameManager : MonoBehaviour
     public int levelScore;
     private int totalScore;
     private string selectedBug;
-
+    public int bugsClicked; //Per level
+    public int totalBugs; //Per level
 
     //Private vars for the zooming effect once a bug has been clicked
     private float defaultFOV;
@@ -83,6 +84,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         selectedBug = null;
+        bugsClicked = 0;
 
         ruler = GameObject.Find("Ruler");
         ruler.SetActive(true);
@@ -151,7 +153,7 @@ public class GameManager : MonoBehaviour
     //Public method for a bug to call once it has been clicked
     public void BugClicked(GameObject bug)
     {
-
+        bugsClicked++;
         //Zooms camera in on bug
         Camera.main.orthographic = true;
         Camera.main.transform.position = Camera.main.ScreenToWorldPoint(
@@ -308,6 +310,7 @@ public class GameManager : MonoBehaviour
     {
         int tempScore = 0;
         Bug[] bugs = GameObject.FindObjectsOfType<Bug>();
+        totalBugs = bugs.Length;
         foreach (Bug bug in bugs)
         {
             tempScore += bug.points;
@@ -354,6 +357,15 @@ public class GameManager : MonoBehaviour
       } else {
         //Might want to send an alert to the user eventually
         //StartCoroutine(Utilities.PopupMessage("Must select a bug type and measurement", 2));
+      }
+    }
+
+    public void ResetBugCounts(){
+      if(bugsClicked != null){
+        bugsClicked = 0;
+      }
+      if(totalBugs != null){
+        totalBugs = 0;
       }
     }
 
