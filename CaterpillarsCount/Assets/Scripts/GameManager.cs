@@ -54,12 +54,17 @@ public class GameManager : MonoBehaviour
     Button returnButton;
     Button bugUISubmitButton;
 
+    //Vars for keeping track of player stats per level
     private int playerScore;
     public int levelScore;
     private int totalScore;
+    public int bugsCorrectlyIdentified;
+    public int bugsClicked;
+    public int totalBugs;
+    public float measurementDistance;
+
     private string selectedBug;
-    public int bugsClicked; //Per level
-    public int totalBugs; //Per level
+
 
     //Private vars for the zooming effect once a bug has been clicked
     private float defaultFOV;
@@ -85,6 +90,8 @@ public class GameManager : MonoBehaviour
     {
         selectedBug = null;
         bugsClicked = 0;
+        bugsCorrectlyIdentified = 0;
+        measurementDistance = 0;
 
         ruler = GameObject.Find("Ruler");
         ruler.SetActive(true);
@@ -165,21 +172,7 @@ public class GameManager : MonoBehaviour
 
         //Hide the ruler when bug has been clicked
         ruler.SetActive(false);
-        //GameObject ruler = GameObject.Find("Ruler");
-        /*
-        Image rulerImage = ruler.GetComponent<Image>();
-        var tempColor = rulerImage.color;
-        tempColor.a = 0f;
-        rulerImage.color = tempColor;
-        */
 
-        //returnObject.SetActive(true);
-        //Currently disabled
-        /*
-        returnButton = returnObject.GetComponent<Button>();
-        returnAction += ReturnFromClick;
-        returnButton.onClick.AddListener(returnAction);
-        */
 
         InputField measurementInput = bugSelectionUI.GetComponentInChildren<InputField>();
         measurementInput.onEndEdit.AddListener(delegate {EvaluateMeasurement(measurementInput); });
@@ -203,6 +196,7 @@ public class GameManager : MonoBehaviour
         {
             if (selectedBug == bugName)
             {
+                bugsCorrectlyIdentified++;
                 ScoreScript.AddScore(currentBugScript.points);
                 currentBugScript.SetCorrectColor();
                 StartCoroutine(Utilities.PopupMessage("Correct!", 1));
@@ -256,6 +250,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            //Index for the transition scene
             SceneManager.LoadScene(1);
         }
 
@@ -323,6 +318,7 @@ public class GameManager : MonoBehaviour
     private void EvaluateMeasurement(InputField input){
         float approximatedBugLength = float.Parse(input.text);
         float actualBugLength = currentBugScript.lengthInMM;
+        measurementDistance += Mathf.Abs(actualBugLength - approximatedBugLength);
         float minBound = 0;
         float maxBound = actualBugLength * 2;
         int scoreValue = 0;
@@ -366,6 +362,12 @@ public class GameManager : MonoBehaviour
       }
       if(totalBugs != null){
         totalBugs = 0;
+      }
+      if(bugsCorrectlyIdentified != null){
+        bugsCorrectlyIdentified = 0;
+      }
+      if(measurementDistance != null){
+        measurementDistance = 0;
       }
     }
 
