@@ -7,11 +7,15 @@ public class SpawningScript : MonoBehaviour
 
     //Lets you adjust how many bugs you want on that branch through inspector
     public int numOfBugs;
-   
+
+    public BranchScript branch;
+
     void Start()
     {
         //GameObject holding spawned bugs
         Transform spawnedBugs = GameObject.Find("SpawnedBugs").transform;
+
+        branch = GameObject.Find("Branch").GetComponent<BranchScript>();
 
 
         //catches exceptions with the number of bugs
@@ -53,7 +57,7 @@ public class SpawningScript : MonoBehaviour
             int bugIndex = Random.Range(0, spawnPoint.childCount);
             Transform bug = spawnPoint.GetChild(bugIndex);
 
-            //duplicates it and adds it to the spawnBugs 
+            //duplicates it and adds it to the spawnBugs
             Transform newBug = Instantiate(bug);
 
             //sets the bugs position
@@ -63,6 +67,7 @@ public class SpawningScript : MonoBehaviour
 
             //adds the bug to scene and makes it visible
             newBug.parent = spawnedBugs;
+            //Utilities.ScaleBug(branch, newBug.gameObject);
             newBug.gameObject.SetActive(true);
 
         }
@@ -93,7 +98,7 @@ public class SpawningScript : MonoBehaviour
         }
     }
 
-   
+
 
 
 }

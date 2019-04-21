@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
             instance = this;
             //Calls a utility method that selects the level for a given playthrough. Store these in an array of scenes.
             //spawnedScenes = LevelSpawner.SpawnScenes();
-            sceneIterator = 0;
+            sceneIterator = 2;
             SceneManager.LoadScene(sceneIterator);
         }
         //If instance already exists and it's not this:
@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
     //Used for tracking what scenes are loaded
     //spawnedScenes are the scene's pathnames
     private string[] spawnedScenes;
-    private int sceneIterator;
+    public int sceneIterator;
 
     //Action declarations for callbacks
     private UnityAction submitAction;
@@ -54,8 +54,15 @@ public class GameManager : MonoBehaviour
     Button returnButton;
     Button bugUISubmitButton;
 
+    //Vars for keeping track of player stats per level
     private int playerScore;
+    public int levelScore;
     private int totalScore;
+    public int bugsCorrectlyIdentified;
+    public int bugsClicked;
+    public int totalBugs;
+    public float measurementDistance;
+
     private string selectedBug;
 
 
@@ -82,6 +89,9 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         selectedBug = null;
+        bugsClicked = 0;
+        bugsCorrectlyIdentified = 0;
+        measurementDistance = 0;
 
         ruler = GameObject.Find("Ruler");
         ruler.SetActive(true);
@@ -150,7 +160,7 @@ public class GameManager : MonoBehaviour
     //Public method for a bug to call once it has been clicked
     public void BugClicked(GameObject bug)
     {
-
+        bugsClicked++;
         //Zooms camera in on bug
         Camera.main.orthographic = true;
         Camera.main.transform.position = Camera.main.ScreenToWorldPoint(
@@ -162,21 +172,7 @@ public class GameManager : MonoBehaviour
 
         //Hide the ruler when bug has been clicked
         ruler.SetActive(false);
-        //GameObject ruler = GameObject.Find("Ruler");
-        /*
-        Image rulerImage = ruler.GetComponent<Image>();
-        var tempColor = rulerImage.color;
-        tempColor.a = 0f;
-        rulerImage.color = tempColor;
-        */
 
-        //returnObject.SetActive(true);
-        //Currently disabled
-        /*
-        returnButton = returnObject.GetComponent<Button>();
-        returnAction += ReturnFromClick;
-        returnButton.onClick.AddListener(returnAction);
-        */
 
         InputField measurementInput = bugSelectionUI.GetComponentInChildren<InputField>();
         measurementInput.onEndEdit.AddListener(delegate {EvaluateMeasurement(measurementInput); });
@@ -200,6 +196,7 @@ public class GameManager : MonoBehaviour
         {
             if (selectedBug == bugName)
             {
+                bugsCorrectlyIdentified++;
                 ScoreScript.AddScore(currentBugScript.points);
                 currentBugScript.SetCorrectColor();
                 StartCoroutine(Utilities.PopupMessage("Correct!", 1));
@@ -221,13 +218,14 @@ public class GameManager : MonoBehaviour
         //Iterate to get the next scene
         sceneIterator++;
         //Score is persistant between levels for now, but might want to change this
-        totalScore += calcTotalScore();
+        levelScore = calcLevelScore();
+        totalScore += levelScore;
 
         TimerScript.SetCurrentTime(80);
         selectedBug = null;
 
         //If we're on the last level, display the game over screen. Otherwise go to next level
-        if (sceneIterator == 6)
+        if (sceneIterator == 7)
         {
             playerScore = ScoreScript.scoreValue;
 
@@ -252,7 +250,8 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene(sceneIterator);
+            //Index for the transition scene
+            SceneManager.LoadScene(1);
         }
 
 
@@ -302,10 +301,11 @@ public class GameManager : MonoBehaviour
     }
 
     //Helper method that iterates through all the bugs on the screen and calculates their potential score value
-    private int calcTotalScore()
+    private int calcLevelScore()
     {
         int tempScore = 0;
         Bug[] bugs = GameObject.FindObjectsOfType<Bug>();
+        totalBugs = bugs.Length;
         foreach (Bug bug in bugs)
         {
             tempScore += bug.points;
@@ -318,6 +318,7 @@ public class GameManager : MonoBehaviour
     private void EvaluateMeasurement(InputField input){
         float approximatedBugLength = float.Parse(input.text);
         float actualBugLength = currentBugScript.lengthInMM;
+        measurementDistance += Mathf.Abs(actualBugLength - approximatedBugLength);
         float minBound = 0;
         float maxBound = actualBugLength * 2;
         int scoreValue = 0;
@@ -352,6 +353,21 @@ public class GameManager : MonoBehaviour
       } else {
         //Might want to send an alert to the user eventually
         //StartCoroutine(Utilities.PopupMessage("Must select a bug type and measurement", 2));
+      }
+    }
+
+    public void ResetBugCounts(){
+      if(bugsClicked != null){
+        bugsClicked = 0;
+      }
+      if(totalBugs != null){
+        totalBugs = 0;
+      }
+      if(bugsCorrectlyIdentified != null){
+        bugsCorrectlyIdentified = 0;
+      }
+      if(measurementDistance != null){
+        measurementDistance = 0;
       }
     }
 

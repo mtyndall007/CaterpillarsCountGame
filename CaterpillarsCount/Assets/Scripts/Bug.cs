@@ -83,6 +83,7 @@ public class Bug : MonoBehaviour
                 bugClicked.Invoke(bug);
 
                 ScoreScript.scoreValue += points;
+                ScoreScript.levelScore += points;
                 clickable = false;
 
             }
