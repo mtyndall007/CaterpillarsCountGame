@@ -36,11 +36,11 @@ public class Utilities : MonoBehaviour
       float scaleRatio = bugLength/branch.branchWidthInMM;
 
 
-      Vector3 scaleFactor = new Vector3(scaleRatio, scaleRatio, scaleRatio);
+      Vector3 scaleFactor = new Vector3(scaleRatio / bugObject.transform.localScale.x  , scaleRatio / bugObject.transform.localScale.y, bugObject.transform.localScale.z);
       Debug.Log(scaleRatio);
 
       Transform branchTransform = branch.gameObject.transform;
-      bugObject.transform.localScale = branchTransform.localScale * scaleRatio;
+      bugObject.transform.localScale = scaleFactor;//branchTransform.localScale.x * scaleRatio;
 
     }
     //Creates a popup message, run it via a coroutine
