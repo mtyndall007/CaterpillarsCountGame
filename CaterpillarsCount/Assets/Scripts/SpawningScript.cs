@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SpawningScript : MonoBehaviour
 {
@@ -10,6 +11,26 @@ public class SpawningScript : MonoBehaviour
    
     void Start()
     {
+        //Scene currentScene = SceneManager.GetActiveScene();
+
+        //if (currentScene.name.Contains("Easy"))
+        //{
+        //    setNumWithDifficulty("Easy");
+
+
+        //}
+        //else if (currentScene.name.Contains("Medium"))
+        //{
+        //    setNumWithDifficulty("Medium");
+
+
+        //}
+        //else if(currentScene.name.Contains("Hard"))
+        //{
+        //    setNumWithDifficulty("Hard");
+           
+        //}
+
         //GameObject holding spawned bugs
         Transform spawnedBugs = GameObject.Find("SpawnedBugs").transform;
 
@@ -58,12 +79,15 @@ public class SpawningScript : MonoBehaviour
 
             //sets the bugs position
             Vector3 bugPosition = spawnPoint.position + newBug.position;
+           
             newBug.transform.position = bugPosition;
             newBug.gameObject.SetActive(true);
 
             //adds the bug to scene and makes it visible
             newBug.parent = spawnedBugs;
             newBug.gameObject.SetActive(true);
+
+           
 
         }
 
@@ -79,18 +103,22 @@ public class SpawningScript : MonoBehaviour
      */
     public void setNumWithDifficulty(string difficulty)
     {
-        if(difficulty == "Level1")
+        int randomNumber;
+        if(difficulty == "Easy")
         {
-            setNumOfBugs(3);
+           randomNumber =  Random.Range(3, 5);
 
-        }else if(difficulty == "Level2")
+        }else if(difficulty == "Medium")
         {
-            setNumOfBugs(4);
+            randomNumber = Random.Range(4, 7);
         }
         else
         {
-            setNumOfBugs(5);
+            randomNumber =  Random.Range(6, 10);
         }
+
+        setNumOfBugs(randomNumber);
+        Debug.Log(numOfBugs);
     }
 
    

@@ -227,7 +227,7 @@ public class GameManager : MonoBehaviour
         selectedBug = null;
 
         //If we're on the last level, display the game over screen. Otherwise go to next level
-        if (sceneIterator == 6)
+        if (sceneIterator == 9)
         {
             playerScore = ScoreScript.scoreValue;
 
