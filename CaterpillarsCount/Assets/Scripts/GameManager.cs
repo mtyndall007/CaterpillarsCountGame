@@ -226,7 +226,7 @@ public class GameManager : MonoBehaviour
         //StartCoroutine(Utilities.HighlightUnfoundBugs(3));
 
         //If we're on the last level, display the game over screen. Otherwise go to next level
-        if (sceneIterator == 7)
+        if (sceneIterator == 9)
         {
             playerScore = ScoreScript.scoreValue;
 

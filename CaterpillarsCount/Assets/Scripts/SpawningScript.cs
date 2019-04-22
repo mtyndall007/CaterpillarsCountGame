@@ -84,18 +84,22 @@ public class SpawningScript : MonoBehaviour
      */
     public void setNumWithDifficulty(string difficulty)
     {
-        if(difficulty == "Level1")
+        int randomNumber;
+        if(difficulty == "Easy")
         {
-            setNumOfBugs(3);
+           randomNumber =  Random.Range(3, 5);
 
-        }else if(difficulty == "Level2")
+        }else if(difficulty == "Medium")
         {
-            setNumOfBugs(4);
+            randomNumber = Random.Range(4, 7);
         }
         else
         {
-            setNumOfBugs(5);
+            randomNumber =  Random.Range(6, 10);
         }
+
+        setNumOfBugs(randomNumber);
+        Debug.Log(numOfBugs);
     }
 
 
