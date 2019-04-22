@@ -223,6 +223,7 @@ public class GameManager : MonoBehaviour
 
         TimerScript.SetCurrentTime(80);
         selectedBug = null;
+        //StartCoroutine(Utilities.HighlightUnfoundBugs(3));
 
         //If we're on the last level, display the game over screen. Otherwise go to next level
         if (sceneIterator == 7)

@@ -69,6 +69,10 @@ public class Bug : MonoBehaviour
         spriteRenderer.color = Color.red;
     }
 
+    public bool isClickable(){
+      return clickable;
+    }
+
     private void checkForClick()
     {
         if (Input.GetMouseButtonDown(0))

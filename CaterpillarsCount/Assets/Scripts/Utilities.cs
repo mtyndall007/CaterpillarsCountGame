@@ -28,6 +28,24 @@ public class Utilities : MonoBehaviour
 
     }
 
+    //Turn bugs white when not found, input how long to show the bugs
+    public static IEnumerator HighlightUnfoundBugs(float delay)
+    {
+        bool unfoundBugs = false;
+        Bug[] bugs = GameObject.FindObjectsOfType<Bug>();
+        if(bugs.Length != 0){
+          foreach (Bug bug in bugs)
+          {
+              if(bug.isClickable()){
+                unfoundBugs = true;
+                SpriteRenderer spriteRenderer = bug.GetComponent<SpriteRenderer>();
+                spriteRenderer.color = Color.white;
+              }
+          }
+        }
+        yield return new WaitForSeconds(delay);
+    }
+
     public static void ScaleBug(BranchScript branch, GameObject bugObject){
 
       Bug bug = bugObject.GetComponent<Bug>();
