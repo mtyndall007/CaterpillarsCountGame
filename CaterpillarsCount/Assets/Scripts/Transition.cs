@@ -27,11 +27,21 @@ public class Transition : MonoBehaviour
         continueButton.onClick.AddListener(continueAction);
 
         bugsClickedText = GameObject.Find("BugsClicked").GetComponent<Text>();
-        bugsClickedText.text = "You found " + Mathf.Round(100 * (float)GameManager.instance.bugsClicked/GameManager.instance.totalBugs) + "% of the rthropods";
+
         bugsIdentifiedText = GameObject.Find("BugsIdentified").GetComponent<Text>();
-        bugsIdentifiedText.text = "You correctly identified " + Mathf.Round(100 * (float)GameManager.instance.bugsCorrectlyIdentified/GameManager.instance.totalBugs) + "% of the arthropods";
+
         measurementAccuracyText = GameObject.Find("MeasurementAccuracy").GetComponent<Text>();
-        measurementAccuracyText.text = "Your average measurement error was " + (float)(GameManager.instance.measurementDistance / GameManager.instance.bugsClicked) + "mm";
+        if(GameManager.instance.bugsClicked > 0){
+          bugsClickedText.text = "You found " + Mathf.Round(100 * (float)GameManager.instance.bugsClicked/GameManager.instance.totalBugs) + "% of the arthropods";
+          bugsIdentifiedText.text = "You correctly identified " + Mathf.Round(100 * (float)GameManager.instance.bugsCorrectlyIdentified/GameManager.instance.totalBugs) + "% of the arthropods";
+          measurementAccuracyText.text = "Your average measurement error was " + (float)(GameManager.instance.measurementDistance / GameManager.instance.bugsClicked) + "mm";
+
+        } else {
+          bugsClickedText.text = "";
+          bugsIdentifiedText.text = "";
+          measurementAccuracyText.text = "No bugs were clicked on!";
+        }
+
         playerScoreText = GameObject.Find("UserScore").GetComponent<Text>();
         playerScoreText.text = "Your Score: " + ScoreScript.levelScore;
         maxScoreText = GameObject.Find("MaxScore").GetComponent<Text>();
