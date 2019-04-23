@@ -1,18 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SpawningScript : MonoBehaviour
 {
 
     //Lets you adjust how many bugs you want on that branch through inspector
     public int numOfBugs;
-   
+
+    public BranchScript branch;
+
     void Start()
     {
         //GameObject holding spawned bugs
         Transform spawnedBugs = GameObject.Find("SpawnedBugs").transform;
 
+        branch = GameObject.Find("Branch").GetComponent<BranchScript>();
+
+        //Sets number of bugs based on difficulty
+        string sceneName = SceneManager.GetActiveScene().name;
+        string branchDifficulty = sceneName.Substring(0, 4);
+        setNumWithDifficulty(branchDifficulty);
 
         //catches exceptions with the number of bugs
         if (numOfBugs > transform.childCount)
@@ -53,7 +62,7 @@ public class SpawningScript : MonoBehaviour
             int bugIndex = Random.Range(0, spawnPoint.childCount);
             Transform bug = spawnPoint.GetChild(bugIndex);
 
-            //duplicates it and adds it to the spawnBugs 
+            //duplicates it and adds it to the spawnBugs
             Transform newBug = Instantiate(bug);
 
             //sets the bugs position
@@ -63,6 +72,7 @@ public class SpawningScript : MonoBehaviour
 
             //adds the bug to scene and makes it visible
             newBug.parent = spawnedBugs;
+            //Utilities.ScaleBug(branch, newBug.gameObject);
             newBug.gameObject.SetActive(true);
 
         }
@@ -79,21 +89,25 @@ public class SpawningScript : MonoBehaviour
      */
     public void setNumWithDifficulty(string difficulty)
     {
-        if(difficulty == "Level1")
+        int randomNumber;
+        if(difficulty == "Easy")
         {
-            setNumOfBugs(3);
+           randomNumber =  Random.Range(3, 5);
 
-        }else if(difficulty == "Level2")
+        }else if(difficulty == "Medi")
         {
-            setNumOfBugs(4);
+            randomNumber = Random.Range(4, 7);
         }
         else
         {
-            setNumOfBugs(5);
+            randomNumber =  Random.Range(6, 10);
         }
+
+        setNumOfBugs(randomNumber);
+        Debug.Log(numOfBugs);
     }
 
-   
+
 
 
 }

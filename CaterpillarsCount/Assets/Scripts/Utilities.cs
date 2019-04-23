@@ -27,25 +27,40 @@ public class Utilities : MonoBehaviour
         }
 
     }
-    /*
-    public static void Resize(Branch branch, GameObject gObject){
 
-      int inGameBranchWidth = branch.rect.width;
-      int branchWidthInMM = branch.branchWidthInMM;
-      Debug.Log("Branch width in game: " + inGameBranchWidth);
-      float millimetersToInGameUnits = branchWidthInMM / inGameBranchWidth;
-      Debug.Log("MM to ingame: " + millimetersToInGameUnits);
-
-      RectTransform rectT = gObject.GetComponent<RectTransform>();
-
-      float inGameWidth = (gObject.lengthInMM/millimetersToInGameUnits);
-      rectT.sizeDelta = new Vector2(inGameWidth, inGameWidth/rulerWidthHeightRatio);
-      Debug.Log("In game ruler width: " + inGameRulerWidth);
-
-
-      Debug.Log("Ruler in game:" + rulerSprite.rect.width);
+    //Turn bugs white when not found, input how long to show the bugs
+    public static IEnumerator HighlightUnfoundBugs(float delay)
+    {
+        bool unfoundBugs = false;
+        Bug[] bugs = GameObject.FindObjectsOfType<Bug>();
+        if(bugs.Length != 0){
+          foreach (Bug bug in bugs)
+          {
+              if(bug.isClickable()){
+                unfoundBugs = true;
+                SpriteRenderer spriteRenderer = bug.GetComponent<SpriteRenderer>();
+                spriteRenderer.color = Color.white;
+              }
+          }
+        }
+        yield return new WaitForSeconds(delay);
     }
-    */
+
+    public static void ScaleBug(BranchScript branch, GameObject bugObject){
+
+      Bug bug = bugObject.GetComponent<Bug>();
+      float bugLength = bug.lengthInMM;
+
+      float scaleRatio = bugLength/branch.branchWidthInMM;
+
+
+      Vector3 scaleFactor = new Vector3(scaleRatio / bugObject.transform.localScale.x  , scaleRatio / bugObject.transform.localScale.y, bugObject.transform.localScale.z);
+      Debug.Log(scaleRatio);
+
+      Transform branchTransform = branch.gameObject.transform;
+      bugObject.transform.localScale = scaleFactor;//branchTransform.localScale.x * scaleRatio;
+
+    }
     //Creates a popup message, run it via a coroutine
     public static IEnumerator PopupMessage(string message, float delay)
     {

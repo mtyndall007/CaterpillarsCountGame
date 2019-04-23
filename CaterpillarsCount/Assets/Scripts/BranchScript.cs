@@ -13,7 +13,7 @@ public class BranchScript : MonoBehaviour
     private float millimetersToInGameUnits;
 
     private const int rulerInMM = 57;
-    private const float rulerWidthHeightRatio = 250/90;
+    private float rulerWidthHeightRatio;
 
     // Start is called before the first frame update
     void Start()
@@ -38,11 +38,13 @@ public class BranchScript : MonoBehaviour
 
     private void InitializeBranchUnits()
     {
+
         branch = gameObject;
         SpriteRenderer temp = branch.GetComponentInChildren<SpriteRenderer>();
         Sprite tempSprite = temp.sprite;
         if (tempSprite)
           {
+              rulerWidthHeightRatio = tempSprite.rect.width/tempSprite.rect.height;
               //This should normally be temtempSprite.rect.width, but the image was rotated 90 degrees in original position
               inGameBranchWidth = tempSprite.rect.height;
               Debug.Log("Branch width in game: " + inGameBranchWidth);
