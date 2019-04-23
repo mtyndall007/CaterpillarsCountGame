@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SpawningScript : MonoBehaviour
 {
@@ -17,6 +18,10 @@ public class SpawningScript : MonoBehaviour
 
         branch = GameObject.Find("Branch").GetComponent<BranchScript>();
 
+        //Sets number of bugs based on difficulty
+        string sceneName = SceneManager.GetActiveScene().name;
+        string branchDifficulty = sceneName.Substring(0, 4);
+        setNumWithDifficulty(branchDifficulty);
 
         //catches exceptions with the number of bugs
         if (numOfBugs > transform.childCount)
@@ -89,7 +94,7 @@ public class SpawningScript : MonoBehaviour
         {
            randomNumber =  Random.Range(3, 5);
 
-        }else if(difficulty == "Medium")
+        }else if(difficulty == "Medi")
         {
             randomNumber = Random.Range(4, 7);
         }
