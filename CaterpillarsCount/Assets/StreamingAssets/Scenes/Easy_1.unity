@@ -850,6 +850,11 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8941881824626096517, guid: 59ae62acffb9a488db36f9f8017c322d,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.25496837
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1512db5271285c744a35f672b3577417, type: 3}
 --- !u!1001 &393954355
