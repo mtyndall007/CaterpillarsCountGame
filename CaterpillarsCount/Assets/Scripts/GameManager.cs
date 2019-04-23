@@ -252,6 +252,7 @@ public class GameManager : MonoBehaviour
         else
         {
             //Index for the transition scene
+            TimerScript.PauseTime();
             SceneManager.LoadScene(1);
         }
 

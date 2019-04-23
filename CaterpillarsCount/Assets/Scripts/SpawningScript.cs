@@ -72,7 +72,7 @@ public class SpawningScript : MonoBehaviour
 
             //adds the bug to scene and makes it visible
             newBug.parent = spawnedBugs;
-            //Utilities.ScaleBug(branch, newBug.gameObject);
+            Utilities.ScaleBug(branch, newBug.gameObject);
             newBug.gameObject.SetActive(true);
 
         }
