@@ -49,10 +49,10 @@ public class GameManager : MonoBehaviour
     public UnityAction returnZoom;
     public UnityAction<string> bugIdentified;
 
-    Button submitButton;
+    Button levelSubmitButton;
     Button playAgainButton;
     Button returnButton;
-    Button bugUISubmitButton;
+    //Button bugUISubmitButton;
 
     private int playerScore;
     private int totalScore;
@@ -74,8 +74,13 @@ public class GameManager : MonoBehaviour
     GameObject returnObject;
     GameObject bugSelectionUI;
     GameObject bugButtons;
+    GameObject bugSelectionText;
     GameObject ruler;
     Bug currentBugScript;
+
+    GameObject lengthUI;
+    GameObject lengthElements;
+    GameObject lengthSubmit;
 
 
     // Start is called before the first frame update
@@ -83,8 +88,8 @@ public class GameManager : MonoBehaviour
     {
         selectedBug = null;
 
-        ruler = GameObject.Find("Ruler");
-        ruler.SetActive(true);
+        //ruler = GameObject.Find("Ruler");
+        //ruler.SetActive(true);
 
         returnObject = GameObject.Find("Return");
         returnObject.SetActive(false);
@@ -94,9 +99,9 @@ public class GameManager : MonoBehaviour
         zoomedFOV = defaultFOV/4.0f;
 
         //Finds the submit button from the scene and adds an event listener
-        submitButton = GameObject.Find("Submit").GetComponent<Button>();
+        levelSubmitButton = GameObject.Find("LevelSubmit").GetComponent<Button>();
         submitAction += Submit;
-        submitButton.onClick.AddListener(submitAction);
+        levelSubmitButton.onClick.AddListener(submitAction);
 
         //Callback function for when a bug has been clicked by the user
         bugClicked += BugClicked;
@@ -107,10 +112,19 @@ public class GameManager : MonoBehaviour
        gameOver.SetActive(false);
 
       bugButtons = GameObject.Find("BugButtons");
+        bugSelectionText = GameObject.Find("BugSelectionText");
 
        //Hide the bug selection UI at startup
        bugSelectionUI = GameObject.Find("BugSelectionUI");
        bugSelectionUI.SetActive(false);
+        bugButtons.SetActive(false);
+        bugSelectionText.SetActive(false);
+
+        lengthUI = GameObject.Find("LengthUI");
+        lengthElements = GameObject.Find("LengthElements");
+        lengthSubmit = GameObject.Find("LengthSubmit");
+
+        lengthUI.SetActive(false);
 
     }
 
@@ -157,11 +171,13 @@ public class GameManager : MonoBehaviour
             new Vector3(Input.mousePosition.x, Input.mousePosition.y - Mathf.Floor(Screen.height/20), Input.mousePosition.z));
         zoomingIn = true;
 
-        submitButton.gameObject.SetActive(false);
+        levelSubmitButton.gameObject.SetActive(false);
         bugSelectionUI.SetActive(true);
+        bugButtons.SetActive(true);
+        bugSelectionText.SetActive(true);
 
         //Hide the ruler when bug has been clicked
-        ruler.SetActive(false);
+        //ruler.SetActive(false);
         //GameObject ruler = GameObject.Find("Ruler");
         /*
         Image rulerImage = ruler.GetComponent<Image>();
@@ -178,11 +194,11 @@ public class GameManager : MonoBehaviour
         returnButton.onClick.AddListener(returnAction);
         */
 
-        InputField measurementInput = bugSelectionUI.GetComponentInChildren<InputField>();
-        measurementInput.onEndEdit.AddListener(delegate {EvaluateMeasurement(measurementInput); });
+        //InputField measurementInput = lengthUI.GetComponentInChildren<InputField>();
+        //measurementInput.onEndEdit.AddListener(delegate {EvaluateMeasurement(measurementInput); });
 
-        bugUISubmitButton = GameObject.Find("BugUISubmit").GetComponent<Button>();//bugSelectionUI.GetComponentInChildren<Button>();
-        bugUISubmitButton.onClick.AddListener(delegate {BugUISubmit(); });
+        //bugUISubmitButton = GameObject.Find("BugUISubmit").GetComponent<Button>();//bugSelectionUI.GetComponentInChildren<Button>();
+        //lengthSubmit.GetComponent<Button>().onClick.AddListener(delegate {BugUISubmit(); });
 
         Utilities.PauseBugs();
         TimerScript.PauseTime();
@@ -203,15 +219,28 @@ public class GameManager : MonoBehaviour
                 ScoreScript.AddScore(currentBugScript.points);
                 currentBugScript.SetCorrectColor();
                 StartCoroutine(Utilities.PopupMessage("Correct!", 1));
+
             }
             else
             {
                 currentBugScript.SetIncorrectColor();
                 StartCoroutine(Utilities.PopupMessage("Incorrect", 1));
+
             }
         }
+
         bugHasBeenCategorized = true;
         bugButtons.SetActive(false);
+        bugSelectionText.SetActive(false);
+
+        lengthUI.SetActive(true);
+        InputField measurementInput = lengthUI.GetComponentInChildren<InputField>();
+        measurementInput.onEndEdit.AddListener(delegate { EvaluateMeasurement(measurementInput); });
+        if (lengthSubmit != null)
+        {
+            lengthSubmit.GetComponent<Button>().onClick.AddListener(BugUISubmit);
+        }
+
 
     }
 
@@ -277,10 +306,10 @@ public class GameManager : MonoBehaviour
         Camera.main.transform.position = defaultCameraPosition;
 
         //Hide bug selection screen and bring back normal UI
-        bugSelectionUI.GetComponentInChildren<InputField>().ActivateInputField();
+        lengthUI.GetComponentInChildren<InputField>().ActivateInputField();
         bugButtons.SetActive(true);
         bugSelectionUI.SetActive(false);
-        submitButton.gameObject.SetActive(true);
+        levelSubmitButton.gameObject.SetActive(true);
         returnObject.SetActive(false);
         TimerScript.ResumeTime();
         Utilities.ResumeBugs();
@@ -291,7 +320,7 @@ public class GameManager : MonoBehaviour
         bugHasBeenCategorized = false;
         measurementGiven = false;
 
-        ruler.SetActive(true);
+        //ruler.SetActive(true);
         //GameObject ruler = GameObject.Find("Ruler");
         /*
         Image rulerImage = ruler.GetComponent<Image>();
@@ -305,7 +334,8 @@ public class GameManager : MonoBehaviour
     private int calcTotalScore()
     {
         int tempScore = 0;
-        Bug[] bugs = GameObject.FindObjectsOfType<Bug>();
+        Bug[] bugs;
+        bugs = FindObjectsOfType<Bug>();
         foreach (Bug bug in bugs)
         {
             tempScore += bug.points;
@@ -345,6 +375,7 @@ public class GameManager : MonoBehaviour
 
     private void BugUISubmit(){
       if(measurementGiven && bugHasBeenCategorized){
+        lengthUI.SetActive(false);
         ReturnFromClick();
       } else {
         //Might want to send an alert to the user eventually
