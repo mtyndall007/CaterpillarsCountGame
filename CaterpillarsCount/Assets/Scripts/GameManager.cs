@@ -375,9 +375,9 @@ public class GameManager : MonoBehaviour
           scoreValue = (int)Mathf.Round(accuracyPercent * (float)currentBugScript.points);
         }
 
-        StartCoroutine(Utilities.PopupMessage("Actual size: " + actualBugLength + "mm" + "\n" +
+        /*StartCoroutine(Utilities.PopupMessage("Actual size: " + actualBugLength + "mm" + "\n" +
                                               "Your measurement: " + approximatedBugLength + "mm" + "\n" +
-                                              "Points awarded: " + scoreValue, 3));
+                                            "Points awarded: " + scoreValue, 3));*/
         measurementGiven = true;
         ScoreScript.AddScore(scoreValue);
         input.text = "Length";

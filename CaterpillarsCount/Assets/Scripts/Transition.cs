@@ -32,9 +32,9 @@ public class Transition : MonoBehaviour
 
         measurementAccuracyText = GameObject.Find("MeasurementAccuracy").GetComponent<Text>();
         if(GameManager.instance.bugsClicked > 0){
-          bugsClickedText.text = "You found " + Mathf.Round(100 * (float)GameManager.instance.bugsClicked/GameManager.instance.totalBugs) + "% of the arthropods";
-          bugsIdentifiedText.text = "You correctly identified " + Mathf.Round(100 * (float)GameManager.instance.bugsCorrectlyIdentified/GameManager.instance.totalBugs) + "% of the arthropods";
-          measurementAccuracyText.text = "Your average measurement error was " + (float)(GameManager.instance.measurementDistance / GameManager.instance.bugsClicked) + "mm";
+          bugsClickedText.text = "Arthropods found: " + Mathf.Round(100 * (float)GameManager.instance.bugsClicked/GameManager.instance.totalBugs) + "%";
+          bugsIdentifiedText.text = "Correctly identified: " + Mathf.Round(100 * (float)GameManager.instance.bugsCorrectlyIdentified/GameManager.instance.totalBugs) + "%";
+          measurementAccuracyText.text = "Measurement error: " + (float)(GameManager.instance.measurementDistance / GameManager.instance.bugsClicked) + "mm";
 
         } else {
           bugsClickedText.text = "";
@@ -43,9 +43,8 @@ public class Transition : MonoBehaviour
         }
 
         playerScoreText = GameObject.Find("UserScore").GetComponent<Text>();
-        playerScoreText.text = "Your Score: " + ScoreScript.levelScore;
-        maxScoreText = GameObject.Find("MaxScore").GetComponent<Text>();
-        maxScoreText.text = "Maximum Score: " + GameManager.instance.levelScore;
+        playerScoreText.text = "Your Score: " + ScoreScript.levelScore + "/" + GameManager.instance.levelScore;
+    
     }
 
     private void continueFunction(){
