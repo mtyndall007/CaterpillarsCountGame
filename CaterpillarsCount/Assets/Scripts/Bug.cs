@@ -22,6 +22,11 @@ public class Bug : MonoBehaviour
     public float lengthInMM;
     public BugClickedEvent bugClicked;
 
+    public float minLengthInMM;
+    public float desiredLengthInMM;
+    public float maxLengthInMM;
+    public float lengthAsProportionOfImageWidth;
+
     // Start is called before the first frame update
     void Start()
     {
