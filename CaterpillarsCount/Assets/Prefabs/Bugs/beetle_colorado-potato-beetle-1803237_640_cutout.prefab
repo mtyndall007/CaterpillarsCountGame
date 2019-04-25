@@ -210,7 +210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d6e54839a1786f44aa9ff8d68d83d9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bug: {fileID: 0}
+  bug: {fileID: 2318480453076215819}
   paused: 0
   defaultColor: {r: 0.02745098, g: 1, b: 0, a: 0}
   points: 10
@@ -224,4 +224,4 @@ MonoBehaviour:
   minLengthInMM: 10
   maxLengthInMM: 25
   desiredLengthInMM: 15
-  lengthAsProportionOfImageWidth: 0
+  lengthAsProportionOfImageWidth: 1

@@ -485,12 +485,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d6e54839a1786f44aa9ff8d68d83d9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bug: {fileID: 0}
+  bug: {fileID: 8214756691144493042}
   paused: 0
   defaultColor: {r: 0.02745098, g: 1, b: 0, a: 0}
   points: 10
   classification: Beetle
-  lengthInMM: 0
+  lengthInMM: 1
   bugClicked:
     m_PersistentCalls:
       m_Calls: []

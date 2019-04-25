@@ -88,6 +88,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        PrefabGenerator pf = new PrefabGenerator();
         selectedBug = null;
         bugsClicked = 0;
         bugsCorrectlyIdentified = 0;
