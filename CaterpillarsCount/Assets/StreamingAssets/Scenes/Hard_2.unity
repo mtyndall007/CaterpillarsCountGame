@@ -359,6 +359,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numOfBugs: 2
+  branch: {fileID: 0}
 --- !u!4 &159685588
 Transform:
   m_ObjectHideFlags: 0
@@ -1160,7 +1161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   branch: {fileID: 1205983940}
   inGameBranchWidth: 0
-  branchWidthInMM: 300
+  branchWidthInMM: 500
 --- !u!212 &1205983942
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2854,6 +2855,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_CellSize.y
       value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 7635107962530171464, guid: e002b83cf5e7bca499ed3987c9f3b531,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e002b83cf5e7bca499ed3987c9f3b531, type: 3}
