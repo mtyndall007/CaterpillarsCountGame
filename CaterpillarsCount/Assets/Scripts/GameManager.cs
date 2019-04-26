@@ -22,8 +22,7 @@ public class GameManager : MonoBehaviour
             //Calls a utility method that selects the level for a given playthrough. Store these in an array of scenes.
             //spawnedScenes = LevelSpawner.SpawnScenes();
             sceneIterator = 2;
-            float ran = Random.Range(2, 4);
-            SceneManager.LoadScene(ran);
+            SceneManager.LoadScene(sceneIterator);
         }
         //If instance already exists and it's not this:
         else if (instance != this)

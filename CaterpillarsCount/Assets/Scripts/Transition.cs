@@ -17,7 +17,6 @@ public class Transition : MonoBehaviour
     Button continueButton;
     UnityAction continueAction;
 
-    float sceneIndex;
     int playerScore;
     int maxScore;
     // Start is called before the first frame update
@@ -45,22 +44,13 @@ public class Transition : MonoBehaviour
 
         playerScoreText = GameObject.Find("UserScore").GetComponent<Text>();
         playerScoreText.text = "Your Score: " + ScoreScript.levelScore + "/" + GameManager.instance.levelScore;
-
+    
     }
 
     private void continueFunction(){
         GameManager.instance.ResetBugCounts();
         ScoreScript.ResetScore();
-        levelSelector(GameManager.instance.sceneIterator);
-    }
-
-    private void levelSelector(int iterator){
-      if(iterator == 3){
-        sceneIndex = Random.Range(5, 7);
-      } else {
-        sceneIndex = Random.Range(8, 10);
-      }
-      SceneManager.LoadScene(sceneIndex);
+        SceneManager.LoadScene(GameManager.instance.sceneIterator);
     }
 
 
