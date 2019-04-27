@@ -258,7 +258,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bug: {fileID: 5124328664936207570}
   paused: 0
-  defaultColor: {r: 0, g: 0, b: 0, a: 0}
+  defaultColor: {r: 0.02745098, g: 1, b: 0, a: 0}
   points: 0
   classification: 
   lengthInMM: 0
