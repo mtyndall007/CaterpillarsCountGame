@@ -261,7 +261,7 @@ MonoBehaviour:
   defaultColor: {r: 0.02745098, g: 1, b: 0, a: 0}
   points: 0
   classification: 
-  lengthInMM: 0
+  lengthInMM: 16
   bugClicked:
     m_PersistentCalls:
       m_Calls: []
