@@ -60,7 +60,7 @@ public class Utilities : MonoBehaviour
       rectT.sizeDelta = new Vector2(12, 9);
 
 
-      //bug.lengthInMM = RandomBugLength(bug);
+      bug.lengthInMM = RandomBugLength(bug);
       float bugLength = bug.lengthInMM;
 
       float scaleRatio = (bugLength/branch.branchWidthInMM);
