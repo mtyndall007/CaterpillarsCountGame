@@ -44,13 +44,14 @@ public class Transition : MonoBehaviour
 
         playerScoreText = GameObject.Find("UserScore").GetComponent<Text>();
         playerScoreText.text = "Your Score: " + ScoreScript.levelScore + "/" + GameManager.instance.levelScore;
-    
+
     }
 
     private void continueFunction(){
         GameManager.instance.ResetBugCounts();
         ScoreScript.ResetScore();
-        SceneManager.LoadScene(GameManager.instance.sceneIterator);
+        //SceneManager.LoadScene(GameManager.instance.sceneIterator);
+        SceneManager.LoadScene(GameManager.instance.levelSelector(GameManager.instance.sceneIterator));
     }
 
 

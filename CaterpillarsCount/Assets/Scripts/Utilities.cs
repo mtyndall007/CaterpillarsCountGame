@@ -63,7 +63,7 @@ public class Utilities : MonoBehaviour
       bug.lengthInMM = RandomBugLength(bug);
       float bugLength = bug.lengthInMM;
 
-      float scaleRatio = (bugLength/branch.branchWidthInMM);
+      float scaleRatio = (bugLength/branch.branchWidthInMM) * 4;
 
 
 

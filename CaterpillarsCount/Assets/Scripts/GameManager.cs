@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
             //Calls a utility method that selects the level for a given playthrough. Store these in an array of scenes.
             //spawnedScenes = LevelSpawner.SpawnScenes();
             sceneIterator = 2;
-            SceneManager.LoadScene(sceneIterator);
+            SceneManager.LoadScene(levelSelector(sceneIterator));
         }
         //If instance already exists and it's not this:
         else if (instance != this)
@@ -232,13 +232,13 @@ public class GameManager : MonoBehaviour
                 bugsCorrectlyIdentified++;
                 ScoreScript.AddScore(currentBugScript.points);
                 currentBugScript.SetCorrectColor();
-                StartCoroutine(Utilities.PopupMessage("Correct!", 1));
+                StartCoroutine(Utilities.PopupMessage("Correct!", 2));
 
             }
             else
             {
                 currentBugScript.SetIncorrectColor();
-                StartCoroutine(Utilities.PopupMessage("Incorrect. The right answer was " + selectedBug, 2));
+                StartCoroutine(Utilities.PopupMessage("Incorrect. The right answer was " + selectedBug, 3));
             }
         }
 
@@ -271,7 +271,7 @@ public class GameManager : MonoBehaviour
         //StartCoroutine(Utilities.HighlightUnfoundBugs(3));
 
         //If we're on the last level, display the game over screen. Otherwise go to next level
-        if (sceneIterator == 11)
+        if (sceneIterator == 5)
         {
             playerScore = ScoreScript.scoreValue;
 
@@ -347,6 +347,18 @@ public class GameManager : MonoBehaviour
         */
     }
 
+    public int levelSelector(int iterator){
+        if(iterator == 2){
+          return (int)Mathf.Floor(Random.Range(2,4));
+        }
+        if(iterator == 3){
+          return (int)Mathf.Floor(Random.Range(5,7));
+        }
+        else {
+          return (int)Mathf.Floor(Random.Range(8,10));
+        }
+    }
+
     //Helper method that iterates through all the bugs on the screen and calculates their potential score value
     private int calcLevelScore()
     {
@@ -357,15 +369,6 @@ public class GameManager : MonoBehaviour
         string sceneName = SceneManager.GetActiveScene().name;
         string branchDifficulty = sceneName.Substring(0, 4);
 
-
-        /*
-        foreach (Bug bug in bugs)
-        {
-            tempScore += bug.points;
-        }
-        */
-        //Currently doubles the score, as correctly identifying a bug currently counts as 10 points.
-        //This will need to be adjusted eventually
         return setScore(branchDifficulty);
     }
 
