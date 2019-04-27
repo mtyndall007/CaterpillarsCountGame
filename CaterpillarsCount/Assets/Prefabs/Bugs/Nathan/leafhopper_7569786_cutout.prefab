@@ -212,7 +212,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bug: {fileID: 5239427486596344373}
   paused: 0
-  defaultColor: {r: 0, g: 0, b: 0, a: 0}
+  defaultColor: {r: 0.02745098, g: 1, b: 0, a: 0}
   points: 10
   classification: Leafhopper
   lengthInMM: 0
