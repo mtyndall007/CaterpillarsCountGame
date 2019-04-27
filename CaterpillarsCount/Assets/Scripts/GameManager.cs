@@ -141,6 +141,15 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetMouseButtonDown(0)){
+          MagnifyGlass.DisableZoom();
+        }
+
+        if(Input.GetMouseButtonDown(1) && !MagnifyGlass.IsZoomable()){
+          MagnifyGlass.ResetCounter();
+          MagnifyGlass.EnableZoom();
+        }
+
         if(TimerScript.GetCurrentTime() <= 0)
         {
             Submit();

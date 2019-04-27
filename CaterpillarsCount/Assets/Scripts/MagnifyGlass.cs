@@ -60,6 +60,10 @@ public class MagnifyGlass : MonoBehaviour
         zoomable = false;
     }
 
+    public static bool IsZoomable(){
+      return zoomable;
+    }
+
     //Useful for removing magnifying effect while the user is returning out of the bug selection UI
     public static void ResetCounter()
     {

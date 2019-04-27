@@ -49,6 +49,7 @@ public class Utilities : MonoBehaviour
     public static void ScaleBug(BranchScript branch, GameObject bugObject){
 
       Bug bug = bugObject.GetComponent<Bug>();
+      bug.lengthInMM = RandomBugLength(bug);
       float bugLength = bug.lengthInMM;
 
       float scaleRatio = bugLength/branch.branchWidthInMM;
@@ -61,6 +62,19 @@ public class Utilities : MonoBehaviour
       bugObject.transform.localScale = scaleFactor;//branchTransform.localScale.x * scaleRatio;
 
     }
+
+    private static float RandomBugLength(Bug bug){
+      float desired = bug.desiredLengthInMM;
+      float max = bug.maxLengthInMM;
+      float min = bug.minLengthInMM;
+
+      float lower = Random.Range(min, desired);
+      float upper = Random.Range(desired, max);
+
+      return (lower+upper)/2;
+    }
+
+
     //Creates a popup message, run it via a coroutine
     public static IEnumerator PopupMessage(string message, float delay)
     {
