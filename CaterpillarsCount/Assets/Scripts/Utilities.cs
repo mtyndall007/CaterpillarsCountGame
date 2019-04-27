@@ -49,10 +49,22 @@ public class Utilities : MonoBehaviour
     public static void ScaleBug(BranchScript branch, GameObject bugObject){
 
       Bug bug = bugObject.GetComponent<Bug>();
-      bug.lengthInMM = RandomBugLength(bug);
+      bugObject.transform.localScale = new Vector3(1.15f, 1.15f, 1.15f);
+      RectTransform rectT = bugObject.AddComponent(typeof(RectTransform)) as RectTransform;
+      // = bugObject.GetComponent<RectTransform>();
+
+      GameObject branchObject = GameObject.Find("Branch");
+      //branchObject.transform.localScale = new Vector3(1, 1, 1);
+
+      //RectTransform branchRect = branchObject.GetComponent<RectTransform>();
+      rectT.sizeDelta = new Vector2(12, 9);
+
+
+      //bug.lengthInMM = RandomBugLength(bug);
       float bugLength = bug.lengthInMM;
 
-      float scaleRatio = bugLength/branch.branchWidthInMM;
+      float scaleRatio = (bugLength/branch.branchWidthInMM) * 4;
+
 
 
       Vector3 scaleFactor = new Vector3(scaleRatio / bugObject.transform.localScale.x  , scaleRatio / bugObject.transform.localScale.y, bugObject.transform.localScale.z);
@@ -60,6 +72,7 @@ public class Utilities : MonoBehaviour
 
       Transform branchTransform = branch.gameObject.transform;
       bugObject.transform.localScale = scaleFactor;//branchTransform.localScale.x * scaleRatio;
+
 
     }
 

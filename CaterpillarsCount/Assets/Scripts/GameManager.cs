@@ -133,6 +133,7 @@ public class GameManager : MonoBehaviour
         lengthUI = GameObject.Find("LengthUI");
         lengthElements = GameObject.Find("LengthElements");
         lengthSubmit = GameObject.Find("LengthSubmit");
+        ruler = GameObject.Find("Ruler");
 
         lengthUI.SetActive(false);
 
@@ -350,15 +351,39 @@ public class GameManager : MonoBehaviour
     private int calcLevelScore()
     {
         int tempScore = 0;
-        Bug[] bugs = GameObject.FindObjectsOfType<Bug>();
-        totalBugs = bugs.Length;
+        GameObject bugs = GameObject.Find("SpawnedBugs");//GameObject.FindObjectsOfType<Bug>();
+        totalBugs = bugs.transform.childCount;
+
+        string sceneName = SceneManager.GetActiveScene().name;
+        string branchDifficulty = sceneName.Substring(0, 4);
+
+
+        /*
         foreach (Bug bug in bugs)
         {
             tempScore += bug.points;
         }
+        */
         //Currently doubles the score, as correctly identifying a bug currently counts as 10 points.
         //This will need to be adjusted eventually
-        return 3*tempScore;
+        return setScore(branchDifficulty);
+    }
+
+    private int setScore(string difficulty)
+    {
+        int randomNumber;
+        if(difficulty == "Easy")
+        {
+           return 300;
+
+        }else if(difficulty == "Medi")
+        {
+            return 600;
+        }
+        else
+        {
+            return 900;
+        }
     }
 
     private void EvaluateMeasurement(InputField input){

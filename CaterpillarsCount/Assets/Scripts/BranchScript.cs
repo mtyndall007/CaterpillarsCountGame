@@ -19,7 +19,7 @@ public class BranchScript : MonoBehaviour
     void Start()
     {
         InitializeBranchUnits();
-        ResizeRuler();
+        //ResizeRuler();
     }
 
     // Update is called once per frame
@@ -40,6 +40,7 @@ public class BranchScript : MonoBehaviour
     {
 
         branch = gameObject;
+        RectTransform branchRect = gameObject.AddComponent(typeof(RectTransform)) as RectTransform;
         SpriteRenderer temp = branch.GetComponentInChildren<SpriteRenderer>();
         Sprite tempSprite = temp.sprite;
         if (tempSprite)

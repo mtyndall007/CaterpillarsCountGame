@@ -310,3 +310,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: BugClickedEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+  minLengthInMM: 8
+  desiredLengthInMM: 10
+  maxLengthInMM: 12
+  lengthAsProportionOfImageWidth: 0.5
