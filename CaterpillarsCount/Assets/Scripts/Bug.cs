@@ -21,6 +21,10 @@ public class Bug : MonoBehaviour
     public string classification;
     public float lengthInMM;
     public BugClickedEvent bugClicked;
+    public float minLengthInMM;
+    public float maxLengthInMM;
+    public float desiredLengthInMM;
+    public float lengthAsProportionOfImageWidth;
 
     public float minLengthInMM;
     public float desiredLengthInMM;
