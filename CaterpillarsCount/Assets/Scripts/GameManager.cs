@@ -292,7 +292,7 @@ public class GameManager : MonoBehaviour
             totalScoreText.text += totalScore.ToString() + " possible points";
 
             Text feedbackText = GameObject.Find("Feedback").GetComponent<Text>();
-            feedbackText.text = getFeedback(playerScore);
+            getFeedback(playerScore, feedbackText);
 
             //Finds the play again button from the scene and adds an event listener
             playAgainButton = GetComponentInChildren<Button>();
@@ -436,17 +436,19 @@ public class GameManager : MonoBehaviour
       }
     }
 
-    private string getFeedback(int score){
+    private void getFeedback(int score, Text feedback){
+      string tmp;
       if(score >= 1600){
-        return "Great job! You're ready to get outside and conduct some real surveys!";
+        feedback.text = "Great job! You're ready to get outside and conduct some real surveys!";
       } else if (score >= 1300){
-        return "You are a budding entomologist! Can you get a perfect score?";
+        feedback.text = "You are a budding entomologist! Can you get a perfect score?";
       } else if (score >= 800){
-        return "Keep practicing! Finding more bugs will bring you eternal happiness!";
+        feedback.text = "Keep practicing! Finding more bugs will bring you eternal happiness!";
       } else if (score >= 500){
-        return "Review the Arthropod ID Guide, and don't forget to use the ruler to help you search!";
+        feedback.text = "Review the Arthropod ID Guide, and don't forget to use the ruler to help you search!";
       }
-        return "Um, you do know what an arthropod is, don't you?";
+        feedback.text = "Um, you do know what an arthropod is, don't you?";
+
     }
 
     public void ResetBugCounts(){
