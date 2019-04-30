@@ -47,8 +47,69 @@ public class MagnifyGlass : MonoBehaviour
 
         }
 
+        //clampCamera();
+        if (!mouseInBound())
+        {
+            magnifyCamera.enabled = false;
+            magnifyBorders.SetActive(false);
+        }
+
 
     }
+
+    public bool mouseInBound()
+    {
+        Debug.Log(Input.mousePosition.y + " > " + Screen.height);
+        //LEFT BOUND
+        if(Input.mousePosition.x < 0 +MGWidth/2)
+        {
+            return false;
+        }
+        //RIGHT BOUND 
+        if (Input.mousePosition.x > Screen.width - MGWidth/2)
+        {
+            return false;
+        }
+        //BOTTOM BOUND
+        if (Input.mousePosition.y < 0 +MGHeight/2)
+        {
+            return false;
+        }
+        //TOP BOUND 
+        if (Input.mousePosition.y > Screen.height - MGHeight/2)
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+    //public void clampCamera()
+    //{
+    //    Vector2 mousePosition = Input.mousePosition;
+    //    Debug.Log(getWorldPosition(Input.mousePosition));
+
+    //    if(mousePosition.x < 57.4)
+    //    {
+    //        magnifyCamera.pixelRect = new Rect(0, Input.mousePosition.y - MGHeight / 2.0f, MGWidth, MGHeight);
+    //        mousePos = getWorldPosition(Input.mousePosition);
+    //        magnifyCamera.transform.position = mousePos;
+    //        mousePos.z = 0;
+
+    //        magnifyBorders.transform.position = new Vector3(-5,mousePos.y);
+    //    }
+
+    //    if (mousePosition.y < 57.4)
+    //    {
+    //        //magnifyCamera.pixelRect = new Rect(0, Input.mousePosition.y - MGHeight / 2.0f, MGWidth, MGHeight);
+    //        //mousePos = getWorldPosition(Input.mousePosition);
+    //        //magnifyCamera.transform.position = mousePos;
+    //        //mousePos.z = 0;
+
+    //        //magnifyBorders.transform.position = new Vector3(-5, mousePos.y);
+    //    }
+
+    //}
 
     public static void EnableZoom()
     {
