@@ -139,7 +139,7 @@ public class GameManager : MonoBehaviour
 
         lengthUI.SetActive(false);
 
-        otherUI = GameObject.Find("OtherUI");
+        otherUI = GameObject.Find("OtherSelection");
         otherUI.SetActive(false);
 
     }
