@@ -403,13 +403,13 @@ public class GameManager : MonoBehaviour
 
     public int levelSelector(int iterator){
         if(iterator == 2){
-          return (int)Mathf.Floor(Random.Range(2,4));
+          return (int)Mathf.Floor(Random.Range(2,5));
         }
         if(iterator == 3){
-          return (int)Mathf.Floor(Random.Range(5,7));
+          return (int)Mathf.Floor(Random.Range(5,8));
         }
         else {
-          return (int)Mathf.Floor(Random.Range(8,10));
+          return (int)Mathf.Floor(Random.Range(8,11));
         }
     }
 

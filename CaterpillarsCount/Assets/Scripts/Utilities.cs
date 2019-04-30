@@ -13,8 +13,10 @@ public class Utilities : MonoBehaviour
         float bugImageWidthInMM = bugImageWidthInGame * bug.lengthInMM;
         Debug.Log("bugImageWidthInMM" + bugImageWidthInMM);
 
-        float bugToRulerRatio = bugImageWidthInMM / 57; //Hardcoded ruler length
-        float tempWidth = ruler.GetComponent<RectTransform>().rect.width / bugToRulerRatio;
+        float bugToRulerRatio = bugImageWidthInMM / 35; //Hardcoded ruler length
+        Debug.Log("bugToRulerRatio" + bugToRulerRatio);
+        float tempWidth = (ruler.GetComponent<RectTransform>().rect.width / bugToRulerRatio);
+        Debug.Log("tempWidth" + tempWidth);
         ruler.GetComponent<RectTransform>().sizeDelta = new Vector2(tempWidth, ruler.GetComponent<RectTransform>().rect.height);
     }
 
@@ -69,7 +71,7 @@ public class Utilities : MonoBehaviour
       //branchObject.transform.localScale = new Vector3(1, 1, 1);
 
       //RectTransform branchRect = branchObject.GetComponent<RectTransform>();
-      rectT.sizeDelta = new Vector2(12, 9);
+      //rectT.sizeDelta = new Vector2(12, 9);
 
 
       bug.lengthInMM = RandomBugLength(bug);
