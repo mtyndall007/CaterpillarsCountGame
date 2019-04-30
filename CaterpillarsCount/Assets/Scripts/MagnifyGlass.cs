@@ -7,7 +7,7 @@ public class MagnifyGlass : MonoBehaviour
     private GameObject magnifyBorders;
     private LineRenderer LeftBorder, RightBorder, TopBorder, BottomBorder; // Reference for lines of magnify glass borders
     private float MGOX, MG0Y; // Magnify Glass Origin X and Y position
-    private float MGWidth = Screen.width / 4f, MGHeight = Screen.width / 4f; // Magnify glass width and height
+    private float MGWidth = Screen.width / 5f, MGHeight = Screen.width / 5f; // Magnify glass width and height
     private Vector3 mousePos;
     private static int rightClickCounter;
     private static bool zoomable;
@@ -65,7 +65,7 @@ public class MagnifyGlass : MonoBehaviour
         {
             return false;
         }
-        //RIGHT BOUND 
+        //RIGHT BOUND
         if (Input.mousePosition.x > Screen.width - MGWidth/2)
         {
             return false;
@@ -75,7 +75,7 @@ public class MagnifyGlass : MonoBehaviour
         {
             return false;
         }
-        //TOP BOUND 
+        //TOP BOUND
         if (Input.mousePosition.y > Screen.height - MGHeight/2)
         {
             return false;
@@ -143,13 +143,13 @@ public class MagnifyGlass : MonoBehaviour
         if (Camera.main.orthographic)
         {
             magnifyCamera.orthographic = true;
-            magnifyCamera.orthographicSize = Camera.main.orthographicSize / 5.0f;//+ 1.0f;
+            magnifyCamera.orthographicSize = Camera.main.orthographicSize / 9.0f;//+ 1.0f;
             createBordersForMagniyGlass();
         }
         else
         {
             magnifyCamera.orthographic = false;
-            magnifyCamera.fieldOfView = Camera.main.fieldOfView / 3.0f;//3.0f;
+            magnifyCamera.fieldOfView = Camera.main.fieldOfView / 7.0f;//3.0f;
         }
 
     }
