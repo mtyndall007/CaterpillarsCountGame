@@ -295,6 +295,9 @@ public class GameManager : MonoBehaviour
         bugSelectionText.SetActive(false);
 
         lengthUI.SetActive(true);
+        GameObject ruler = GameObject.Find("Ruler");
+        Utilities.ScaleRuler(ruler, currentBugScript);
+
         InputField measurementInput = lengthUI.GetComponentInChildren<InputField>();
         measurementInput.onEndEdit.AddListener(delegate { EvaluateMeasurement(measurementInput); });
         if (lengthSubmit != null)

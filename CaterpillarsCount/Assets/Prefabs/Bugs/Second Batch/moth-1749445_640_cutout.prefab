@@ -232,4 +232,4 @@ MonoBehaviour:
   minLengthInMM: 10
   desiredLengthInMM: 15
   maxLengthInMM: 25
-  lengthAsProportionOfImageWidth: 0
+  lengthAsProportionOfImageWidth: 0.3
