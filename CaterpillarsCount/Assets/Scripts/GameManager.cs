@@ -260,6 +260,8 @@ public class GameManager : MonoBehaviour
     //For when the user is done with a branch, also called when timer runs out
     void Submit()
     {
+        Sprite background = GameObject.Find("Branch").GetComponent<SpriteRenderer>().sprite;
+        Transition.setBackground(background);
         //Iterate to get the next scene
         sceneIterator++;
         //Score is persistant between levels for now, but might want to change this
