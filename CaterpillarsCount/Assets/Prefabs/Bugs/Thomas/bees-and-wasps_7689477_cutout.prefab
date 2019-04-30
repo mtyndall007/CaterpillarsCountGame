@@ -98,15 +98,15 @@ MonoBehaviour:
   defaultColor: {r: 0.02745098, g: 1, b: 0, a: 0}
   points: 10
   classification: Bee
-  lengthInMM: 5
+  lengthInMM: 0
   bugClicked:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: BugClickedEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   minLengthInMM: 2
-  desiredLengthInMM: 5
   maxLengthInMM: 10
+  desiredLengthInMM: 5
   lengthAsProportionOfImageWidth: 0.4832347
 --- !u!60 &4570016580322602300
 PolygonCollider2D:

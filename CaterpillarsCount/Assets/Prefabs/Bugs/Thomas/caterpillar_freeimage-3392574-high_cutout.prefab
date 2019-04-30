@@ -98,15 +98,15 @@ MonoBehaviour:
   defaultColor: {r: 0.02745098, g: 1, b: 0, a: 0}
   points: 10
   classification: Caterpillar
-  lengthInMM: 15
+  lengthInMM: 0
   bugClicked:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: BugClickedEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   minLengthInMM: 3
-  desiredLengthInMM: 15
   maxLengthInMM: 35
+  desiredLengthInMM: 15
   lengthAsProportionOfImageWidth: 1
 --- !u!60 &2493257413422922593
 PolygonCollider2D:

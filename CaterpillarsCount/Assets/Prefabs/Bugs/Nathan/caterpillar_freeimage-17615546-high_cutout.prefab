@@ -378,7 +378,7 @@ MonoBehaviour:
   defaultColor: {r: 0.02745098, g: 1, b: 0, a: 0}
   points: 10
   classification: Caterpillar
-  lengthInMM: 15
+  lengthInMM: 0
   bugClicked:
     m_PersistentCalls:
       m_Calls: []
