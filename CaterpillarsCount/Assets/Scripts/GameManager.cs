@@ -90,6 +90,8 @@ public class GameManager : MonoBehaviour
     GameObject lengthElements;
     GameObject lengthSubmit;
 
+    GameObject otherUI;
+
 
     // Start is called before the first frame update
     void Start()
@@ -108,7 +110,7 @@ public class GameManager : MonoBehaviour
 
         defaultFOV = Camera.main.orthographicSize;
         defaultCameraPosition = Camera.main.transform.position;
-        zoomedFOV = defaultFOV/4.0f;
+        zoomedFOV = defaultFOV / 4.0f;
 
         //Finds the submit button from the scene and adds an event listener
         levelSubmitButton = GameObject.Find("LevelSubmit").GetComponent<Button>();
@@ -118,17 +120,17 @@ public class GameManager : MonoBehaviour
         //Callback function for when a bug has been clicked by the user
         bugClicked += BugClicked;
 
-       //Find the gameover UI
-       gameOver = GameObject.Find("GameOver");
-       //Make the gameover screen invisible
-       gameOver.SetActive(false);
+        //Find the gameover UI
+        gameOver = GameObject.Find("GameOver");
+        //Make the gameover screen invisible
+        gameOver.SetActive(false);
 
-      bugButtons = GameObject.Find("BugButtons");
+        bugButtons = GameObject.Find("BugButtons");
         bugSelectionText = GameObject.Find("BugSelectionText");
 
-       //Hide the bug selection UI at startup
-       bugSelectionUI = GameObject.Find("BugSelectionUI");
-       bugSelectionUI.SetActive(false);
+        //Hide the bug selection UI at startup
+        bugSelectionUI = GameObject.Find("BugSelectionUI");
+        bugSelectionUI.SetActive(false);
         bugButtons.SetActive(false);
         bugSelectionText.SetActive(false);
 
@@ -139,21 +141,24 @@ public class GameManager : MonoBehaviour
 
         lengthUI.SetActive(false);
 
+        otherUI = GameObject.Find("OtherSelection");
+        otherUI.SetActive(false);
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0)){
-          MagnifyGlass.DisableZoom();
+        if (Input.GetMouseButtonDown(0)) {
+            MagnifyGlass.DisableZoom();
         }
 
-        if(Input.GetMouseButtonDown(1) && !MagnifyGlass.IsZoomable()){
-          MagnifyGlass.ResetCounter();
-          MagnifyGlass.EnableZoom();
+        if (Input.GetMouseButtonDown(1) && !MagnifyGlass.IsZoomable()) {
+            MagnifyGlass.ResetCounter();
+            MagnifyGlass.EnableZoom();
         }
 
-        if(TimerScript.GetCurrentTime() <= 0)
+        if (TimerScript.GetCurrentTime() <= 0)
         {
             Submit();
         }
@@ -190,7 +195,7 @@ public class GameManager : MonoBehaviour
         //Zooms camera in on bug
         Camera.main.orthographic = true;
         Camera.main.transform.position = Camera.main.ScreenToWorldPoint(
-            new Vector3(Input.mousePosition.x, Input.mousePosition.y - Mathf.Floor(Screen.height/20), Input.mousePosition.z));
+            new Vector3(Input.mousePosition.x, Input.mousePosition.y - Mathf.Floor(Screen.height / 20), Input.mousePosition.z));
         zoomingIn = true;
 
         levelSubmitButton.gameObject.SetActive(false);
@@ -235,16 +240,57 @@ public class GameManager : MonoBehaviour
                 ScoreScript.AddScore(currentBugScript.points);
                 currentBugScript.SetCorrectColor();
                 StartCoroutine(Utilities.PopupMessage("Correct!", 2));
+                HandleLengthUI();
+
+            } else if (bugName == "Other")
+            {
+                bugButtons.SetActive(false);
+                bugSelectionText.SetActive(false);
+                otherUI.SetActive(true);
+
+                InputField other = otherUI.GetComponentInChildren<InputField>();
+
+                otherUI.GetComponentInChildren<Button>().onClick.AddListener(() => OtherSubmit(other));
+
 
             }
             else
             {
                 currentBugScript.SetIncorrectColor();
                 StartCoroutine(Utilities.PopupMessage("Incorrect. The right answer was " + selectedBug, 3));
+                HandleLengthUI();
             }
         }
 
         bugHasBeenCategorized = true;
+        bugButtons.SetActive(false);
+        bugSelectionText.SetActive(false);
+
+
+    }
+
+    void OtherSubmit(InputField other)
+    {
+        lengthUI.SetActive(false);
+        if (other.text == selectedBug)
+        {
+            bugsCorrectlyIdentified++;
+            ScoreScript.AddScore(currentBugScript.points);
+            StartCoroutine(Utilities.PopupMessage("Correct!", 2));
+            otherUI.SetActive(false);
+            currentBugScript.SetCorrectColor();
+        }
+        else
+        {
+            StartCoroutine(Utilities.PopupMessage("Incorrect. The right answer was " + selectedBug, 3));
+            otherUI.SetActive(false);
+            currentBugScript.SetIncorrectColor();
+        }
+        HandleLengthUI();
+    }
+
+    void HandleLengthUI()
+    {
         bugButtons.SetActive(false);
         bugSelectionText.SetActive(false);
 
@@ -255,8 +301,6 @@ public class GameManager : MonoBehaviour
         {
             lengthSubmit.GetComponent<Button>().onClick.AddListener(BugUISubmit);
         }
-
-
     }
 
     //For when the user is done with a branch, also called when timer runs out
