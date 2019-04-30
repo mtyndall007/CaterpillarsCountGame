@@ -324,7 +324,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6792453, g: 0.6792453, b: 0.6792453, a: 0.6862745}
+  m_Color: {r: 0.2, g: 0.2, b: 0.2, a: 0.6862745}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1230,7 +1230,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Be sure to user the magnifying glass!
+  m_Text: Be sure to use the magnifying glass!
 --- !u!222 &1686466618
 CanvasRenderer:
   m_ObjectHideFlags: 0
