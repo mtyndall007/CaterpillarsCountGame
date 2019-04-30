@@ -219,13 +219,9 @@ MonoBehaviour:
   defaultColor: {r: 0.14901958, g: 0.9607843, b: 0.16540273, a: 1}
   points: 10
   classification: Caterpillar
-  lengthInMM: 10
+  lengthInMM: 7
   bugClicked:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: BugClickedEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
-  minLengthInMM: 5
-  desiredLengthInMM: 7
-  maxLengthInMM: 10
-  lengthAsProportionOfImageWidth: 0.7
