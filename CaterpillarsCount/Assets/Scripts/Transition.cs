@@ -34,7 +34,7 @@ public class Transition : MonoBehaviour
         if(GameManager.instance.bugsClicked > 0){
           bugsClickedText.text = "Arthropods found: " + Mathf.Round(100 * (float)GameManager.instance.bugsClicked/GameManager.instance.totalBugs) + "%";
           bugsIdentifiedText.text = "Correctly identified: " + Mathf.Round(100 * (float)GameManager.instance.bugsCorrectlyIdentified/GameManager.instance.totalBugs) + "%";
-          measurementAccuracyText.text = "Measurement error: " + (float)(GameManager.instance.measurementDistance / GameManager.instance.bugsClicked) + "mm";
+          measurementAccuracyText.text = "Measurement error: " + Mathf.Round((float)(GameManager.instance.measurementDistance / GameManager.instance.bugsClicked)) + "mm";
 
         } else {
           bugsClickedText.text = "";
