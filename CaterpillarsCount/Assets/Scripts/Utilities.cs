@@ -8,7 +8,7 @@ public class Utilities : MonoBehaviour
 
     public static void ScaleRuler(GameObject ruler, Bug bug){
         RectTransform bugRect = bug.GetComponent<RectTransform>();
-        float bugImageWidthInGame = bugRect.rect.width / bug.lengthAsProportionOfImageWidth;
+        float bugImageWidthInGame = (bugRect.rect.width / bug.lengthAsProportionOfImageWidth);
         Debug.Log("bugImageWidthInGame" + bugImageWidthInGame);
         float bugImageWidthInMM = bugImageWidthInGame * bug.lengthInMM;
         Debug.Log("bugImageWidthInMM" + bugImageWidthInMM);
