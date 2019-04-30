@@ -146,8 +146,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e91230c13412d849ac99fe14f666d81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   branch: {fileID: 29556432}
   inGameBranchWidth: 0
   branchWidthInMM: 343
@@ -1160,8 +1160,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 286808e59dcdc4bf88b0c3091df89887, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   numOfBugs: 6
   branch: {fileID: 0}
 --- !u!4 &987992649
@@ -1663,8 +1663,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -1682,8 +1682,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -619905303, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
@@ -2847,7 +2847,7 @@ PrefabInstance:
     - target: {fileID: 5680041457895764808, guid: e002b83cf5e7bca499ed3987c9f3b531,
         type: 3}
       propertyPath: lineMaterial
-      value: 
+      value:
       objectReference: {fileID: 2100000, guid: 6456d25c08f314440be041a064876f6d, type: 2}
     - target: {fileID: 5680041457651886002, guid: e002b83cf5e7bca499ed3987c9f3b531,
         type: 3}

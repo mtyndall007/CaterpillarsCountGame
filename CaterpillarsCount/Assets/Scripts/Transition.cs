@@ -19,9 +19,16 @@ public class Transition : MonoBehaviour
 
     int playerScore;
     int maxScore;
+
+    public static Sprite background;
     // Start is called before the first frame update
     void Start()
     {
+
+        if(background != null){
+           Image bground = GameObject.Find("Background").GetComponent<Image>();
+           bground.sprite = background;
+        }
         continueButton = GameObject.Find("Continue").GetComponent<Button>();
         continueAction += continueFunction;
         continueButton.onClick.AddListener(continueAction);
@@ -34,7 +41,7 @@ public class Transition : MonoBehaviour
         if(GameManager.instance.bugsClicked > 0){
           bugsClickedText.text = "Arthropods found: " + Mathf.Round(100 * (float)GameManager.instance.bugsClicked/GameManager.instance.totalBugs) + "%";
           bugsIdentifiedText.text = "Correctly identified: " + Mathf.Round(100 * (float)GameManager.instance.bugsCorrectlyIdentified/GameManager.instance.totalBugs) + "%";
-          measurementAccuracyText.text = "Measurement error: " + (float)(GameManager.instance.measurementDistance / GameManager.instance.bugsClicked) + "mm";
+          measurementAccuracyText.text = "Measurement error: " + Mathf.Round((float)(GameManager.instance.measurementDistance / GameManager.instance.bugsClicked)) + "mm";
 
         } else {
           bugsClickedText.text = "";
@@ -45,6 +52,10 @@ public class Transition : MonoBehaviour
         playerScoreText = GameObject.Find("UserScore").GetComponent<Text>();
         playerScoreText.text = "Your Score: " + ScoreScript.levelScore + "/" + GameManager.instance.levelScore;
 
+    }
+
+    public static void setBackground(Sprite bground){
+        background = bground;
     }
 
     private void continueFunction(){
