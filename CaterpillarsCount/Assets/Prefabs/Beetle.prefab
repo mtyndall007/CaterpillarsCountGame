@@ -211,6 +211,12 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.63742
       objectReference: {fileID: 0}
+    - target: {fileID: 129562080871555185, guid: 1512db5271285c744a35f672b3577417,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: eac947ecb7f0d4b359aeef972f62e21e,
+        type: 3}
     - target: {fileID: 129562080871555187, guid: 1512db5271285c744a35f672b3577417,
         type: 3}
       propertyPath: points
@@ -231,12 +237,26 @@ PrefabInstance:
       propertyPath: lengthInMM
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 129562080871555185, guid: 1512db5271285c744a35f672b3577417,
+    - target: {fileID: 129562080871555187, guid: 1512db5271285c744a35f672b3577417,
         type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: eac947ecb7f0d4b359aeef972f62e21e,
+      propertyPath: minLengthInMM
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 129562080871555187, guid: 1512db5271285c744a35f672b3577417,
         type: 3}
+      propertyPath: desiredLengthInMM
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 129562080871555187, guid: 1512db5271285c744a35f672b3577417,
+        type: 3}
+      propertyPath: lengthAsProportionOfImageWidth
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 129562080871555187, guid: 1512db5271285c744a35f672b3577417,
+        type: 3}
+      propertyPath: maxLengthInMM
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 129562080871555186, guid: 1512db5271285c744a35f672b3577417, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1512db5271285c744a35f672b3577417, type: 3}
