@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 //Generic script for bugs. Can be used as a generic parent class for more specific bugs, but not sure if it's necessary yet.
 //Public variables so that we can tweak what color each bug is, their point value, etc.
@@ -34,9 +35,33 @@ public class Bug : MonoBehaviour
         clickable = true;
         paused = false;
 
+
+        GameObject gameManagerObject = GameObject.Find("GameManager");
+        GameObject SpawnedBugs = GameObject.Find("SpawnedBugs");
+
+        string sceneName = SceneManager.GetActiveScene().name;
+        string difficulty = sceneName.Substring(0, 4);
+        int totalBugs = SpawnedBugs.transform.childCount;
+
+        if (difficulty == "Easy")
+        {
+            points = 300/totalBugs/3;
+
+        }
+        else if (difficulty == "Medi")
+        {
+            points = 600 / totalBugs /3;
+        }
+        else
+        {
+            points = 900 / totalBugs /3;
+        }
+
+
+
         //Will need something like this eventually, but also need to scale based on branch size
-          //lengthInMM = lengthInMM * bug.transform.localScale.x;
-          //Debug.Log(lengthInMM);
+        //lengthInMM = lengthInMM * bug.transform.localScale.x;
+        //Debug.Log(lengthInMM);
 
         if (bugClicked == null)
             bugClicked = new BugClickedEvent();
