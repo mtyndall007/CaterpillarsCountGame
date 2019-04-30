@@ -344,9 +344,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "- Find all the bugs in each scene\n- Left click to select a bug\n- Right
-    click to use your magnifying glass\n- Get points for identifying and measuring
-    each bug\n- Length is measured from tip of head to bottom of abdomen\r"
+  m_Text: "- Find all the arthropods in each scene\n- Left click to select an arthropod\n-
+    Right click to use your magnifying glass\n- Get points for identifying and measuring
+    each arthropod\n- Length is measured from tip of head to bottom of abdomen\r"
 --- !u!222 &1270540072
 CanvasRenderer:
   m_ObjectHideFlags: 0
