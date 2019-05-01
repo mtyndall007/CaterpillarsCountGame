@@ -295,9 +295,6 @@ public class GameManager : MonoBehaviour
         bugSelectionText.SetActive(false);
 
         lengthUI.SetActive(true);
-        GameObject ruler = GameObject.Find("Ruler");
-        Utilities.ScaleRuler(ruler, currentBugScript);
-
         InputField measurementInput = lengthUI.GetComponentInChildren<InputField>();
         measurementInput.onEndEdit.AddListener(delegate { EvaluateMeasurement(measurementInput); });
         if (lengthSubmit != null)
@@ -403,13 +400,13 @@ public class GameManager : MonoBehaviour
 
     public int levelSelector(int iterator){
         if(iterator == 2){
-          return (int)Mathf.Floor(Random.Range(2,5));
+          return (int)Mathf.Floor(Random.Range(2,4));
         }
         if(iterator == 3){
-          return (int)Mathf.Floor(Random.Range(5,8));
+          return (int)Mathf.Floor(Random.Range(5,7));
         }
         else {
-          return (int)Mathf.Floor(Random.Range(8,11));
+          return (int)Mathf.Floor(Random.Range(8,10));
         }
     }
 
