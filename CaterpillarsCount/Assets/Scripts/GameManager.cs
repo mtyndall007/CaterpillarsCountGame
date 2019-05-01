@@ -88,7 +88,7 @@ public class GameManager : MonoBehaviour
 
     GameObject lengthUI;
     GameObject lengthElements;
-    GameObject lengthSubmit;
+    Button lengthSubmit;
 
     GameObject otherUI;
 
@@ -136,12 +136,12 @@ public class GameManager : MonoBehaviour
 
         lengthUI = GameObject.Find("LengthUI");
         lengthElements = GameObject.Find("LengthElements");
-        lengthSubmit = GameObject.Find("LengthSubmit");
+        lengthSubmit = lengthElements.GetComponentInChildren<Button>();
         ruler = GameObject.Find("Ruler");
 
         lengthUI.SetActive(false);
 
-        otherUI = GameObject.Find("OtherSelection");
+        otherUI = GameObject.Find("OtherUI");
         otherUI.SetActive(false);
 
     }
