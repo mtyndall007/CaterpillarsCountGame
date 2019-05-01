@@ -59,7 +59,7 @@ public class MagnifyGlass : MonoBehaviour
 
     public bool mouseInBound()
     {
-        Debug.Log(Input.mousePosition.y + " > " + Screen.height);
+        //Debug.Log(Input.mousePosition.y + " > " + Screen.height);
         //LEFT BOUND
         if(Input.mousePosition.x < 0 +MGWidth/2)
         {
