@@ -295,12 +295,9 @@ public class GameManager : MonoBehaviour
         bugSelectionText.SetActive(false);
 
         lengthUI.SetActive(true);
-<<<<<<< HEAD
         ruler = GameObject.Find("Ruler");
         Utilities.ScaleRuler(ruler, currentBugScript);
 
-=======
->>>>>>> parent of c6e8ef3... Merge branch 'master' of https://github.com/mtyndall007/CaterpillarsCountGame
         InputField measurementInput = lengthUI.GetComponentInChildren<InputField>();
         measurementInput.onEndEdit.AddListener(delegate { EvaluateMeasurement(measurementInput); });
         if (lengthSubmit != null)
@@ -406,13 +403,13 @@ public class GameManager : MonoBehaviour
 
     public int levelSelector(int iterator){
         if(iterator == 2){
-          return (int)Mathf.Floor(Random.Range(2,4));
+          return (int)Mathf.Floor(Random.Range(2,5));
         }
         if(iterator == 3){
-          return (int)Mathf.Floor(Random.Range(5,7));
+          return (int)Mathf.Floor(Random.Range(5,8));
         }
         else {
-          return (int)Mathf.Floor(Random.Range(8,10));
+          return (int)Mathf.Floor(Random.Range(8,11));
         }
     }
 

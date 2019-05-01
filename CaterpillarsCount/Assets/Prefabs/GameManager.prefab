@@ -304,34 +304,22 @@ PrefabInstance:
     - target: {fileID: 4860678530498870114, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
       propertyPath: m_SizeDelta.x
-<<<<<<< HEAD
       value: 1533.2
-=======
-      value: 800
->>>>>>> parent of c6e8ef3... Merge branch 'master' of https://github.com/mtyndall007/CaterpillarsCountGame
       objectReference: {fileID: 0}
     - target: {fileID: 4860678530498870114, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
       propertyPath: m_SizeDelta.y
-<<<<<<< HEAD
       value: 378.6
-=======
-      value: 200
->>>>>>> parent of c6e8ef3... Merge branch 'master' of https://github.com/mtyndall007/CaterpillarsCountGame
       objectReference: {fileID: 0}
     - target: {fileID: 4860678530498870114, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-<<<<<<< HEAD
       value: 177
       objectReference: {fileID: 0}
     - target: {fileID: 4860678530498870114, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 11
-=======
-      value: 120
->>>>>>> parent of c6e8ef3... Merge branch 'master' of https://github.com/mtyndall007/CaterpillarsCountGame
       objectReference: {fileID: 0}
     - target: {fileID: 4860678530046321790, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
@@ -363,7 +351,6 @@ PrefabInstance:
       propertyPath: m_UiScaleMode
       value: 1
       objectReference: {fileID: 0}
-<<<<<<< HEAD
     - target: {fileID: 3554838865468030624, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
       propertyPath: m_ScreenMatchMode
@@ -374,8 +361,6 @@ PrefabInstance:
       propertyPath: m_ReferencePixelsPerUnit
       value: 200
       objectReference: {fileID: 0}
-=======
->>>>>>> parent of c6e8ef3... Merge branch 'master' of https://github.com/mtyndall007/CaterpillarsCountGame
     - target: {fileID: 4860678531022409701, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -484,20 +469,12 @@ PrefabInstance:
     - target: {fileID: 4860678530446292477, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-<<<<<<< HEAD
       value: 766.6
-=======
-      value: 400
->>>>>>> parent of c6e8ef3... Merge branch 'master' of https://github.com/mtyndall007/CaterpillarsCountGame
       objectReference: {fileID: 0}
     - target: {fileID: 4860678530446292477, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-<<<<<<< HEAD
       value: -148.3
-=======
-      value: -59
->>>>>>> parent of c6e8ef3... Merge branch 'master' of https://github.com/mtyndall007/CaterpillarsCountGame
       objectReference: {fileID: 0}
     - target: {fileID: 4860678530446292477, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
@@ -509,7 +486,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 47
       objectReference: {fileID: 0}
-<<<<<<< HEAD
     - target: {fileID: 4860678530446292477, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
       propertyPath: m_AnchorMin.x
@@ -520,8 +496,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
-=======
->>>>>>> parent of c6e8ef3... Merge branch 'master' of https://github.com/mtyndall007/CaterpillarsCountGame
     - target: {fileID: 4860678530207764439, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -592,6 +566,11 @@ PrefabInstance:
       propertyPath: m_ReferenceResolution.y
       value: 600
       objectReference: {fileID: 0}
+    - target: {fileID: 4860678530046321779, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
+        type: 3}
+      propertyPath: m_ScreenMatchMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4860678530046321778, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
       propertyPath: m_SortingOrder
@@ -599,14 +578,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4860678530046321778, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
-<<<<<<< HEAD
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4860678530046321778, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
-        type: 3}
-=======
->>>>>>> parent of c6e8ef3... Merge branch 'master' of https://github.com/mtyndall007/CaterpillarsCountGame
       propertyPath: m_PixelPerfect
       value: 1
       objectReference: {fileID: 0}
@@ -858,7 +829,7 @@ PrefabInstance:
     - target: {fileID: 4860678531135827832, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -20
+      value: -27
       objectReference: {fileID: 0}
     - target: {fileID: 4860678531135827832, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
@@ -868,7 +839,7 @@ PrefabInstance:
     - target: {fileID: 4860678531060124596, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -22.5
+      value: -29
       objectReference: {fileID: 0}
     - target: {fileID: 4860678531060124596, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
@@ -878,7 +849,7 @@ PrefabInstance:
     - target: {fileID: 4860678530533869388, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -20
+      value: -29
       objectReference: {fileID: 0}
     - target: {fileID: 4860678530533869388, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
@@ -886,35 +857,6 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4860678530498870119, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
-<<<<<<< HEAD
-        type: 3}
-      propertyPath: m_CullTransparentMesh
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4860678530498870117, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
-        type: 3}
-      propertyPath: m_CellSize.x
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 4860678530498870117, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
-        type: 3}
-      propertyPath: m_CellSize.y
-      value: 47
-      objectReference: {fileID: 0}
-    - target: {fileID: 4860678530498870117, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
-        type: 3}
-      propertyPath: m_Spacing.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4860678530498870117, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
-        type: 3}
-      propertyPath: m_Spacing.y
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 4860678530498870117, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
-        type: 3}
-      propertyPath: m_Padding.m_Left
-=======
         type: 3}
       propertyPath: m_CullTransparentMesh
       value: 0
@@ -947,21 +889,10 @@ PrefabInstance:
     - target: {fileID: 4860678530498870117, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
       propertyPath: m_Padding.m_Right
->>>>>>> parent of c6e8ef3... Merge branch 'master' of https://github.com/mtyndall007/CaterpillarsCountGame
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4860678530498870117, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
-<<<<<<< HEAD
-      propertyPath: m_Padding.m_Right
-=======
-      propertyPath: m_Padding.m_Top
->>>>>>> parent of c6e8ef3... Merge branch 'master' of https://github.com/mtyndall007/CaterpillarsCountGame
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4860678530498870117, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
-        type: 3}
-<<<<<<< HEAD
       propertyPath: m_Padding.m_Top
       value: 5
       objectReference: {fileID: 0}
@@ -979,20 +910,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ConstraintCount
       value: 2
-=======
-      propertyPath: m_Padding.m_Bottom
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4860678530498870117, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
-        type: 3}
-      propertyPath: m_Constraint
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4860678530498870117, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
-        type: 3}
-      propertyPath: m_ConstraintCount
-      value: 7
->>>>>>> parent of c6e8ef3... Merge branch 'master' of https://github.com/mtyndall007/CaterpillarsCountGame
       objectReference: {fileID: 0}
     - target: {fileID: 4860678530498870116, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
@@ -1007,11 +924,7 @@ PrefabInstance:
     - target: {fileID: 4860678530429571240, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-<<<<<<< HEAD
       value: -40
-=======
-      value: -30
->>>>>>> parent of c6e8ef3... Merge branch 'master' of https://github.com/mtyndall007/CaterpillarsCountGame
       objectReference: {fileID: 0}
     - target: {fileID: 4860678530429571240, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
@@ -1021,7 +934,7 @@ PrefabInstance:
     - target: {fileID: 4860678530256826936, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -22.5
+      value: -33
       objectReference: {fileID: 0}
     - target: {fileID: 4860678530256826936, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
@@ -1031,11 +944,7 @@ PrefabInstance:
     - target: {fileID: 4860678530220135350, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-<<<<<<< HEAD
       value: -43
-=======
-      value: -37.5
->>>>>>> parent of c6e8ef3... Merge branch 'master' of https://github.com/mtyndall007/CaterpillarsCountGame
       objectReference: {fileID: 0}
     - target: {fileID: 4860678530220135350, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
@@ -1045,11 +954,7 @@ PrefabInstance:
     - target: {fileID: 4860678529976161233, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-<<<<<<< HEAD
       value: -44
-=======
-      value: -30
->>>>>>> parent of c6e8ef3... Merge branch 'master' of https://github.com/mtyndall007/CaterpillarsCountGame
       objectReference: {fileID: 0}
     - target: {fileID: 4860678529976161233, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
@@ -1059,11 +964,7 @@ PrefabInstance:
     - target: {fileID: 4860678529980945984, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-<<<<<<< HEAD
       value: -45
-=======
-      value: -30
->>>>>>> parent of c6e8ef3... Merge branch 'master' of https://github.com/mtyndall007/CaterpillarsCountGame
       objectReference: {fileID: 0}
     - target: {fileID: 4860678529980945984, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
@@ -1073,7 +974,7 @@ PrefabInstance:
     - target: {fileID: 4860678529773735628, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -22.5
+      value: -29
       objectReference: {fileID: 0}
     - target: {fileID: 4860678529773735628, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
@@ -1081,7 +982,6 @@ PrefabInstance:
       value: -15
       objectReference: {fileID: 0}
     - target: {fileID: 4860678529669588932, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
-<<<<<<< HEAD
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -54
@@ -1095,25 +995,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -0.0000038146973
-=======
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -40.55
-      objectReference: {fileID: 0}
-    - target: {fileID: 4860678529669588932, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: -8.900002
->>>>>>> parent of c6e8ef3... Merge branch 'master' of https://github.com/mtyndall007/CaterpillarsCountGame
       objectReference: {fileID: 0}
     - target: {fileID: 4860678529586986215, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-<<<<<<< HEAD
       value: -42
-=======
-      value: -30
->>>>>>> parent of c6e8ef3... Merge branch 'master' of https://github.com/mtyndall007/CaterpillarsCountGame
       objectReference: {fileID: 0}
     - target: {fileID: 4860678529586986215, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
@@ -1123,11 +1009,7 @@ PrefabInstance:
     - target: {fileID: 4860678529544734491, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-<<<<<<< HEAD
       value: -39
-=======
-      value: -30
->>>>>>> parent of c6e8ef3... Merge branch 'master' of https://github.com/mtyndall007/CaterpillarsCountGame
       objectReference: {fileID: 0}
     - target: {fileID: 4860678529544734491, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
@@ -1137,11 +1019,7 @@ PrefabInstance:
     - target: {fileID: 4860678529486087341, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-<<<<<<< HEAD
       value: -29
-=======
-      value: -22.5
->>>>>>> parent of c6e8ef3... Merge branch 'master' of https://github.com/mtyndall007/CaterpillarsCountGame
       objectReference: {fileID: 0}
     - target: {fileID: 4860678529486087341, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
@@ -1151,11 +1029,7 @@ PrefabInstance:
     - target: {fileID: 4860678529297789358, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-<<<<<<< HEAD
       value: -31
-=======
-      value: -22.5
->>>>>>> parent of c6e8ef3... Merge branch 'master' of https://github.com/mtyndall007/CaterpillarsCountGame
       objectReference: {fileID: 0}
     - target: {fileID: 4860678529297789358, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
@@ -1277,14 +1151,11 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4860678529980945987, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
-<<<<<<< HEAD
         type: 3}
       propertyPath: m_LocalRotation.y
       value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1472534729881424277, guid: 17825798f659502418546c21a73827df,
-=======
->>>>>>> parent of c6e8ef3... Merge branch 'master' of https://github.com/mtyndall007/CaterpillarsCountGame
         type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
@@ -1299,7 +1170,6 @@ PrefabInstance:
       propertyPath: m_CullTransparentMesh
       value: 1
       objectReference: {fileID: 0}
-<<<<<<< HEAD
     - target: {fileID: 4860678529773735631, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
       propertyPath: m_Text
@@ -1328,68 +1198,30 @@ PrefabInstance:
         and Psyllids'
       objectReference: {fileID: 0}
     - target: {fileID: 4860678529669588935, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
-=======
-    - target: {fileID: 4860678529980945986, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
-        type: 3}
-      propertyPath: m_CullTransparentMesh
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4860678529773735631, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
-        type: 3}
-      propertyPath: m_Text
-      value: True Bugs
-      objectReference: {fileID: 0}
-    - target: {fileID: 4860678529773735631, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
->>>>>>> parent of c6e8ef3... Merge branch 'master' of https://github.com/mtyndall007/CaterpillarsCountGame
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
-<<<<<<< HEAD
     - target: {fileID: 4860678529669588935, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
-=======
-    - target: {fileID: 4860678529773735631, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
->>>>>>> parent of c6e8ef3... Merge branch 'master' of https://github.com/mtyndall007/CaterpillarsCountGame
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-<<<<<<< HEAD
     - target: {fileID: 4860678529669588934, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
       propertyPath: m_CullTransparentMesh
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4860678529586986201, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
-=======
-    - target: {fileID: 4860678529773735630, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
       propertyPath: m_CullTransparentMesh
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4860678529669588935, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
-        type: 3}
-      propertyPath: m_Text
-      value: 'Aphids
-
-        and Psyllids'
-      objectReference: {fileID: 0}
-    - target: {fileID: 4860678529669588935, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
->>>>>>> parent of c6e8ef3... Merge branch 'master' of https://github.com/mtyndall007/CaterpillarsCountGame
-        type: 3}
-      propertyPath: m_CullTransparentMesh
-      value: 0
-      objectReference: {fileID: 0}
-<<<<<<< HEAD
     - target: {fileID: 4860678529586986214, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
-=======
-    - target: {fileID: 4860678529669588935, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
->>>>>>> parent of c6e8ef3... Merge branch 'master' of https://github.com/mtyndall007/CaterpillarsCountGame
         type: 3}
       propertyPath: m_Text
       value: Daddylong legs
       objectReference: {fileID: 0}
-<<<<<<< HEAD
     - target: {fileID: 4860678529586986214, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
       propertyPath: m_SizeDelta.y
@@ -1398,31 +1230,6 @@ PrefabInstance:
     - target: {fileID: 4860678529586986214, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
       propertyPath: m_AnchorMin.x
-=======
-    - target: {fileID: 4860678529669588934, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
-        type: 3}
-      propertyPath: m_CullTransparentMesh
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4860678529586986201, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
-        type: 3}
-      propertyPath: m_CullTransparentMesh
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4860678529586986214, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
-        type: 3}
-      propertyPath: m_Text
-      value: Daddylong legs
-      objectReference: {fileID: 0}
-    - target: {fileID: 4860678529586986214, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
-        type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 4860678529586986214, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
-        type: 3}
-      propertyPath: m_FontData.m_MinSize
->>>>>>> parent of c6e8ef3... Merge branch 'master' of https://github.com/mtyndall007/CaterpillarsCountGame
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4860678529544734490, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
@@ -1454,38 +1261,22 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: Spiders
-<<<<<<< HEAD
-=======
-      objectReference: {fileID: 0}
-    - target: {fileID: 4860678529297789345, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
-        type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 13
->>>>>>> parent of c6e8ef3... Merge branch 'master' of https://github.com/mtyndall007/CaterpillarsCountGame
       objectReference: {fileID: 0}
     - target: {fileID: 4860678529297789345, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
       propertyPath: m_LocalScale.x
       value: 1
       objectReference: {fileID: 0}
-<<<<<<< HEAD
     - target: {fileID: 4860678529297789345, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
       propertyPath: m_LocalScale.y
       value: 1
-=======
-    - target: {fileID: 8349600103832701050, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -1
->>>>>>> parent of c6e8ef3... Merge branch 'master' of https://github.com/mtyndall007/CaterpillarsCountGame
       objectReference: {fileID: 0}
     - target: {fileID: 3371152157238078361, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
       propertyPath: m_Text
       value: 'Length '
       objectReference: {fileID: 0}
-<<<<<<< HEAD
     - target: {fileID: 8349600103832701050, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -1493,10 +1284,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2843739029394771242, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
-=======
-    - target: {fileID: 2843739029394771242, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
-        type: 3}
->>>>>>> parent of c6e8ef3... Merge branch 'master' of https://github.com/mtyndall007/CaterpillarsCountGame
       propertyPath: m_Name
       value: BugUISubmit
       objectReference: {fileID: 0}
@@ -1834,51 +1621,7 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
-<<<<<<< HEAD
     - target: {fileID: 4860678529901153229, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
-=======
-    - target: {fileID: 4159833927643467225, guid: aa6adb398f84d4865b50effaa8e3e8ec,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 8007026539423142185, guid: aa6adb398f84d4865b50effaa8e3e8ec,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 565636979347259260, guid: aa6adb398f84d4865b50effaa8e3e8ec,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7049254963519930160, guid: aa6adb398f84d4865b50effaa8e3e8ec,
-        type: 3}
-      propertyPath: m_Text
-      value: You selected other! What type of arthropod do you think this is?
-      objectReference: {fileID: 0}
-    - target: {fileID: 8503747193463216795, guid: aa6adb398f84d4865b50effaa8e3e8ec,
-        type: 3}
-      propertyPath: m_CullTransparentMesh
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6556160206834008656, guid: aa6adb398f84d4865b50effaa8e3e8ec,
-        type: 3}
-      propertyPath: m_CharacterLimit
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 6556160206834008656, guid: aa6adb398f84d4865b50effaa8e3e8ec,
-        type: 3}
-      propertyPath: m_Placeholder
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4050230182061662030, guid: aa6adb398f84d4865b50effaa8e3e8ec,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7710528478664215885, guid: aa6adb398f84d4865b50effaa8e3e8ec,
->>>>>>> parent of c6e8ef3... Merge branch 'master' of https://github.com/mtyndall007/CaterpillarsCountGame
         type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
@@ -1888,103 +1631,16 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-<<<<<<< HEAD
     - target: {fileID: 4159833927643467225, guid: aa6adb398f84d4865b50effaa8e3e8ec,
         type: 3}
       propertyPath: m_SizeDelta.x
       value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 8007026539423142185, guid: aa6adb398f84d4865b50effaa8e3e8ec,
-=======
-    - target: {fileID: 6182046435431064162, guid: aa6adb398f84d4865b50effaa8e3e8ec,
-        type: 3}
-      propertyPath: m_TextComponent
-      value: 
-      objectReference: {fileID: 973314537042054974}
-    - target: {fileID: 6182046435431064162, guid: aa6adb398f84d4865b50effaa8e3e8ec,
-        type: 3}
-      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6182046435431064162, guid: aa6adb398f84d4865b50effaa8e3e8ec,
-        type: 3}
-      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6182046435431064162, guid: aa6adb398f84d4865b50effaa8e3e8ec,
-        type: 3}
-      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6182046435431064162, guid: aa6adb398f84d4865b50effaa8e3e8ec,
-        type: 3}
-      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6737948790779890547, guid: aa6adb398f84d4865b50effaa8e3e8ec,
         type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2180939211802335594, guid: aa6adb398f84d4865b50effaa8e3e8ec,
-        type: 3}
-      propertyPath: m_Text
-      value: Enter Here
-      objectReference: {fileID: 0}
-    - target: {fileID: 4460942614599578456, guid: aa6adb398f84d4865b50effaa8e3e8ec,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7906533729566419263, guid: aa6adb398f84d4865b50effaa8e3e8ec,
-        type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 7906533729566419263, guid: aa6adb398f84d4865b50effaa8e3e8ec,
-        type: 3}
-      propertyPath: m_FontData.m_MinSize
-      value: 3
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: aa6adb398f84d4865b50effaa8e3e8ec, type: 3}
---- !u!4 &1391005924186294907 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 9160265450666900085, guid: aa6adb398f84d4865b50effaa8e3e8ec,
-    type: 3}
-  m_PrefabInstance: {fileID: 7805323508025536526}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &973314537042054974 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7049254963519930160, guid: aa6adb398f84d4865b50effaa8e3e8ec,
-    type: 3}
-  m_PrefabInstance: {fileID: 7805323508025536526}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1001 &8743907682463443629
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 5680041457895764806}
-    m_Modifications:
-    - target: {fileID: 135584342644661324, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_Name
-      value: LengthUI
-      objectReference: {fileID: 0}
-    - target: {fileID: 135584342644661324, guid: cd97bdd4b60fe49ffb6920665c906464,
->>>>>>> parent of c6e8ef3... Merge branch 'master' of https://github.com/mtyndall007/CaterpillarsCountGame
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-<<<<<<< HEAD
     - target: {fileID: 565636979347259260, guid: aa6adb398f84d4865b50effaa8e3e8ec,
         type: 3}
       propertyPath: m_RootOrder
@@ -2046,91 +1702,25 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4860678529863420173, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
-=======
-    - target: {fileID: 3116574021016395656, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3116574021016395656, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3116574021016395656, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 215.43517
-      objectReference: {fileID: 0}
-    - target: {fileID: 3116574021016395656, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3116574021016395656, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3116574021016395656, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3116574021016395656, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3116574021016395656, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3116574021016395656, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3116574021016395656, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3116574021016395656, guid: cd97bdd4b60fe49ffb6920665c906464,
->>>>>>> parent of c6e8ef3... Merge branch 'master' of https://github.com/mtyndall007/CaterpillarsCountGame
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -178.707
+      value: 0
       objectReference: {fileID: 0}
-<<<<<<< HEAD
     - target: {fileID: 4860678529863420173, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
-=======
-    - target: {fileID: 3116574021016395656, guid: cd97bdd4b60fe49ffb6920665c906464,
->>>>>>> parent of c6e8ef3... Merge branch 'master' of https://github.com/mtyndall007/CaterpillarsCountGame
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 215.43517
+      value: 0
       objectReference: {fileID: 0}
-<<<<<<< HEAD
     - target: {fileID: 4860678529863420173, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
-=======
-    - target: {fileID: 3116574021016395656, guid: cd97bdd4b60fe49ffb6920665c906464,
->>>>>>> parent of c6e8ef3... Merge branch 'master' of https://github.com/mtyndall007/CaterpillarsCountGame
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
-<<<<<<< HEAD
     - target: {fileID: 4860678529863420173, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
-=======
-    - target: {fileID: 3116574021016395656, guid: cd97bdd4b60fe49ffb6920665c906464,
->>>>>>> parent of c6e8ef3... Merge branch 'master' of https://github.com/mtyndall007/CaterpillarsCountGame
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
-<<<<<<< HEAD
     - target: {fileID: 4860678529714600819, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -2186,7 +1776,78 @@ PrefabInstance:
     - target: {fileID: 4860678529714111064, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-=======
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3116574021016395656, guid: cd97bdd4b60fe49ffb6920665c906464,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3116574021016395656, guid: cd97bdd4b60fe49ffb6920665c906464,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3116574021016395656, guid: cd97bdd4b60fe49ffb6920665c906464,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 215.43517
+      objectReference: {fileID: 0}
+    - target: {fileID: 3116574021016395656, guid: cd97bdd4b60fe49ffb6920665c906464,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3116574021016395656, guid: cd97bdd4b60fe49ffb6920665c906464,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3116574021016395656, guid: cd97bdd4b60fe49ffb6920665c906464,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3116574021016395656, guid: cd97bdd4b60fe49ffb6920665c906464,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3116574021016395656, guid: cd97bdd4b60fe49ffb6920665c906464,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3116574021016395656, guid: cd97bdd4b60fe49ffb6920665c906464,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3116574021016395656, guid: cd97bdd4b60fe49ffb6920665c906464,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3116574021016395656, guid: cd97bdd4b60fe49ffb6920665c906464,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -178.707
+      objectReference: {fileID: 0}
+    - target: {fileID: 3116574021016395656, guid: cd97bdd4b60fe49ffb6920665c906464,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 215.43517
+      objectReference: {fileID: 0}
+    - target: {fileID: 3116574021016395656, guid: cd97bdd4b60fe49ffb6920665c906464,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3116574021016395656, guid: cd97bdd4b60fe49ffb6920665c906464,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 3116574021016395656, guid: cd97bdd4b60fe49ffb6920665c906464,
         type: 3}
       propertyPath: m_AnchorMin.x
@@ -2217,118 +1878,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1511851500307346507, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1511851500307346507, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1511851500307346507, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1511851500307346507, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1511851500307346507, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_AnchorMax.x
->>>>>>> parent of c6e8ef3... Merge branch 'master' of https://github.com/mtyndall007/CaterpillarsCountGame
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1511851500307346507, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1511851500307346507, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_Pivot.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1511851500307346507, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_Pivot.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1511851500307346507, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1511851500307346507, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1511851500307346507, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1511851500307346507, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1511851500307346507, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1511851500307346507, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1511851500307346507, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6729376969284458898, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_TargetGraphic
-      value: 
-      objectReference: {fileID: 353423613414161005}
-    - target: {fileID: 5718590968688675593, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_RenderMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2309610730578233592, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 2309610730578233592, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2309610730578233592, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2309610730578233592, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: 2309610730578233592, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 70
-      objectReference: {fileID: 0}
-<<<<<<< HEAD
     - target: {fileID: 1201831666781577445, guid: cd97bdd4b60fe49ffb6920665c906464,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -2395,74 +1944,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4860678529306589834, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
-=======
-    - target: {fileID: 2309610730578233592, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7398153227198144875, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7398153227198144875, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7398153227198144875, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7417116129060759756, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 7417116129060759756, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7417116129060759756, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 150
-      objectReference: {fileID: 0}
-    - target: {fileID: 7417116129060759756, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 7417116129060759756, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7417116129060759756, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7417116129060759756, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7417116129060759756, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4810410273318696329, guid: cd97bdd4b60fe49ffb6920665c906464,
->>>>>>> parent of c6e8ef3... Merge branch 'master' of https://github.com/mtyndall007/CaterpillarsCountGame
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
-<<<<<<< HEAD
     - target: {fileID: 4860678529306589834, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2514,49 +1999,6 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8710716425010129036, guid: cd97bdd4b60fe49ffb6920665c906464,
-=======
-    - target: {fileID: 4810410273318696329, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 70
-      objectReference: {fileID: 0}
-    - target: {fileID: 4810410273318696329, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 800
-      objectReference: {fileID: 0}
-    - target: {fileID: 4810410273318696329, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 3083109309180042872, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 800
-      objectReference: {fileID: 0}
-    - target: {fileID: 3083109309180042872, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 3083109309180042872, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 460
-      objectReference: {fileID: 0}
-    - target: {fileID: 3083109309180042872, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1243402990368963137, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 160
-      objectReference: {fileID: 0}
-    - target: {fileID: 1243402990368963137, guid: cd97bdd4b60fe49ffb6920665c906464,
->>>>>>> parent of c6e8ef3... Merge branch 'master' of https://github.com/mtyndall007/CaterpillarsCountGame
         type: 3}
       propertyPath: m_ReferenceResolution.x
       value: 800
@@ -2576,7 +2018,6 @@ PrefabInstance:
       propertyPath: m_ScreenMatchMode
       value: 1
       objectReference: {fileID: 0}
-<<<<<<< HEAD
     - target: {fileID: 7417116129060759756, guid: cd97bdd4b60fe49ffb6920665c906464,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -2596,78 +2037,60 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 119.7
-=======
-    - target: {fileID: 1201831666781577445, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
->>>>>>> parent of c6e8ef3... Merge branch 'master' of https://github.com/mtyndall007/CaterpillarsCountGame
       objectReference: {fileID: 0}
-    - target: {fileID: 1201831666781577445, guid: cd97bdd4b60fe49ffb6920665c906464,
+    - target: {fileID: 7417116129060759756, guid: cd97bdd4b60fe49ffb6920665c906464,
         type: 3}
-<<<<<<< HEAD
       propertyPath: m_AnchorMin.x
-=======
-      propertyPath: m_LocalRotation.x
->>>>>>> parent of c6e8ef3... Merge branch 'master' of https://github.com/mtyndall007/CaterpillarsCountGame
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1201831666781577445, guid: cd97bdd4b60fe49ffb6920665c906464,
+    - target: {fileID: 7417116129060759756, guid: cd97bdd4b60fe49ffb6920665c906464,
         type: 3}
-<<<<<<< HEAD
       propertyPath: m_AnchorMin.y
-=======
-      propertyPath: m_LocalRotation.y
->>>>>>> parent of c6e8ef3... Merge branch 'master' of https://github.com/mtyndall007/CaterpillarsCountGame
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1201831666781577445, guid: cd97bdd4b60fe49ffb6920665c906464,
+    - target: {fileID: 7417116129060759756, guid: cd97bdd4b60fe49ffb6920665c906464,
         type: 3}
-<<<<<<< HEAD
       propertyPath: m_AnchorMax.x
-=======
-      propertyPath: m_LocalRotation.z
->>>>>>> parent of c6e8ef3... Merge branch 'master' of https://github.com/mtyndall007/CaterpillarsCountGame
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1201831666781577445, guid: cd97bdd4b60fe49ffb6920665c906464,
+    - target: {fileID: 7417116129060759756, guid: cd97bdd4b60fe49ffb6920665c906464,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0
+      propertyPath: m_RootOrder
+      value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 1201831666781577445, guid: cd97bdd4b60fe49ffb6920665c906464,
+    - target: {fileID: 7417116129060759756, guid: cd97bdd4b60fe49ffb6920665c906464,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0
+      value: 0.359461
       objectReference: {fileID: 0}
-    - target: {fileID: 1201831666781577445, guid: cd97bdd4b60fe49ffb6920665c906464,
+    - target: {fileID: 7417116129060759756, guid: cd97bdd4b60fe49ffb6920665c906464,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.7602928
+      objectReference: {fileID: 0}
+    - target: {fileID: 7417116129060759756, guid: cd97bdd4b60fe49ffb6920665c906464,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0
+      value: 1.188227
       objectReference: {fileID: 0}
-    - target: {fileID: 1201831666781577445, guid: cd97bdd4b60fe49ffb6920665c906464,
+    - target: {fileID: 4810410273318696329, guid: cd97bdd4b60fe49ffb6920665c906464,
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1201831666781577445, guid: cd97bdd4b60fe49ffb6920665c906464,
+    - target: {fileID: 4810410273318696329, guid: cd97bdd4b60fe49ffb6920665c906464,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-<<<<<<< HEAD
       value: 46
-=======
-      value: 0
->>>>>>> parent of c6e8ef3... Merge branch 'master' of https://github.com/mtyndall007/CaterpillarsCountGame
       objectReference: {fileID: 0}
-    - target: {fileID: 1201831666781577445, guid: cd97bdd4b60fe49ffb6920665c906464,
+    - target: {fileID: 4810410273318696329, guid: cd97bdd4b60fe49ffb6920665c906464,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 800
       objectReference: {fileID: 0}
-    - target: {fileID: 1201831666781577445, guid: cd97bdd4b60fe49ffb6920665c906464,
+    - target: {fileID: 4810410273318696329, guid: cd97bdd4b60fe49ffb6920665c906464,
         type: 3}
       propertyPath: m_SizeDelta.y
-<<<<<<< HEAD
       value: 56.2
       objectReference: {fileID: 0}
     - target: {fileID: 4810410273318696329, guid: cd97bdd4b60fe49ffb6920665c906464,
@@ -2684,55 +2107,42 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.7991941
-=======
-      value: 0
->>>>>>> parent of c6e8ef3... Merge branch 'master' of https://github.com/mtyndall007/CaterpillarsCountGame
       objectReference: {fileID: 0}
-    - target: {fileID: 1201831666781577445, guid: cd97bdd4b60fe49ffb6920665c906464,
+    - target: {fileID: 3083109309180042872, guid: cd97bdd4b60fe49ffb6920665c906464,
         type: 3}
-      propertyPath: m_Pivot.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1201831666781577445, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_Pivot.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8650635992118552954, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-<<<<<<< HEAD
-      propertyPath: m_AnchoredPosition.x
-      value: 422
-=======
-      propertyPath: m_RootOrder
-      value: 1
->>>>>>> parent of c6e8ef3... Merge branch 'master' of https://github.com/mtyndall007/CaterpillarsCountGame
-      objectReference: {fileID: 0}
-    - target: {fileID: 8650635992118552954, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-<<<<<<< HEAD
-      value: -15
-=======
-      value: -0.5
->>>>>>> parent of c6e8ef3... Merge branch 'master' of https://github.com/mtyndall007/CaterpillarsCountGame
-      objectReference: {fileID: 0}
-    - target: {fileID: 4924415728701356435, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3790010611021543956, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_Name
-      value: LengthSubmit
-      objectReference: {fileID: 0}
-    - target: {fileID: 8710716425010129036, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_ReferenceResolution.x
+      propertyPath: m_SizeDelta.x
       value: 800
       objectReference: {fileID: 0}
-<<<<<<< HEAD
+    - target: {fileID: 3083109309180042872, guid: cd97bdd4b60fe49ffb6920665c906464,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3083109309180042872, guid: cd97bdd4b60fe49ffb6920665c906464,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 422
+      objectReference: {fileID: 0}
+    - target: {fileID: 3083109309180042872, guid: cd97bdd4b60fe49ffb6920665c906464,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3083109309180042872, guid: cd97bdd4b60fe49ffb6920665c906464,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.79594076
+      objectReference: {fileID: 0}
+    - target: {fileID: 3083109309180042872, guid: cd97bdd4b60fe49ffb6920665c906464,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.59097296
+      objectReference: {fileID: 0}
+    - target: {fileID: 3083109309180042872, guid: cd97bdd4b60fe49ffb6920665c906464,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5372732
+      objectReference: {fileID: 0}
     - target: {fileID: 7122327563499617952, guid: 6b6cbcc1a060d7a4dac857570f269640,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2826,53 +2236,34 @@ PrefabInstance:
     - target: {fileID: 7921626259813876696, guid: cd97bdd4b60fe49ffb6920665c906464,
         type: 3}
       propertyPath: m_FontData.m_MinSize
-=======
-    - target: {fileID: 8710716425010129036, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_ReferenceResolution.y
-      value: 600
-      objectReference: {fileID: 0}
-    - target: {fileID: 8710716425010129036, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_MatchWidthOrHeight
->>>>>>> parent of c6e8ef3... Merge branch 'master' of https://github.com/mtyndall007/CaterpillarsCountGame
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7921626259813876696, guid: cd97bdd4b60fe49ffb6920665c906464,
         type: 3}
-<<<<<<< HEAD
       propertyPath: m_FontData.m_Font
       value: 
       objectReference: {fileID: 12800000, guid: 82891e61252ce8a4a9aa9e6e37035c32,
         type: 3}
     - target: {fileID: 6093772177181316469, guid: cd97bdd4b60fe49ffb6920665c906464,
         type: 3}
-=======
-      propertyPath: m_FontData.m_FontSize
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 6093772177181316469, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
->>>>>>> parent of c6e8ef3... Merge branch 'master' of https://github.com/mtyndall007/CaterpillarsCountGame
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4759740422196375702, guid: cd97bdd4b60fe49ffb6920665c906464,
         type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 18
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4759740422196375702, guid: cd97bdd4b60fe49ffb6920665c906464,
         type: 3}
       propertyPath: m_FontData.m_MinSize
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6110087084336997518, guid: cd97bdd4b60fe49ffb6920665c906464,
+    - target: {fileID: 4759740422196375702, guid: cd97bdd4b60fe49ffb6920665c906464,
         type: 3}
-      propertyPath: m_Text
-      value: 
+      propertyPath: m_FontData.m_MaxSize
+      value: 200
       objectReference: {fileID: 0}
-<<<<<<< HEAD
     - target: {fileID: 1805882071047995561, guid: cd97bdd4b60fe49ffb6920665c906464,
         type: 3}
       propertyPath: m_Text
@@ -2888,8 +2279,6 @@ PrefabInstance:
       propertyPath: m_Text
       value: 
       objectReference: {fileID: 0}
-=======
->>>>>>> parent of c6e8ef3... Merge branch 'master' of https://github.com/mtyndall007/CaterpillarsCountGame
     - target: {fileID: 6110087084336997518, guid: cd97bdd4b60fe49ffb6920665c906464,
         type: 3}
       propertyPath: m_FontData.m_FontSize
@@ -2926,7 +2315,6 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4308718577509353980, guid: cd97bdd4b60fe49ffb6920665c906464,
-<<<<<<< HEAD
         type: 3}
       propertyPath: m_FontData.m_RichText
       value: 1
@@ -2960,36 +2348,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
-=======
-        type: 3}
-      propertyPath: m_FontData.m_RichText
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4308718577509353980, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 4308718577509353980, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_Text
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4308718577509353980, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_FontData.m_BestFit
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4308718577509353980, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_FontData.m_MinSize
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4308718577509353980, guid: cd97bdd4b60fe49ffb6920665c906464,
-        type: 3}
-      propertyPath: m_FontData.m_AlignByGeometry
-      value: 1
->>>>>>> parent of c6e8ef3... Merge branch 'master' of https://github.com/mtyndall007/CaterpillarsCountGame
       objectReference: {fileID: 0}
     - target: {fileID: 6190481536286827933, guid: 557005a579c6f4d51bbc9cba4eda76eb,
         type: 3}
