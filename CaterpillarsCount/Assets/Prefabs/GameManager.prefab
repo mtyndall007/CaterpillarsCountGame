@@ -726,12 +726,12 @@ PrefabInstance:
     - target: {fileID: 4860678530498870117, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
       propertyPath: m_Constraint
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4860678530498870117, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
       propertyPath: m_ConstraintCount
-      value: 7
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4860678530498870116, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
@@ -1089,15 +1089,15 @@ PrefabInstance:
       propertyPath: m_FontData.m_MinSize
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8349600103832701050, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -1
-      objectReference: {fileID: 0}
     - target: {fileID: 3371152157238078361, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
       propertyPath: m_Text
       value: 'Length '
+      objectReference: {fileID: 0}
+    - target: {fileID: 8349600103832701050, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 2843739029394771242, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
@@ -1200,15 +1200,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 204920584540581734, guid: 475eac44a092d4ed0a2e9b0b80d949a8,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1392125685116567286, guid: 475eac44a092d4ed0a2e9b0b80d949a8,
         type: 3}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 204920584540581734, guid: 475eac44a092d4ed0a2e9b0b80d949a8,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 475eac44a092d4ed0a2e9b0b80d949a8, type: 3}
@@ -1355,6 +1355,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 150
       objectReference: {fileID: 0}
+    - target: {fileID: 5793880614531701192, guid: e78bd40bfe41d034b957553caca7634c,
+        type: 3}
+      propertyPath: m_Text
+      value: 'Score:'
+      objectReference: {fileID: 0}
     - target: {fileID: 5793880613608020433, guid: e78bd40bfe41d034b957553caca7634c,
         type: 3}
       propertyPath: m_CullTransparentMesh
@@ -1364,11 +1369,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: 'out of:'
-      objectReference: {fileID: 0}
-    - target: {fileID: 5793880614531701192, guid: e78bd40bfe41d034b957553caca7634c,
-        type: 3}
-      propertyPath: m_Text
-      value: 'Score:'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e78bd40bfe41d034b957553caca7634c, type: 3}
@@ -1542,11 +1542,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7049254963519930160, guid: aa6adb398f84d4865b50effaa8e3e8ec,
-        type: 3}
-      propertyPath: m_Text
-      value: You selected other! What type of arthropod do you think this is?
-      objectReference: {fileID: 0}
     - target: {fileID: 9160265450666900085, guid: aa6adb398f84d4865b50effaa8e3e8ec,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1626,6 +1621,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7049254963519930160, guid: aa6adb398f84d4865b50effaa8e3e8ec,
+        type: 3}
+      propertyPath: m_Text
+      value: You selected other! What type of arthropod do you think this is?
       objectReference: {fileID: 0}
     - target: {fileID: 8503747193463216795, guid: aa6adb398f84d4865b50effaa8e3e8ec,
         type: 3}
