@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
             //Calls a utility method that selects the level for a given playthrough. Store these in an array of scenes.
             //spawnedScenes = LevelSpawner.SpawnScenes();
             sceneIterator = 2;
+            TimerScript.SetCurrentTime(findTime(sceneIterator));
             SceneManager.LoadScene(levelSelector(sceneIterator));
         }
         //If instance already exists and it's not this:
@@ -99,6 +100,7 @@ public class GameManager : MonoBehaviour
         bugsClicked = 0;
         bugsCorrectlyIdentified = 0;
         measurementDistance = 0;
+
 
         //ruler = GameObject.Find("Ruler");
         //ruler.SetActive(true);
@@ -312,7 +314,7 @@ public class GameManager : MonoBehaviour
         levelScore = calcLevelScore();
         totalScore += levelScore;
 
-        TimerScript.SetCurrentTime(80);
+        TimerScript.SetCurrentTime(findTime(sceneIterator));
         selectedBug = null;
         //StartCoroutine(Utilities.HighlightUnfoundBugs(3));
 
@@ -334,6 +336,9 @@ public class GameManager : MonoBehaviour
 
             Text totalScoreText = GameObject.Find("TotalScore").GetComponent<Text>();
             totalScoreText.text += totalScore.ToString() + " possible points";
+
+            Text feedbackText = GameObject.Find("Feedback").GetComponent<Text>();
+            getFeedback(playerScore, feedbackText);
 
             //Finds the play again button from the scene and adds an event listener
             playAgainButton = GetComponentInChildren<Button>();
@@ -474,6 +479,35 @@ public class GameManager : MonoBehaviour
       } else {
         //Might want to send an alert to the user eventually
         //StartCoroutine(Utilities.PopupMessage("Must select a bug type and measurement", 2));
+      }
+    }
+
+    private void getFeedback(int score, Text feedback){
+      string tmp;
+      if(score >= 1600){
+        feedback.text = "Great job! You're ready to get outside and conduct some real surveys!";
+      } else if (score >= 1300){
+        feedback.text = "You are a budding entomologist! Can you get a perfect score?";
+      } else if (score >= 800){
+        feedback.text = "Keep practicing! Finding more bugs will bring you eternal happiness!";
+      } else if (score >= 500){
+        feedback.text = "Review the Arthropod ID Guide, and don't forget to use the ruler to help you search!";
+      }
+        feedback.text = "Um, you do know what an arthropod is, don't you?";
+
+    }
+
+    private int findTime(int iterator){
+      if(iterator == 2){
+        return 40;
+      }
+      if(iterator == 3){
+        return 35;
+      }
+      if(iterator == 4){
+        return 30;
+      } else {
+        return 40;
       }
     }
 

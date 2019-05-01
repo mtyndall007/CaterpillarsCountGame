@@ -7,7 +7,7 @@ public class MagnifyGlass : MonoBehaviour
     private GameObject magnifyBorders;
     private LineRenderer LeftBorder, RightBorder, TopBorder, BottomBorder; // Reference for lines of magnify glass borders
     private float MGOX, MG0Y; // Magnify Glass Origin X and Y position
-    private float MGWidth = Screen.width / 4f, MGHeight = Screen.width / 4f; // Magnify glass width and height
+    private float MGWidth = Screen.width / 5f, MGHeight = Screen.width / 5f; // Magnify glass width and height
     private Vector3 mousePos;
     private static int rightClickCounter;
     private static bool zoomable;
@@ -47,8 +47,69 @@ public class MagnifyGlass : MonoBehaviour
 
         }
 
+        //clampCamera();
+        if (!mouseInBound())
+        {
+            magnifyCamera.enabled = false;
+            magnifyBorders.SetActive(false);
+        }
+
 
     }
+
+    public bool mouseInBound()
+    {
+        Debug.Log(Input.mousePosition.y + " > " + Screen.height);
+        //LEFT BOUND
+        if(Input.mousePosition.x < 0 +MGWidth/2)
+        {
+            return false;
+        }
+        //RIGHT BOUND
+        if (Input.mousePosition.x > Screen.width - MGWidth/2)
+        {
+            return false;
+        }
+        //BOTTOM BOUND
+        if (Input.mousePosition.y < 0 +MGHeight/2)
+        {
+            return false;
+        }
+        //TOP BOUND
+        if (Input.mousePosition.y > Screen.height - MGHeight/2)
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+    //public void clampCamera()
+    //{
+    //    Vector2 mousePosition = Input.mousePosition;
+    //    Debug.Log(getWorldPosition(Input.mousePosition));
+
+    //    if(mousePosition.x < 57.4)
+    //    {
+    //        magnifyCamera.pixelRect = new Rect(0, Input.mousePosition.y - MGHeight / 2.0f, MGWidth, MGHeight);
+    //        mousePos = getWorldPosition(Input.mousePosition);
+    //        magnifyCamera.transform.position = mousePos;
+    //        mousePos.z = 0;
+
+    //        magnifyBorders.transform.position = new Vector3(-5,mousePos.y);
+    //    }
+
+    //    if (mousePosition.y < 57.4)
+    //    {
+    //        //magnifyCamera.pixelRect = new Rect(0, Input.mousePosition.y - MGHeight / 2.0f, MGWidth, MGHeight);
+    //        //mousePos = getWorldPosition(Input.mousePosition);
+    //        //magnifyCamera.transform.position = mousePos;
+    //        //mousePos.z = 0;
+
+    //        //magnifyBorders.transform.position = new Vector3(-5, mousePos.y);
+    //    }
+
+    //}
 
     public static void EnableZoom()
     {
@@ -82,13 +143,13 @@ public class MagnifyGlass : MonoBehaviour
         if (Camera.main.orthographic)
         {
             magnifyCamera.orthographic = true;
-            magnifyCamera.orthographicSize = Camera.main.orthographicSize / 5.0f;//+ 1.0f;
+            magnifyCamera.orthographicSize = Camera.main.orthographicSize / 9.0f;//+ 1.0f;
             createBordersForMagniyGlass();
         }
         else
         {
             magnifyCamera.orthographic = false;
-            magnifyCamera.fieldOfView = Camera.main.fieldOfView / 3.0f;//3.0f;
+            magnifyCamera.fieldOfView = Camera.main.fieldOfView / 7.0f;//3.0f;
         }
 
     }
