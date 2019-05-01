@@ -1822,7 +1822,11 @@ MonoBehaviour:
   m_ReferencePixelsPerUnit: 200
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
+<<<<<<< HEAD
   m_ScreenMatchMode: 1
+=======
+  m_ScreenMatchMode: 0
+>>>>>>> parent of c6e8ef3... Merge branch 'master' of https://github.com/mtyndall007/CaterpillarsCountGame
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
