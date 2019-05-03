@@ -10,6 +10,7 @@ public class MagnifyGlass : MonoBehaviour
     private float MGWidth = Screen.width / 5f, MGHeight = Screen.width / 5f; // Magnify glass width and height
     private Vector3 mousePos;
     private static int rightClickCounter;
+
     private static bool zoomable;
 
     public Material lineMaterial;
@@ -26,12 +27,18 @@ public class MagnifyGlass : MonoBehaviour
 
     void Update()
     {
+
+        if (Bug.isPaused)
+        {
+            zoomable = false;
+        }
         if (Input.GetMouseButtonDown(1) && zoomable)
         {
             rightClickCounter++;
         }
         if (rightClickCounter%2 == 1 && zoomable)
         {
+            Debug.Log("t " +zoomable);
             magnifyCamera.enabled = true;
             magnifyBorders.SetActive(true);
             // Following lines set the camera's pixelRect and camera position at mouse position

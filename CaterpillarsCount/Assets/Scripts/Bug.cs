@@ -28,6 +28,8 @@ public class Bug : MonoBehaviour
     public float maxLengthInMM;
     public float lengthAsProportionOfImageWidth;
 
+    public static bool isPaused = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -79,12 +81,18 @@ public class Bug : MonoBehaviour
 
     public void PauseBug()
     {
+        isPaused = true;
         paused = true;
+        //MagnifyGlass.DisableZoom();
+        //Debug.Log(MagnifyGlass.IsZoomable());
     }
 
     public void ResumeBug()
     {
+        isPaused = false;
         paused = false;
+
+
     }
 
     public void SetCorrectColor()

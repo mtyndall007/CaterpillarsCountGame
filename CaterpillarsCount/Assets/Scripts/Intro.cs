@@ -13,6 +13,8 @@ public class Intro : MonoBehaviour
 
     void Start()
     {
+      MagnifyGlass.DisableZoom();
+
       playButton = gameObject.GetComponentInChildren<Button>();
       playAction += Play;
       playButton.onClick.AddListener(playAction);

@@ -29,6 +29,9 @@ public class Transition : MonoBehaviour
            Image bground = GameObject.Find("Background").GetComponent<Image>();
            bground.sprite = background;
         }
+
+        MagnifyGlass.DisableZoom();
+
         continueButton = GameObject.Find("Continue").GetComponent<Button>();
         continueAction += continueFunction;
         continueButton.onClick.AddListener(continueAction);
