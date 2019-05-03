@@ -483,16 +483,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1057452321}
     m_Modifications:
-    - target: {fileID: 2231327577721938367, guid: 678e7b9c1a32c4a5781afd834124deba,
-        type: 3}
-      propertyPath: m_Name
-      value: caterpillar_freeimage-17907021-high_cutout
-      objectReference: {fileID: 0}
-    - target: {fileID: 2231327577721938367, guid: 678e7b9c1a32c4a5781afd834124deba,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1397086522834184425, guid: 678e7b9c1a32c4a5781afd834124deba,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -563,6 +553,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.9900991
       objectReference: {fileID: 0}
+    - target: {fileID: 2231327577721938367, guid: 678e7b9c1a32c4a5781afd834124deba,
+        type: 3}
+      propertyPath: m_Name
+      value: caterpillar_freeimage-17907021-high_cutout
+      objectReference: {fileID: 0}
+    - target: {fileID: 2231327577721938367, guid: 678e7b9c1a32c4a5781afd834124deba,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9111649087609272633, guid: 678e7b9c1a32c4a5781afd834124deba,
         type: 3}
       propertyPath: m_SortingOrder
@@ -586,6 +586,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3850400093474377246, guid: 018405dc161d242baab04c09c0002649,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4400584978573651930, guid: 018405dc161d242baab04c09c0002649,
         type: 3}
@@ -657,11 +662,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.9900991
       objectReference: {fileID: 0}
-    - target: {fileID: 3850400093474377246, guid: 018405dc161d242baab04c09c0002649,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 018405dc161d242baab04c09c0002649, type: 3}
 --- !u!1 &403838339
@@ -701,16 +701,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2058765952}
     m_Modifications:
-    - target: {fileID: 7115165952110994690, guid: 4209a1fca735349ebaa74979311d3dfe,
-        type: 3}
-      propertyPath: m_Name
-      value: caterpillar_freeimage-5396086-high_cutout
-      objectReference: {fileID: 0}
-    - target: {fileID: 7115165952110994690, guid: 4209a1fca735349ebaa74979311d3dfe,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1724788028731028061, guid: 4209a1fca735349ebaa74979311d3dfe,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -780,6 +770,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.9900991
+      objectReference: {fileID: 0}
+    - target: {fileID: 7115165952110994690, guid: 4209a1fca735349ebaa74979311d3dfe,
+        type: 3}
+      propertyPath: m_Name
+      value: caterpillar_freeimage-5396086-high_cutout
+      objectReference: {fileID: 0}
+    - target: {fileID: 7115165952110994690, guid: 4209a1fca735349ebaa74979311d3dfe,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8564642043347647715, guid: 4209a1fca735349ebaa74979311d3dfe,
         type: 3}
@@ -1417,16 +1417,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 455257573}
     m_Modifications:
-    - target: {fileID: 2231327577721938367, guid: 678e7b9c1a32c4a5781afd834124deba,
-        type: 3}
-      propertyPath: m_Name
-      value: caterpillar_freeimage-17907021-high_cutout
-      objectReference: {fileID: 0}
-    - target: {fileID: 2231327577721938367, guid: 678e7b9c1a32c4a5781afd834124deba,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1397086522834184425, guid: 678e7b9c1a32c4a5781afd834124deba,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1497,6 +1487,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.9900991
       objectReference: {fileID: 0}
+    - target: {fileID: 2231327577721938367, guid: 678e7b9c1a32c4a5781afd834124deba,
+        type: 3}
+      propertyPath: m_Name
+      value: caterpillar_freeimage-17907021-high_cutout
+      objectReference: {fileID: 0}
+    - target: {fileID: 2231327577721938367, guid: 678e7b9c1a32c4a5781afd834124deba,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9111649087609272633, guid: 678e7b9c1a32c4a5781afd834124deba,
         type: 3}
       propertyPath: m_SortingOrder
@@ -1517,16 +1517,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 169286185}
     m_Modifications:
-    - target: {fileID: 8073360454706767835, guid: ae45efc7074864c8d900bee9ec6fe87a,
-        type: 3}
-      propertyPath: m_Name
-      value: bees-and-wasps_482526_cutout
-      objectReference: {fileID: 0}
-    - target: {fileID: 8073360454706767835, guid: ae45efc7074864c8d900bee9ec6fe87a,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2375924172640408777, guid: ae45efc7074864c8d900bee9ec6fe87a,
         type: 3}
       propertyPath: m_SortingOrder
@@ -1601,6 +1591,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.9900991
+      objectReference: {fileID: 0}
+    - target: {fileID: 8073360454706767835, guid: ae45efc7074864c8d900bee9ec6fe87a,
+        type: 3}
+      propertyPath: m_Name
+      value: bees-and-wasps_482526_cutout
+      objectReference: {fileID: 0}
+    - target: {fileID: 8073360454706767835, guid: ae45efc7074864c8d900bee9ec6fe87a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae45efc7074864c8d900bee9ec6fe87a, type: 3}
@@ -2038,6 +2038,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3850400093474377246, guid: 018405dc161d242baab04c09c0002649,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4400584978573651930, guid: 018405dc161d242baab04c09c0002649,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2108,11 +2113,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.9900991
       objectReference: {fileID: 0}
-    - target: {fileID: 3850400093474377246, guid: 018405dc161d242baab04c09c0002649,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 018405dc161d242baab04c09c0002649, type: 3}
 --- !u!1001 &1565760396
@@ -2122,16 +2122,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 169286185}
     m_Modifications:
-    - target: {fileID: 2231327577721938367, guid: 678e7b9c1a32c4a5781afd834124deba,
-        type: 3}
-      propertyPath: m_Name
-      value: caterpillar_freeimage-17907021-high_cutout
-      objectReference: {fileID: 0}
-    - target: {fileID: 2231327577721938367, guid: 678e7b9c1a32c4a5781afd834124deba,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1397086522834184425, guid: 678e7b9c1a32c4a5781afd834124deba,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2201,6 +2191,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.9900991
+      objectReference: {fileID: 0}
+    - target: {fileID: 2231327577721938367, guid: 678e7b9c1a32c4a5781afd834124deba,
+        type: 3}
+      propertyPath: m_Name
+      value: caterpillar_freeimage-17907021-high_cutout
+      objectReference: {fileID: 0}
+    - target: {fileID: 2231327577721938367, guid: 678e7b9c1a32c4a5781afd834124deba,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9111649087609272633, guid: 678e7b9c1a32c4a5781afd834124deba,
         type: 3}
@@ -3034,12 +3034,7 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8444064217534776121, guid: e002b83cf5e7bca499ed3987c9f3b531,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8699028719932176097, guid: e002b83cf5e7bca499ed3987c9f3b531,
+    - target: {fileID: 5680041459194852231, guid: e002b83cf5e7bca499ed3987c9f3b531,
         type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -3048,6 +3043,66 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: variable
+      objectReference: {fileID: 0}
+    - target: {fileID: 5680041458836574467, guid: e002b83cf5e7bca499ed3987c9f3b531,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5680041458808337307, guid: e002b83cf5e7bca499ed3987c9f3b531,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 5680041459194852229, guid: e002b83cf5e7bca499ed3987c9f3b531,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.3137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 5680041459194852229, guid: e002b83cf5e7bca499ed3987c9f3b531,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.5254902
+      objectReference: {fileID: 0}
+    - target: {fileID: 5680041459194852229, guid: e002b83cf5e7bca499ed3987c9f3b531,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.91372555
+      objectReference: {fileID: 0}
+    - target: {fileID: 5680041459194852229, guid: e002b83cf5e7bca499ed3987c9f3b531,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 5680041459194852229, guid: e002b83cf5e7bca499ed3987c9f3b531,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8444064217534776121, guid: e002b83cf5e7bca499ed3987c9f3b531,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7699797686158931902, guid: e002b83cf5e7bca499ed3987c9f3b531,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4980142958665277019, guid: e002b83cf5e7bca499ed3987c9f3b531,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419177578906887869, guid: e002b83cf5e7bca499ed3987c9f3b531,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8699028719932176097, guid: e002b83cf5e7bca499ed3987c9f3b531,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 96161293251478487, guid: e002b83cf5e7bca499ed3987c9f3b531,
         type: 3}
@@ -3063,16 +3118,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 734926050}
     m_Modifications:
-    - target: {fileID: 8214756691144493042, guid: 95d896c9a905a47609f9ac39fb168caa,
-        type: 3}
-      propertyPath: m_Name
-      value: beetle_freeimage-17923302-high-cutout
-      objectReference: {fileID: 0}
-    - target: {fileID: 8214756691144493042, guid: 95d896c9a905a47609f9ac39fb168caa,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 373627861743935815, guid: 95d896c9a905a47609f9ac39fb168caa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3142,6 +3187,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.9900991
+      objectReference: {fileID: 0}
+    - target: {fileID: 8214756691144493042, guid: 95d896c9a905a47609f9ac39fb168caa,
+        type: 3}
+      propertyPath: m_Name
+      value: beetle_freeimage-17923302-high-cutout
+      objectReference: {fileID: 0}
+    - target: {fileID: 8214756691144493042, guid: 95d896c9a905a47609f9ac39fb168caa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9148227086501872107, guid: 95d896c9a905a47609f9ac39fb168caa,
         type: 3}
@@ -3237,16 +3292,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1057452321}
     m_Modifications:
-    - target: {fileID: 8214756691144493042, guid: 95d896c9a905a47609f9ac39fb168caa,
-        type: 3}
-      propertyPath: m_Name
-      value: beetle_freeimage-17923302-high-cutout
-      objectReference: {fileID: 0}
-    - target: {fileID: 8214756691144493042, guid: 95d896c9a905a47609f9ac39fb168caa,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 373627861743935815, guid: 95d896c9a905a47609f9ac39fb168caa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3316,6 +3361,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.9900991
+      objectReference: {fileID: 0}
+    - target: {fileID: 8214756691144493042, guid: 95d896c9a905a47609f9ac39fb168caa,
+        type: 3}
+      propertyPath: m_Name
+      value: beetle_freeimage-17923302-high-cutout
+      objectReference: {fileID: 0}
+    - target: {fileID: 8214756691144493042, guid: 95d896c9a905a47609f9ac39fb168caa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9148227086501872107, guid: 95d896c9a905a47609f9ac39fb168caa,
         type: 3}
