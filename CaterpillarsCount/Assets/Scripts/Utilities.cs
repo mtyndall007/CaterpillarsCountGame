@@ -5,19 +5,40 @@ using UnityEngine.UI;
 
 public class Utilities : MonoBehaviour
 {
+    //public GameObject rulerPrefab = ;
 
     public static void ScaleRuler(GameObject ruler, Bug bug){
         RectTransform bugRect = bug.GetComponent<RectTransform>();
-        float bugImageWidthInGame = (bugRect.rect.width / bug.lengthAsProportionOfImageWidth);
+        RectTransform rulerRect = ruler.GetComponent<RectTransform>();
+        //GameObject rulerPrefab = GameManager.instance.rulerPrefab;
+        //rulerPrefab.SetActive(true);
+        //rulerPrefab.transform.position = new Vector3(bugRect.transform.position.x, bugRect.transform.position.y - 200, bugRect.transform.position.z);
+        //rulerPrefab, new Vector3(bugRect.transform.position.x, bugRect.transform.position.y - 200, bugRect.transform.position.z), Quaternion.identity
+
+        float rulerLengthInMM = 35f;
+        float bugLengthIG = bugRect.rect.width * bug.lengthAsProportionOfImageWidth;
+        float rulerLengthIG = bugLengthIG * (rulerLengthInMM / bug.lengthInMM);
+
+        GameObject lengthUI = GameObject.Find("LengthUI");
+        Canvas can = lengthUI.GetComponentInChildren<Canvas>();
+
+        ruler.GetComponent<RectTransform>().sizeDelta = new Vector2(rulerLengthIG * 10, ruler.GetComponent<RectTransform>().rect.height);
+        /*
+        float bugImageWidthInGame = bugRect.rect.width / bug.lengthAsProportionOfImageWidth;
         Debug.Log("bugImageWidthInGame" + bugImageWidthInGame);
-        float bugImageWidthInMM = bugImageWidthInGame * bug.lengthInMM;
+        float bugImageWidthInMM = bug.lengthInMM * bugImageWidthInGame;
         Debug.Log("bugImageWidthInMM" + bugImageWidthInMM);
+
+        //float bugInGameToMM = bugImageWidthInGame / bugImageWidthInMM;
+        //float tempWidth = bugInGameToMM * 35;
 
         float bugToRulerRatio = bugImageWidthInMM / 35; //Hardcoded ruler length
         Debug.Log("bugToRulerRatio" + bugToRulerRatio);
         float tempWidth = (ruler.GetComponent<RectTransform>().rect.width / bugToRulerRatio);
         Debug.Log("tempWidth" + tempWidth);
-        ruler.GetComponent<RectTransform>().sizeDelta = new Vector2(tempWidth, ruler.GetComponent<RectTransform>().rect.height);
+
+
+        */
     }
 
     //Pause all bugs so they are unclickable

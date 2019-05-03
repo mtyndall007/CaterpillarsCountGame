@@ -50,6 +50,8 @@ public class GameManager : MonoBehaviour
     public UnityAction returnZoom;
     public UnityAction<string> bugIdentified;
 
+    public GameObject rulerPrefab;
+
     Button levelSubmitButton;
     Button playAgainButton;
     Button returnButton;
@@ -100,7 +102,6 @@ public class GameManager : MonoBehaviour
         bugsClicked = 0;
         bugsCorrectlyIdentified = 0;
         measurementDistance = 0;
-
 
         //ruler = GameObject.Find("Ruler");
         //ruler.SetActive(true);

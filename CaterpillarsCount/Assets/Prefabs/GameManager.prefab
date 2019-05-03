@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5680041457895764806}
   - component: {fileID: 5680041457895764809}
   - component: {fileID: 5680041457895764808}
+  - component: {fileID: 8838834085692833381}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -50,6 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneIterator: 0
+  rulerPrefab: {fileID: 0}
   levelScore: 0
   bugsCorrectlyIdentified: 0
   bugsClicked: 0
@@ -68,6 +70,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lineMaterial: {fileID: 0}
+--- !u!114 &8838834085692833381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5680041457895764811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf4e1434479cb2e4a94e3748c5ac24c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &769146942938074376
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1208,15 +1222,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 12800000, guid: 82891e61252ce8a4a9aa9e6e37035c32,
         type: 3}
-    - target: {fileID: 3371152157238078361, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
-        type: 3}
-      propertyPath: m_Text
-      value: 'Length '
-      objectReference: {fileID: 0}
     - target: {fileID: 8349600103832701050, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3371152157238078361, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
+        type: 3}
+      propertyPath: m_Text
+      value: 'Length '
       objectReference: {fileID: 0}
     - target: {fileID: 2843739029394771242, guid: 19b5be43efdd57e4da3a268cb0c2f8c5,
         type: 3}
@@ -1334,16 +1348,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5680041457895764806}
     m_Modifications:
-    - target: {fileID: 5793880615555763681, guid: e78bd40bfe41d034b957553caca7634c,
-        type: 3}
-      propertyPath: m_Name
-      value: GameOver
-      objectReference: {fileID: 0}
-    - target: {fileID: 5793880615555763681, guid: e78bd40bfe41d034b957553caca7634c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5793880615555763680, guid: e78bd40bfe41d034b957553caca7634c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1463,6 +1467,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793880615555763681, guid: e78bd40bfe41d034b957553caca7634c,
+        type: 3}
+      propertyPath: m_Name
+      value: GameOver
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793880615555763681, guid: e78bd40bfe41d034b957553caca7634c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e78bd40bfe41d034b957553caca7634c, type: 3}
@@ -1609,15 +1623,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5680041457895764806}
     m_Modifications:
-    - target: {fileID: 1836698760556671799, guid: aa6adb398f84d4865b50effaa8e3e8ec,
+    - target: {fileID: 7049254963519930160, guid: aa6adb398f84d4865b50effaa8e3e8ec,
         type: 3}
-      propertyPath: m_Name
-      value: OtherUI
-      objectReference: {fileID: 0}
-    - target: {fileID: 1836698760556671799, guid: aa6adb398f84d4865b50effaa8e3e8ec,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
+      propertyPath: m_Text
+      value: You selected other! What type of arthropod do you think this is?
       objectReference: {fileID: 0}
     - target: {fileID: 9160265450666900085, guid: aa6adb398f84d4865b50effaa8e3e8ec,
         type: 3}
@@ -1674,6 +1683,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1836698760556671799, guid: aa6adb398f84d4865b50effaa8e3e8ec,
+        type: 3}
+      propertyPath: m_Name
+      value: OtherUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836698760556671799, guid: aa6adb398f84d4865b50effaa8e3e8ec,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4159833927643467225, guid: aa6adb398f84d4865b50effaa8e3e8ec,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -1688,11 +1707,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7049254963519930160, guid: aa6adb398f84d4865b50effaa8e3e8ec,
-        type: 3}
-      propertyPath: m_Text
-      value: You selected other! What type of arthropod do you think this is?
       objectReference: {fileID: 0}
     - target: {fileID: 8503747193463216795, guid: aa6adb398f84d4865b50effaa8e3e8ec,
         type: 3}
@@ -1718,16 +1732,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_CullTransparentMesh
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5916879511676536113, guid: aa6adb398f84d4865b50effaa8e3e8ec,
-        type: 3}
-      propertyPath: m_FontData.m_Alignment
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5916879511676536113, guid: aa6adb398f84d4865b50effaa8e3e8ec,
-        type: 3}
-      propertyPath: m_Text
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6182046435431064162, guid: aa6adb398f84d4865b50effaa8e3e8ec,
         type: 3}
@@ -1783,6 +1787,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_FontData.m_MinSize
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5916879511676536113, guid: aa6adb398f84d4865b50effaa8e3e8ec,
+        type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5916879511676536113, guid: aa6adb398f84d4865b50effaa8e3e8ec,
+        type: 3}
+      propertyPath: m_Text
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa6adb398f84d4865b50effaa8e3e8ec, type: 3}
