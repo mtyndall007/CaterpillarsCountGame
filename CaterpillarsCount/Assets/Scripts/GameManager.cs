@@ -75,7 +75,7 @@ public class GameManager : MonoBehaviour
     private float zoomedFOV;
     private bool zoomingIn;
     private bool zoomingOut;
-    private float zoomInSpeed = 3f; //5f
+    private float zoomInSpeed = 5f; //5f
     private float zoomOutSpeed = 5f;
     private bool bugHasBeenCategorized = false;
     private bool measurementGiven = false;
@@ -111,7 +111,7 @@ public class GameManager : MonoBehaviour
 
         defaultFOV = Camera.main.orthographicSize;
         defaultCameraPosition = Camera.main.transform.position;
-        zoomedFOV = defaultFOV / 4.0f;
+        zoomedFOV = defaultFOV / 4f;
 
         //Finds the submit button from the scene and adds an event listener
         levelSubmitButton = GameObject.Find("LevelSubmit").GetComponent<Button>();
@@ -168,21 +168,28 @@ public class GameManager : MonoBehaviour
         //Linearly interpolates between the default camera view and the zoomed view. Updates each frame for a smoother zoom effect
         if (zoomingIn)
         {
-            Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, zoomedFOV, Time.deltaTime * zoomInSpeed);
+
             if (Camera.main.orthographicSize <= zoomedFOV)
             {
                 zoomingIn = false;
+                Camera.main.orthographicSize = zoomedFOV;
+            } else {
+                Camera.main.orthographicSize += Time.deltaTime * -zoomInSpeed;
             }
+
         }
 
         if (zoomingOut)
         {
-            Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, defaultFOV, Time.deltaTime * zoomOutSpeed);
-            if (Camera.main.orthographicSize >= defaultFOV)
-            {
-                zoomingOut = false;
-                Camera.main.orthographicSize = defaultFOV;
-            }
+
+          if (Camera.main.orthographicSize >= defaultFOV)
+          {
+              zoomingOut = false;
+              Camera.main.orthographicSize = defaultFOV;
+          } else {
+              Camera.main.orthographicSize += Time.deltaTime * zoomOutSpeed;
+          }
+
         }
     }
 
