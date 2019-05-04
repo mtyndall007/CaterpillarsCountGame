@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour
     //spawnedScenes are the scene's pathnames
     private string[] spawnedScenes;
     public int sceneIterator;
+    public int currentScene;
 
     //Action declarations for callbacks
     private UnityAction submitAction;
@@ -312,6 +313,7 @@ public class GameManager : MonoBehaviour
         selectedBug = null;
         //StartCoroutine(Utilities.HighlightUnfoundBugs(3));
 
+        /*
         //If we're on the last level, display the game over screen. Otherwise go to next level
         if (sceneIterator == 5)
         {
@@ -339,14 +341,41 @@ public class GameManager : MonoBehaviour
             playAgainAction += PlayAgain;
             playAgainButton.onClick.AddListener(playAgainAction);
         }
-        else
-        {
+        */
+        //else
+        //{
             //Index for the transition scene
             TimerScript.PauseTime();
             SceneManager.LoadScene(1);
-        }
+        //}
 
 
+    }
+
+    public void gameOverSubmission(){
+      playerScore = ScoreScript.scoreValue;
+
+      //Hide the game interface
+      GameObject mainInterface = GameObject.Find("LevelUI");
+      mainInterface.SetActive(false);
+
+      //Make the gameover screen visible
+      gameOver.SetActive(true);
+
+      //Update the score value and display it to the game over screen
+      Text scoreText = GameObject.Find("YourScore").GetComponent<Text>();
+      scoreText.text += playerScore.ToString();
+
+      Text totalScoreText = GameObject.Find("TotalScore").GetComponent<Text>();
+      totalScoreText.text += totalScore.ToString() + " possible points";
+
+      Text feedbackText = GameObject.Find("Feedback").GetComponent<Text>();
+      getFeedback(playerScore, feedbackText);
+
+      //Finds the play again button from the scene and adds an event listener
+      playAgainButton = GetComponentInChildren<Button>();
+      playAgainAction += PlayAgain;
+      playAgainButton.onClick.AddListener(playAgainAction);
     }
 
     void PlayAgain()
@@ -395,14 +424,15 @@ public class GameManager : MonoBehaviour
 
     public int levelSelector(int iterator){
         if(iterator == 2){
-          return (int)Mathf.Floor(Random.Range(2,5));
+          currentScene = (int)Mathf.Floor(Random.Range(2,5));
         }
-        if(iterator == 3){
-          return (int)Mathf.Floor(Random.Range(5,8));
+        else if(iterator == 3){
+          currentScene = (int)Mathf.Floor(Random.Range(5,8));
         }
         else {
-          return (int)Mathf.Floor(Random.Range(8,11));
+          currentScene = (int)Mathf.Floor(Random.Range(8,11));
         }
+        return currentScene;
     }
 
     //Helper method that iterates through all the bugs on the screen and calculates their potential score value
@@ -438,7 +468,10 @@ public class GameManager : MonoBehaviour
     private void EvaluateMeasurement(InputField input){
         float approximatedBugLength = float.Parse(input.text);
         float actualBugLength = Mathf.Round(currentBugScript.lengthInMM);
+        float measurementError = Mathf.Abs(Mathf.Round(approximatedBugLength - actualBugLength));
         measurementDistance += Mathf.Abs(actualBugLength - approximatedBugLength);
+        measurementDistance += measurementError;
+
         float minBound = 0;
         float maxBound = actualBugLength * 2;
         int scoreValue = 0;

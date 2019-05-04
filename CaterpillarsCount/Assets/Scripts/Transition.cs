@@ -62,10 +62,17 @@ public class Transition : MonoBehaviour
     }
 
     private void continueFunction(){
+        if(GameManager.instance.sceneIterator == 5){
+          GameManager.instance.gameOverSubmission();
+          SceneManager.LoadScene(GameManager.instance.currentScene);
+        } else {
+
+
         GameManager.instance.ResetBugCounts();
         ScoreScript.ResetScore();
         //SceneManager.LoadScene(GameManager.instance.sceneIterator);
         SceneManager.LoadScene(GameManager.instance.levelSelector(GameManager.instance.sceneIterator));
+      }
     }
 
 
