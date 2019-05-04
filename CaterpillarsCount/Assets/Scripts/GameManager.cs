@@ -466,8 +466,13 @@ public class GameManager : MonoBehaviour
     }
 
     private void EvaluateMeasurement(InputField input){
-        GameObject utilRuler = GameObject.FindWithTag("Ruler");
-        Destroy(utilRuler);
+        GameObject[] rulers = GameObject.FindGameObjectsWithTag("Ruler");
+        foreach(GameObject ruler in rulers){
+          GameObject.Destroy(ruler);
+        }
+
+        //GameObject utilRuler = GameObject.FindWithTag("Ruler");
+        //Destroy(utilRuler);
 
         float approximatedBugLength = float.Parse(input.text);
         float actualBugLength = Mathf.Round(currentBugScript.lengthInMM);
