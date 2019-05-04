@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class Utilities : MonoBehaviour
 {
-    //public GameObject rulerPrefab = ;
 
     public static void ScaleRuler(GameObject ruler, Bug bug){
         RectTransform bugRect = bug.GetComponent<RectTransform>();

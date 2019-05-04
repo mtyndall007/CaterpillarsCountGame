@@ -437,7 +437,7 @@ public class GameManager : MonoBehaviour
 
     private void EvaluateMeasurement(InputField input){
         float approximatedBugLength = float.Parse(input.text);
-        float actualBugLength = currentBugScript.lengthInMM;
+        float actualBugLength = Mathf.Round(currentBugScript.lengthInMM);
         measurementDistance += Mathf.Abs(actualBugLength - approximatedBugLength);
         float minBound = 0;
         float maxBound = actualBugLength * 2;
@@ -458,9 +458,9 @@ public class GameManager : MonoBehaviour
           scoreValue = (int)Mathf.Round(accuracyPercent * (float)currentBugScript.points);
         }
 
-        /*StartCoroutine(Utilities.PopupMessage("Actual size: " + actualBugLength + "mm" + "\n" +
+        StartCoroutine(Utilities.PopupMessage("Actual size: " + actualBugLength + "mm" + "\n" +
                                               "Your measurement: " + approximatedBugLength + "mm" + "\n" +
-                                            "Points awarded: " + scoreValue, 3));*/
+                                            "Points awarded: " + scoreValue, 3));
         measurementGiven = true;
         ScoreScript.AddScore(scoreValue);
         input.text = "Length";
