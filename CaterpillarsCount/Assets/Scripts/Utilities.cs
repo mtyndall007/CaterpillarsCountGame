@@ -31,25 +31,6 @@ public class Utilities : MonoBehaviour
         float rulerLengthIG = bugLengthIG * (rulerLengthInMM / bug.lengthInMM);
 
         rulerRect.localScale = new Vector3(bugRect.localScale.x * rulerLengthIG / bugLengthIG, bugRect.localScale.x * rulerLengthIG / bugLengthIG, 1);
-
-        //utilInstance.ruler.GetComponent<RectTransform>().sizeDelta = new Vector2(rulerLengthIG * 10, utilInstance.ruler.GetComponent<RectTransform>().rect.height);
-
-        /*
-        float bugImageWidthInGame = bugRect.rect.width / bug.lengthAsProportionOfImageWidth;
-        Debug.Log("bugImageWidthInGame" + bugImageWidthInGame);
-        float bugImageWidthInMM = bug.lengthInMM * bugImageWidthInGame;
-        Debug.Log("bugImageWidthInMM" + bugImageWidthInMM);
-
-        //float bugInGameToMM = bugImageWidthInGame / bugImageWidthInMM;
-        //float tempWidth = bugInGameToMM * 35;
-
-        float bugToRulerRatio = bugImageWidthInMM / 35; //Hardcoded ruler length
-        Debug.Log("bugToRulerRatio" + bugToRulerRatio);
-        float tempWidth = (ruler.GetComponent<RectTransform>().rect.width / bugToRulerRatio);
-        Debug.Log("tempWidth" + tempWidth);
-
-
-        */
     }
 
     //Pause all bugs so they are unclickable
@@ -100,18 +81,11 @@ public class Utilities : MonoBehaviour
       // = bugObject.GetComponent<RectTransform>();
 
       GameObject branchObject = GameObject.Find("Branch");
-      //branchObject.transform.localScale = new Vector3(1, 1, 1);
-
-      //RectTransform branchRect = branchObject.GetComponent<RectTransform>();
-      //rectT.sizeDelta = new Vector2(12, 9);
-
 
       bug.lengthInMM = RandomBugLength(bug);
       float bugLength = bug.lengthInMM;
 
-      float scaleRatio = (bugLength/branch.branchWidthInMM) * 4;
-
-
+      float scaleRatio = (bugLength/branch.branchWidthInMM) * 5;
 
       Vector3 scaleFactor = new Vector3(scaleRatio / bugObject.transform.localScale.x  , scaleRatio / bugObject.transform.localScale.y, bugObject.transform.localScale.z);
       Debug.Log(scaleRatio);

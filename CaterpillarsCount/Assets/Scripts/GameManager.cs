@@ -311,44 +311,9 @@ public class GameManager : MonoBehaviour
 
         TimerScript.SetCurrentTime(findTime(sceneIterator));
         selectedBug = null;
-        //StartCoroutine(Utilities.HighlightUnfoundBugs(3));
 
-        /*
-        //If we're on the last level, display the game over screen. Otherwise go to next level
-        if (sceneIterator == 5)
-        {
-            playerScore = ScoreScript.scoreValue;
-
-            //Hide the game interface
-            GameObject mainInterface = GameObject.Find("LevelUI");
-            mainInterface.SetActive(false);
-
-            //Make the gameover screen visible
-            gameOver.SetActive(true);
-
-            //Update the score value and display it to the game over screen
-            Text scoreText = GameObject.Find("YourScore").GetComponent<Text>();
-            scoreText.text += playerScore.ToString();
-
-            Text totalScoreText = GameObject.Find("TotalScore").GetComponent<Text>();
-            totalScoreText.text += totalScore.ToString() + " possible points";
-
-            Text feedbackText = GameObject.Find("Feedback").GetComponent<Text>();
-            getFeedback(playerScore, feedbackText);
-
-            //Finds the play again button from the scene and adds an event listener
-            playAgainButton = GetComponentInChildren<Button>();
-            playAgainAction += PlayAgain;
-            playAgainButton.onClick.AddListener(playAgainAction);
-        }
-        */
-        //else
-        //{
-            //Index for the transition scene
-            TimerScript.PauseTime();
-            SceneManager.LoadScene(1);
-        //}
-
+        TimerScript.PauseTime();
+        SceneManager.LoadScene(1);
 
     }
 
@@ -471,9 +436,6 @@ public class GameManager : MonoBehaviour
           GameObject.Destroy(ruler);
         }
 
-        //GameObject utilRuler = GameObject.FindWithTag("Ruler");
-        //Destroy(utilRuler);
-
         float approximatedBugLength = float.Parse(input.text);
         float actualBugLength = Mathf.Round(currentBugScript.lengthInMM);
         float measurementError = Mathf.Abs(Mathf.Round(approximatedBugLength - actualBugLength));
@@ -503,10 +465,10 @@ public class GameManager : MonoBehaviour
                                               "Your measurement: " + approximatedBugLength + "mm" + "\n" +
                                             "Points awarded: " + scoreValue, 3));
         measurementGiven = true;
-        ScoreScript.AddScore(scoreValue);
+
         input.text = "Length";
         input.DeactivateInputField();
-
+        ScoreScript.AddScore(scoreValue);
     }
 
     private void BugUISubmit(){
