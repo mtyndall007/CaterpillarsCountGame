@@ -204,7 +204,7 @@ public class GameManager : MonoBehaviour
         //Zooms camera in on bug
         Camera.main.orthographic = true;
         Camera.main.transform.position = Camera.main.ScreenToWorldPoint(
-            new Vector3(Input.mousePosition.x, Input.mousePosition.y - Mathf.Floor(Screen.height / 20), Input.mousePosition.z));
+            new Vector3(Input.mousePosition.x, Input.mousePosition.y - Mathf.Floor(Screen.height / 24), Input.mousePosition.z)); //20
         zoomingIn = true;
 
         levelSubmitButton.gameObject.SetActive(false);
@@ -288,7 +288,7 @@ public class GameManager : MonoBehaviour
 
         lengthUI.SetActive(true);
         GameObject ruler = GameObject.Find("Ruler");
-        Utilities.ScaleRuler(ruler, currentBugScript);
+        Utilities.ScaleRuler(currentBugScript);
 
         InputField measurementInput = lengthUI.GetComponentInChildren<InputField>();
         measurementInput.onEndEdit.AddListener(delegate { EvaluateMeasurement(measurementInput); });
@@ -466,6 +466,9 @@ public class GameManager : MonoBehaviour
     }
 
     private void EvaluateMeasurement(InputField input){
+        GameObject utilRuler = GameObject.FindWithTag("Ruler");
+        Destroy(utilRuler);
+
         float approximatedBugLength = float.Parse(input.text);
         float actualBugLength = Mathf.Round(currentBugScript.lengthInMM);
         float measurementError = Mathf.Abs(Mathf.Round(approximatedBugLength - actualBugLength));
@@ -498,6 +501,7 @@ public class GameManager : MonoBehaviour
         ScoreScript.AddScore(scoreValue);
         input.text = "Length";
         input.DeactivateInputField();
+
     }
 
     private void BugUISubmit(){

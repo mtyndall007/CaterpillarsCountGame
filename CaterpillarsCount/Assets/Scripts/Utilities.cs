@@ -5,23 +5,35 @@ using UnityEngine.UI;
 
 public class Utilities : MonoBehaviour
 {
+    public static Utilities utilInstance;
 
-    public static void ScaleRuler(GameObject ruler, Bug bug){
+    void Awake(){
+      if (utilInstance == null)
+      {
+        utilInstance = this;
+      }
+    }
+
+    public GameObject ruler;
+
+    public static void ScaleRuler(Bug bug){
         RectTransform bugRect = bug.GetComponent<RectTransform>();
-        RectTransform rulerRect = ruler.GetComponent<RectTransform>();
+
         //GameObject rulerPrefab = GameManager.instance.rulerPrefab;
         //rulerPrefab.SetActive(true);
-        //rulerPrefab.transform.position = new Vector3(bugRect.transform.position.x, bugRect.transform.position.y - 200, bugRect.transform.position.z);
+        Instantiate(utilInstance.ruler, new Vector3(bugRect.position.x, bugRect.transform.position.y + .6f, bugRect.transform.position.z), Quaternion.identity);
+        RectTransform rulerRect = utilInstance.ruler.GetComponent<RectTransform>();
+        //utilInstance.ruler.transform.position = new Vector3(bugRect.transform.position.x, bugRect.transform.position.y - 200, bugRect.transform.position.z);
         //rulerPrefab, new Vector3(bugRect.transform.position.x, bugRect.transform.position.y - 200, bugRect.transform.position.z), Quaternion.identity
 
         float rulerLengthInMM = 35f;
-        float bugLengthIG = bugRect.rect.width * bug.lengthAsProportionOfImageWidth;
+        float bugLengthIG = (bugRect.rect.width) * bug.lengthAsProportionOfImageWidth;
         float rulerLengthIG = bugLengthIG * (rulerLengthInMM / bug.lengthInMM);
 
-        GameObject lengthUI = GameObject.Find("LengthUI");
-        Canvas can = lengthUI.GetComponentInChildren<Canvas>();
+        rulerRect.localScale = new Vector3(bugRect.localScale.x * rulerLengthIG / bugLengthIG, bugRect.localScale.x * rulerLengthIG / bugLengthIG, 1);
 
-        ruler.GetComponent<RectTransform>().sizeDelta = new Vector2(rulerLengthIG * 10, ruler.GetComponent<RectTransform>().rect.height);
+        //utilInstance.ruler.GetComponent<RectTransform>().sizeDelta = new Vector2(rulerLengthIG * 10, utilInstance.ruler.GetComponent<RectTransform>().rect.height);
+
         /*
         float bugImageWidthInGame = bugRect.rect.width / bug.lengthAsProportionOfImageWidth;
         Debug.Log("bugImageWidthInGame" + bugImageWidthInGame);
