@@ -364,6 +364,7 @@ public class GameManager : MonoBehaviour
         //Resets the score and goes back to the first scene.
         //Creates new instance of the game manager. Levels should be random again on replay
         ScoreScript.scoreValue = 0;
+        ScoreScript.ResetScore();
         Destroy(gameObject);
         SceneManager.LoadScene(0);
     }
@@ -495,10 +496,10 @@ public class GameManager : MonoBehaviour
       } else if (score >= 800){
         feedback.text = "Keep practicing! Finding more bugs will bring you eternal happiness!";
       } else if (score >= 500){
-        feedback.text = "Review the Arthropod ID Guide, and don't forget to use the ruler to help you search!";
+        feedback.text = "Review the Arthropod ID Guide, and don't forget to use the magnifying glass to help you search!";
       } else {
         feedback.text = "Um, you do know what an arthropod is, don't you?";
-      }  
+      }
 
     }
 
