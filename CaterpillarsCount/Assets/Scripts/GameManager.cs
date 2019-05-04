@@ -496,8 +496,9 @@ public class GameManager : MonoBehaviour
         feedback.text = "Keep practicing! Finding more bugs will bring you eternal happiness!";
       } else if (score >= 500){
         feedback.text = "Review the Arthropod ID Guide, and don't forget to use the ruler to help you search!";
-      }
+      } else {
         feedback.text = "Um, you do know what an arthropod is, don't you?";
+      }  
 
     }
 
