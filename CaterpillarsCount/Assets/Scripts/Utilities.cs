@@ -149,6 +149,7 @@ public class Utilities : MonoBehaviour
         GameObject textGO = new GameObject();
         textGO.transform.parent = canvasGO.transform;
         textGO.AddComponent<Text>();
+        textGO.AddComponent<Outline>();
 
         // Set Text component properties.
         popupText = textGO.GetComponent<Text>();

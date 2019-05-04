@@ -76,7 +76,7 @@ public class GameManager : MonoBehaviour
     private bool zoomingIn;
     private bool zoomingOut;
     private float zoomInSpeed = 5f; //5f
-    private float zoomOutSpeed = 5f;
+    private float zoomOutSpeed = 6f;
     private bool bugHasBeenCategorized = false;
     private bool measurementGiven = false;
 
@@ -210,23 +210,6 @@ public class GameManager : MonoBehaviour
         bugSelectionUI.SetActive(true);
         bugButtons.SetActive(true);
         bugSelectionText.SetActive(true);
-
-        //Hide the ruler when bug has been clicked
-        //ruler.SetActive(false);
-        //GameObject ruler = GameObject.Find("Ruler");
-        /*
-        Image rulerImage = ruler.GetComponent<Image>();
-        var tempColor = rulerImage.color;
-        tempColor.a = 0f;
-        rulerImage.color = tempColor;
-        */
-
-
-        //InputField measurementInput = lengthUI.GetComponentInChildren<InputField>();
-        //measurementInput.onEndEdit.AddListener(delegate {EvaluateMeasurement(measurementInput); });
-
-        //bugUISubmitButton = GameObject.Find("BugUISubmit").GetComponent<Button>();//bugSelectionUI.GetComponentInChildren<Button>();
-        //lengthSubmit.GetComponent<Button>().onClick.AddListener(delegate {BugUISubmit(); });
 
         Utilities.PauseBugs();
         TimerScript.PauseTime();
@@ -512,13 +495,13 @@ public class GameManager : MonoBehaviour
 
     private int findTime(int iterator){
       if(iterator == 2){
-        return 40;
+        return 45;
       }
       if(iterator == 3){
-        return 35;
+        return 40;
       }
       if(iterator == 4){
-        return 30;
+        return 35;
       } else {
         return 40;
       }
