@@ -22,6 +22,7 @@ public class Bug : MonoBehaviour
     public string classification;
     public float lengthInMM;
     public BugClickedEvent bugClicked;
+    public bool randomlyRotatable;
 
     public float minLengthInMM;
     public float desiredLengthInMM;
@@ -129,6 +130,15 @@ public class Bug : MonoBehaviour
                 clickable = false;
 
             }
+        }
+    }
+
+    //Have not tested yet
+    private void randomlyRotate(Bug buggy)
+    {
+        if (buggy.randomlyRotatable)
+        { 
+            buggy.transform.Rotate(0,0, Random.Range(0, 360));
         }
     }
 }
