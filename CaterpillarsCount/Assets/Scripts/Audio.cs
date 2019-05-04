@@ -4,18 +4,14 @@ using UnityEngine;
 
 public class Audio : MonoBehaviour
 {
-    bool timerStart;
 
     public AudioSource ClickingSource;
-
     public AudioClip ClickingClip;
   
 
     // Start is called before the first frame update
     void Start()
     {
-        timerStart = false;
-
         ClickingSource.clip = ClickingClip;
 
     }
@@ -27,6 +23,8 @@ public class Audio : MonoBehaviour
         {
             ClickingSource.Play();
         }
+        //Add 10 second timer alarm
+
 
     }
 }
