@@ -68,22 +68,22 @@ public class MagnifyGlass : MonoBehaviour
     {
         //Debug.Log(Input.mousePosition.y + " > " + Screen.height);
         //LEFT BOUND
-        if(Input.mousePosition.x < 0 +MGWidth/2)
+        if(Input.mousePosition.x < 0 +MGWidth/8)
         {
             return false;
         }
         //RIGHT BOUND
-        if (Input.mousePosition.x > Screen.width - MGWidth/2)
+        if (Input.mousePosition.x > Screen.width - MGWidth/8)
         {
             return false;
         }
         //BOTTOM BOUND
-        if (Input.mousePosition.y < 0 +MGHeight/2)
+        if (Input.mousePosition.y < 0 +MGHeight/8)
         {
             return false;
         }
         //TOP BOUND
-        if (Input.mousePosition.y > Screen.height - MGHeight/2)
+        if (Input.mousePosition.y > Screen.height - MGHeight/8)
         {
             return false;
         }
