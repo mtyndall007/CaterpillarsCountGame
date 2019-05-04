@@ -95,6 +95,7 @@ public class GameManager : MonoBehaviour
 
     GameObject otherUI;
 
+    InputField measurementInput;
 
     // Start is called before the first frame update
     void Start()
@@ -151,6 +152,11 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.Return) && measurementInput != null) {
+           EvaluateMeasurement(measurementInput);
+           measurementInput.DeactivateInputField();
+        }
+
         if (Input.GetMouseButtonDown(0)) {
             MagnifyGlass.DisableZoom();
         }
@@ -290,7 +296,7 @@ public class GameManager : MonoBehaviour
         GameObject ruler = GameObject.Find("Ruler");
         Utilities.ScaleRuler(currentBugScript);
 
-        InputField measurementInput = lengthUI.GetComponentInChildren<InputField>();
+        measurementInput = lengthUI.GetComponentInChildren<InputField>();
         measurementInput.onEndEdit.AddListener(delegate { EvaluateMeasurement(measurementInput); });
         if (lengthSubmit != null)
         {
@@ -376,15 +382,6 @@ public class GameManager : MonoBehaviour
 
         bugHasBeenCategorized = false;
         measurementGiven = false;
-
-        //ruler.SetActive(true);
-        //GameObject ruler = GameObject.Find("Ruler");
-        /*
-        Image rulerImage = ruler.GetComponent<Image>();
-        var tempColor = rulerImage.color;
-        tempColor.a = 171/255f;
-        rulerImage.color = tempColor;
-        */
     }
 
     public int levelSelector(int iterator){
@@ -468,6 +465,7 @@ public class GameManager : MonoBehaviour
 
         input.text = "Length";
         input.DeactivateInputField();
+        measurementInput = null;
         ScoreScript.AddScore(scoreValue);
     }
 
