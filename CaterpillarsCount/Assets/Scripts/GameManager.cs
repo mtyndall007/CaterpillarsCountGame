@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour
     //spawnedScenes are the scene's pathnames
     private string[] spawnedScenes;
     public int sceneIterator;
+    public int currentScene;
 
     //Action declarations for callbacks
     private UnityAction submitAction;
@@ -75,8 +76,8 @@ public class GameManager : MonoBehaviour
     private float zoomedFOV;
     private bool zoomingIn;
     private bool zoomingOut;
-    private float zoomInSpeed = 3f; //5f
-    private float zoomOutSpeed = 5f;
+    private float zoomInSpeed = 5f; //5f
+    private float zoomOutSpeed = 6f;
     private bool bugHasBeenCategorized = false;
     private bool measurementGiven = false;
 
@@ -94,6 +95,7 @@ public class GameManager : MonoBehaviour
 
     GameObject otherUI;
 
+    InputField measurementInput;
 
     // Start is called before the first frame update
     void Start()
@@ -111,7 +113,7 @@ public class GameManager : MonoBehaviour
 
         defaultFOV = Camera.main.orthographicSize;
         defaultCameraPosition = Camera.main.transform.position;
-        zoomedFOV = defaultFOV / 4.0f;
+        zoomedFOV = defaultFOV / 4f;
 
         //Finds the submit button from the scene and adds an event listener
         levelSubmitButton = GameObject.Find("LevelSubmit").GetComponent<Button>();
@@ -150,6 +152,11 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.Return) && measurementInput != null) {
+           EvaluateMeasurement(measurementInput);
+           measurementInput.DeactivateInputField();
+        }
+
         if (Input.GetMouseButtonDown(0)) {
             MagnifyGlass.DisableZoom();
         }
@@ -168,21 +175,28 @@ public class GameManager : MonoBehaviour
         //Linearly interpolates between the default camera view and the zoomed view. Updates each frame for a smoother zoom effect
         if (zoomingIn)
         {
-            Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, zoomedFOV, Time.deltaTime * zoomInSpeed);
+
             if (Camera.main.orthographicSize <= zoomedFOV)
             {
                 zoomingIn = false;
+                Camera.main.orthographicSize = zoomedFOV;
+            } else {
+                Camera.main.orthographicSize += Time.deltaTime * -zoomInSpeed;
             }
+
         }
 
         if (zoomingOut)
         {
-            Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, defaultFOV, Time.deltaTime * zoomOutSpeed);
-            if (Camera.main.orthographicSize >= defaultFOV)
-            {
-                zoomingOut = false;
-                Camera.main.orthographicSize = defaultFOV;
-            }
+
+          if (Camera.main.orthographicSize >= defaultFOV)
+          {
+              zoomingOut = false;
+              Camera.main.orthographicSize = defaultFOV;
+          } else {
+              Camera.main.orthographicSize += Time.deltaTime * zoomOutSpeed;
+          }
+
         }
     }
 
@@ -196,30 +210,13 @@ public class GameManager : MonoBehaviour
         //Zooms camera in on bug
         Camera.main.orthographic = true;
         Camera.main.transform.position = Camera.main.ScreenToWorldPoint(
-            new Vector3(Input.mousePosition.x, Input.mousePosition.y - Mathf.Floor(Screen.height / 20), Input.mousePosition.z));
+            new Vector3(Input.mousePosition.x, Input.mousePosition.y - Mathf.Floor(Screen.height / 24), Input.mousePosition.z)); //20
         zoomingIn = true;
 
         levelSubmitButton.gameObject.SetActive(false);
         bugSelectionUI.SetActive(true);
         bugButtons.SetActive(true);
         bugSelectionText.SetActive(true);
-
-        //Hide the ruler when bug has been clicked
-        //ruler.SetActive(false);
-        //GameObject ruler = GameObject.Find("Ruler");
-        /*
-        Image rulerImage = ruler.GetComponent<Image>();
-        var tempColor = rulerImage.color;
-        tempColor.a = 0f;
-        rulerImage.color = tempColor;
-        */
-
-
-        //InputField measurementInput = lengthUI.GetComponentInChildren<InputField>();
-        //measurementInput.onEndEdit.AddListener(delegate {EvaluateMeasurement(measurementInput); });
-
-        //bugUISubmitButton = GameObject.Find("BugUISubmit").GetComponent<Button>();//bugSelectionUI.GetComponentInChildren<Button>();
-        //lengthSubmit.GetComponent<Button>().onClick.AddListener(delegate {BugUISubmit(); });
 
         Utilities.PauseBugs();
         TimerScript.PauseTime();
@@ -297,9 +294,9 @@ public class GameManager : MonoBehaviour
 
         lengthUI.SetActive(true);
         GameObject ruler = GameObject.Find("Ruler");
-        Utilities.ScaleRuler(ruler, currentBugScript);
+        Utilities.ScaleRuler(currentBugScript);
 
-        InputField measurementInput = lengthUI.GetComponentInChildren<InputField>();
+        measurementInput = lengthUI.GetComponentInChildren<InputField>();
         measurementInput.onEndEdit.AddListener(delegate { EvaluateMeasurement(measurementInput); });
         if (lengthSubmit != null)
         {
@@ -320,43 +317,36 @@ public class GameManager : MonoBehaviour
 
         TimerScript.SetCurrentTime(findTime(sceneIterator));
         selectedBug = null;
-        //StartCoroutine(Utilities.HighlightUnfoundBugs(3));
 
-        //If we're on the last level, display the game over screen. Otherwise go to next level
-        if (sceneIterator == 5)
-        {
-            playerScore = ScoreScript.scoreValue;
+        TimerScript.PauseTime();
+        SceneManager.LoadScene(1);
 
-            //Hide the game interface
-            GameObject mainInterface = GameObject.Find("LevelUI");
-            mainInterface.SetActive(false);
+    }
 
-            //Make the gameover screen visible
-            gameOver.SetActive(true);
+    public void gameOverSubmission(){
+      playerScore = ScoreScript.scoreValue;
 
-            //Update the score value and display it to the game over screen
-            Text scoreText = GameObject.Find("YourScore").GetComponent<Text>();
-            scoreText.text += playerScore.ToString();
+      //Hide the game interface
+      GameObject mainInterface = GameObject.Find("LevelUI");
+      mainInterface.SetActive(false);
 
-            Text totalScoreText = GameObject.Find("TotalScore").GetComponent<Text>();
-            totalScoreText.text += totalScore.ToString() + " possible points";
+      //Make the gameover screen visible
+      gameOver.SetActive(true);
 
-            Text feedbackText = GameObject.Find("Feedback").GetComponent<Text>();
-            getFeedback(playerScore, feedbackText);
+      //Update the score value and display it to the game over screen
+      Text scoreText = GameObject.Find("YourScore").GetComponent<Text>();
+      scoreText.text += playerScore.ToString();
 
-            //Finds the play again button from the scene and adds an event listener
-            playAgainButton = GetComponentInChildren<Button>();
-            playAgainAction += PlayAgain;
-            playAgainButton.onClick.AddListener(playAgainAction);
-        }
-        else
-        {
-            //Index for the transition scene
-            TimerScript.PauseTime();
-            SceneManager.LoadScene(1);
-        }
+      Text totalScoreText = GameObject.Find("TotalScore").GetComponent<Text>();
+      totalScoreText.text += totalScore.ToString() + " possible points";
 
+      Text feedbackText = GameObject.Find("Feedback").GetComponent<Text>();
+      getFeedback(playerScore, feedbackText);
 
+      //Finds the play again button from the scene and adds an event listener
+      playAgainButton = GetComponentInChildren<Button>();
+      playAgainAction += PlayAgain;
+      playAgainButton.onClick.AddListener(playAgainAction);
     }
 
     void PlayAgain()
@@ -364,6 +354,7 @@ public class GameManager : MonoBehaviour
         //Resets the score and goes back to the first scene.
         //Creates new instance of the game manager. Levels should be random again on replay
         ScoreScript.scoreValue = 0;
+        ScoreScript.ResetScore();
         Destroy(gameObject);
         SceneManager.LoadScene(0);
     }
@@ -391,27 +382,19 @@ public class GameManager : MonoBehaviour
 
         bugHasBeenCategorized = false;
         measurementGiven = false;
-
-        //ruler.SetActive(true);
-        //GameObject ruler = GameObject.Find("Ruler");
-        /*
-        Image rulerImage = ruler.GetComponent<Image>();
-        var tempColor = rulerImage.color;
-        tempColor.a = 171/255f;
-        rulerImage.color = tempColor;
-        */
     }
 
     public int levelSelector(int iterator){
         if(iterator == 2){
-          return (int)Mathf.Floor(Random.Range(2,5));
+          currentScene = (int)Mathf.Floor(Random.Range(2,5));
         }
-        if(iterator == 3){
-          return (int)Mathf.Floor(Random.Range(5,8));
+        else if(iterator == 3){
+          currentScene = (int)Mathf.Floor(Random.Range(5,8));
         }
         else {
-          return (int)Mathf.Floor(Random.Range(8,11));
+          currentScene = (int)Mathf.Floor(Random.Range(8,11));
         }
+        return currentScene;
     }
 
     //Helper method that iterates through all the bugs on the screen and calculates their potential score value
@@ -445,9 +428,17 @@ public class GameManager : MonoBehaviour
     }
 
     private void EvaluateMeasurement(InputField input){
+        GameObject[] rulers = GameObject.FindGameObjectsWithTag("Ruler");
+        foreach(GameObject ruler in rulers){
+          GameObject.Destroy(ruler);
+        }
+
         float approximatedBugLength = float.Parse(input.text);
-        float actualBugLength = currentBugScript.lengthInMM;
+        float actualBugLength = Mathf.Round(currentBugScript.lengthInMM);
+        float measurementError = Mathf.Abs(Mathf.Round(approximatedBugLength - actualBugLength));
         measurementDistance += Mathf.Abs(actualBugLength - approximatedBugLength);
+        measurementDistance += measurementError;
+
         float minBound = 0;
         float maxBound = actualBugLength * 2;
         int scoreValue = 0;
@@ -467,13 +458,15 @@ public class GameManager : MonoBehaviour
           scoreValue = (int)Mathf.Round(accuracyPercent * (float)currentBugScript.points);
         }
 
-        /*StartCoroutine(Utilities.PopupMessage("Actual size: " + actualBugLength + "mm" + "\n" +
+        StartCoroutine(Utilities.PopupMessage("Actual size: " + actualBugLength + "mm" + "\n" +
                                               "Your measurement: " + approximatedBugLength + "mm" + "\n" +
-                                            "Points awarded: " + scoreValue, 3));*/
+                                            "Points awarded: " + scoreValue, 3));
         measurementGiven = true;
-        ScoreScript.AddScore(scoreValue);
+
         input.text = "Length";
         input.DeactivateInputField();
+        measurementInput = null;
+        ScoreScript.AddScore(scoreValue);
     }
 
     private void BugUISubmit(){
@@ -495,21 +488,22 @@ public class GameManager : MonoBehaviour
       } else if (score >= 800){
         feedback.text = "Keep practicing! Finding more bugs will bring you eternal happiness!";
       } else if (score >= 500){
-        feedback.text = "Review the Arthropod ID Guide, and don't forget to use the ruler to help you search!";
-      }
+        feedback.text = "Review the Arthropod ID Guide, and don't forget to use the magnifying glass to help you search!";
+      } else {
         feedback.text = "Um, you do know what an arthropod is, don't you?";
+      }
 
     }
 
     private int findTime(int iterator){
       if(iterator == 2){
-        return 40;
+        return 45;
       }
       if(iterator == 3){
-        return 35;
+        return 40;
       }
       if(iterator == 4){
-        return 30;
+        return 35;
       } else {
         return 40;
       }
