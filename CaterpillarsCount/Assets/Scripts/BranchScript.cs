@@ -12,7 +12,7 @@ public class BranchScript : MonoBehaviour
 
     private float millimetersToInGameUnits;
 
-    private const int rulerInMM = 57;
+    private const int rulerInMM = 56;
     private float rulerWidthHeightRatio;
 
     // Start is called before the first frame update

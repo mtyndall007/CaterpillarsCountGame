@@ -210,7 +210,7 @@ public class GameManager : MonoBehaviour
         //Zooms camera in on bug
         Camera.main.orthographic = true;
         Camera.main.transform.position = Camera.main.ScreenToWorldPoint(
-            new Vector3(Input.mousePosition.x, Input.mousePosition.y - Mathf.Floor(Screen.height / 24), Input.mousePosition.z)); //20
+            new Vector3(Input.mousePosition.x, Input.mousePosition.y - Mathf.Floor(Screen.height/ 24), Input.mousePosition.z)); //20
         zoomingIn = true;
 
         levelSubmitButton.gameObject.SetActive(false);
@@ -292,9 +292,11 @@ public class GameManager : MonoBehaviour
         bugButtons.SetActive(false);
         bugSelectionText.SetActive(false);
 
+        BranchScript branch = GameObject.Find("Branch").GetComponent<BranchScript>();
+
         lengthUI.SetActive(true);
         GameObject ruler = GameObject.Find("Ruler");
-        Utilities.ScaleRuler(currentBugScript);
+        Utilities.ScaleRuler(branch, currentBugScript);
 
         measurementInput = lengthUI.GetComponentInChildren<InputField>();
         measurementInput.onEndEdit.AddListener(delegate { EvaluateMeasurement(measurementInput); });
@@ -497,15 +499,15 @@ public class GameManager : MonoBehaviour
 
     private int findTime(int iterator){
       if(iterator == 2){
-        return 45;
+        return 60;
       }
       if(iterator == 3){
-        return 40;
+        return 60;
       }
       if(iterator == 4){
-        return 35;
+        return 60;
       } else {
-        return 40;
+        return 60;
       }
     }
 

@@ -16,7 +16,7 @@ public class Utilities : MonoBehaviour
 
     public GameObject ruler;
 
-    public static void ScaleRuler(Bug bug){
+    public static void ScaleRuler(BranchScript branch, Bug bug){
         RectTransform bugRect = bug.GetComponent<RectTransform>();
 
         //GameObject rulerPrefab = GameManager.instance.rulerPrefab;
@@ -26,11 +26,18 @@ public class Utilities : MonoBehaviour
         //utilInstance.ruler.transform.position = new Vector3(bugRect.transform.position.x, bugRect.transform.position.y - 200, bugRect.transform.position.z);
         //rulerPrefab, new Vector3(bugRect.transform.position.x, bugRect.transform.position.y - 200, bugRect.transform.position.z), Quaternion.identity
 
-        float rulerLengthInMM = 35f;
+        float rulerLengthInMM = 56f;
         float bugLengthIG = (bugRect.rect.width) * bug.lengthAsProportionOfImageWidth;
-        float rulerLengthIG = bugLengthIG * (rulerLengthInMM / bug.lengthInMM);
+
+        //float rulerLengthIG = bugLengthIG * (rulerLengthInMM / bug.lengthInMM);
+        float rulerLengthIG = bug.lengthInMM * (rulerLengthInMM / bug.lengthInMM);
+
+        Debug.Log("buglength Ig: " + bugLengthIG);
+        Debug.Log("bug.lengthinMM: " + bug.lengthInMM);
 
         rulerRect.localScale = new Vector3(bugRect.localScale.x * rulerLengthIG / bugLengthIG, bugRect.localScale.x * rulerLengthIG / bugLengthIG, 1);
+        
+
     }
 
     //Pause all bugs so they are unclickable
@@ -78,20 +85,24 @@ public class Utilities : MonoBehaviour
       Bug bug = bugObject.GetComponent<Bug>();
       bugObject.transform.localScale = new Vector3(1.15f, 1.15f, 1.15f);
       RectTransform rectT = bugObject.AddComponent(typeof(RectTransform)) as RectTransform;
-      // = bugObject.GetComponent<RectTransform>();
+        // = bugObject.GetComponent<RectTransform>();
+        RectTransform rect = bug.GetComponent<RectTransform>();
 
       GameObject branchObject = GameObject.Find("Branch");
 
-      bug.lengthInMM = RandomBugLength(bug);
-      float bugLength = bug.lengthInMM;
+        RectTransform branchRect = branch.GetComponent<RectTransform>();
 
-      float scaleRatio = (bugLength/branch.branchWidthInMM) * 5;
+        bug.lengthInMM = RandomBugLength(bug);
+        float bugLength = bug.lengthInMM;
 
-      Vector3 scaleFactor = new Vector3(scaleRatio / bugObject.transform.localScale.x  , scaleRatio / bugObject.transform.localScale.y, bugObject.transform.localScale.z);
-      Debug.Log(scaleRatio);
+        float scaleRatio = (bugLength/branch.branchWidthInMM) * 5;
 
-      Transform branchTransform = branch.gameObject.transform;
-      bugObject.transform.localScale = scaleFactor;//branchTransform.localScale.x * scaleRatio;
+
+        Vector3 scaleFactor = new Vector3(scaleRatio / bugObject.transform.localScale.x  , scaleRatio / bugObject.transform.localScale.y, bugObject.transform.localScale.z);
+        Debug.Log(scaleRatio);
+
+        Transform branchTransform = branch.gameObject.transform;
+        bugObject.transform.localScale = scaleFactor;//branchTransform.localScale.x * scaleRatio;
 
 
     }
