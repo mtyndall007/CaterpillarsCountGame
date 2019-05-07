@@ -28,15 +28,9 @@ public class Utilities : MonoBehaviour
 
         float rulerLengthInMM = 56f;
         float bugLengthIG = (bugRect.rect.width) * bug.lengthAsProportionOfImageWidth;
-
-        //float rulerLengthIG = bugLengthIG * (rulerLengthInMM / bug.lengthInMM);
-        float rulerLengthIG = bug.lengthInMM * (rulerLengthInMM / bug.lengthInMM);
-
-        Debug.Log("buglength Ig: " + bugLengthIG);
-        Debug.Log("bug.lengthinMM: " + bug.lengthInMM);
+        float rulerLengthIG = bugLengthIG * (rulerLengthInMM / bug.lengthInMM);
 
         rulerRect.localScale = new Vector3(bugRect.localScale.x * rulerLengthIG / bugLengthIG, bugRect.localScale.x * rulerLengthIG / bugLengthIG, 1);
-        
 
     }
 
@@ -94,6 +88,7 @@ public class Utilities : MonoBehaviour
 
         bug.lengthInMM = RandomBugLength(bug);
         float bugLength = bug.lengthInMM;
+
 
         float scaleRatio = (bugLength/branch.branchWidthInMM) * 5;
 
