@@ -653,7 +653,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Resources Page:'
+  m_Text: 'Resources for identifying arthropods:'
 --- !u!222 &1653187984
 CanvasRenderer:
   m_ObjectHideFlags: 0
